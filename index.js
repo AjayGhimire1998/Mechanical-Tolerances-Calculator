@@ -11,28 +11,33 @@ const tolerances = require("./Tolerances.json");
  * @returns {Object} An object containing the relevant tolerances or an error message.
  */
 function getAllTolerancesFor(materialType) {
+  // Validate input as string. If not a string, return error
   if (typeof materialType !== "string") {
-    return { error: "Material type must be a string." };
+    return { error: "Material type must be a string." }; // early return with error message
   }
 
+  // Validate input is not empty,null or undefined or only whitespace
   if (
     materialType === undefined ||
     materialType === null ||
     materialType.trim() === ""
   ) {
-    return { error: "Material type is required and cannot be empty." };
+    return { error: "Material type is required and cannot be empty." }; // early return with error message
   }
 
-  const trimmedMaterialType = materialType.trim().toLowerCase();
+  const trimmedMaterialType = materialType.trim().toLowerCase(); // normalize input
   if (trimmedMaterialType.includes("housing")) {
-    return { type: "housing bore", specifications: tolerances["housingBores"] };
+    // includes to allow variations like "housing bore"
+    return { type: "housing bore", specifications: tolerances["housingBores"] }; // return relevant tolerances
   } else if (trimmedMaterialType.includes("shaft")) {
-    return { type: "shaft", specifications: tolerances["shafts"] };
+    // includes to allow variations like "shaft rod"
+    return { type: "shaft", specifications: tolerances["shafts"] }; // return relevant tolerances
   } else if (trimmedMaterialType.includes("shell")) {
-    return { type: "shell bore", specifications: tolerances["shell"] };
+    // includes to allow variations like "shell bore"
+    return { type: "shell bore", specifications: tolerances["shell"] }; // return relevant tolerances
   } else {
     return {
-      error: `Unknown material type: ${materialType}. Valid types are 'housing', 'shaft', or 'shell'.`,
+      error: `Unknown material type: ${materialType}. Valid types are 'housing', 'shaft', or 'shell'.`, // error for invalid type
     };
   }
 }
