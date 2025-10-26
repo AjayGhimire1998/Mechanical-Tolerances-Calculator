@@ -6,19 +6,19 @@ function getAllTolerances(materialType) {
     materialType === null ||
     materialType.trim() === ""
   ) {
-    throw new Error("Material type is required and cannot be empty.");
+    return { error: "Material type is required and cannot be empty." };
   }
   const trimmedMaterialType = materialType.trim().toLowerCase();
   if (trimmedMaterialType.includes("housing")) {
-    return tolerances["housingBores"];
+    return { housingBoresTolerances: tolerances["housingBores"] };
   } else if (trimmedMaterialType.includes("shaft")) {
-    return tolerances["shafts"];
+    return { shaftTolerances: tolerances["shafts"] };
   } else if (trimmedMaterialType.includes("shell")) {
-    return tolerances["shell"];
+    return { shellBoreTolerances: tolerances["shell"] };
   } else {
-    throw new Error(
-      `Unknown material type: ${materialType}. Valid types are 'housing', 'shaft', or 'shell'.`
-    );
+    return {
+      error: `Unknown material type: ${materialType}. Valid types are 'housing', 'shaft', or 'shell'.`,
+    };
   }
 }
 module.exports = getAllTolerances;
