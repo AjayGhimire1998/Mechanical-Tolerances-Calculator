@@ -89,9 +89,12 @@ An object with the following shape (example):
 ```
 
 - `type`: `"housing bore"` or `"shaft"` or `"shell bore"` inferred from the materialType parameter.
-- `specification`: ISO or ANSI fit/tolerance designation associated with the entry (e.g., H7, h6, etc.).
-  { - `maximum_diameter`: The upper bound of the nominal diameter range (in millimetres) for which the tolerance values apply. - `minimum_diameter`: The upper bound of the nominal diameter range (in millimetres) for which the tolerance values apply. - `upper_deviation` / `lower_deviation`: The positive / negative deviation limit from the basic size (in millimetres). - `IT5` / `IT6` / `IT8`, etc: International Tolerance (IT) grades defining standard tolerance magnitudes for each grade level.
-  }
+- `specifications`: ISO or ANSI fit/tolerance designation associated with the entry (e.g., H7, h6, etc.).
+
+- `maximum_diameter`: The upper bound of the nominal diameter range (in millimetres) for which the tolerance values apply.
+- `minimum_diameter`: The upper bound of the nominal diameter range (in millimetres) for which the tolerance values apply.
+- `upper_deviation` / `lower_deviation`: The positive / negative deviation limit from the basic size (in millimetres).
+- `IT5` / `IT6` / `IT8`, etc: International Tolerance (IT) grades defining standard tolerance magnitudes for each grade level.
 
 ---
 
@@ -99,16 +102,47 @@ An object with the following shape (example):
 
 ```json
 {
-  "type": "hole",
-  "nominal": 50,
-  "designation": "H7",
-  "ITGrade": 7,
-  "upperDeviation": 0.025,
-  "lowerDeviation": 0.0,
-  "tolerance": 0.025,
-  "limits": {
-    "maximumMaterialCondition": 50.0,
-    "leastMaterialCondition": 50.025
+  "type": "housing bore",
+  "specifications": {
+    "H6": [
+      {
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": 0.006,
+        "lower_deviation": 0,
+        "IT6": 0.006,
+        "IT5": 0.004
+      },
+      {
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": 0.008,
+        "lower_deviation": 0,
+        "IT6": 0.008,
+        "IT5": 0.005
+      }
+    ],
+
+    "H7": [
+      {
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": 0.01,
+        "lower_deviation": 0,
+        "IT7": 0.01,
+        "IT6": 0.006,
+        "IT5": 0.004
+      },
+      {
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": 0.012,
+        "lower_deviation": 0,
+        "IT7": 0.012,
+        "IT6": 0.008,
+        "IT5": 0.005
+      }
+    ]
   }
 }
 ```
@@ -143,13 +177,12 @@ An object with the following shape (example):
 
 ## Development
 
-Clone the repository and run the test suite (if provided) or use the module directly after installing.
+Clone the repository or use the module directly after installing.
 
 ```bash
 git clone <repo-url>
 cd mechanical-tolerance-calculator
 npm install
-npm test
 ```
 
 ---
