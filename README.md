@@ -17,30 +17,25 @@ npm install mechanical-tolerance-calculator
 
 ```javascript
 // CommonJS
-const { calculateTolerance } = require("mechanical-tolerance-calculator");
+const { getAllTolerancesFor } = require("mechanical-tolerance-calculator");
 
 // ES module
 // import { calculateTolerance } from "mechanical-tolerance-calculator";
 
-// Example: Hole tolerance for H7, nominal size 50 mm
-const hole = calculateTolerance("H7", 50);
-console.log(hole);
-
-// Example: Shaft tolerance for h6, nominal size 50 mm
-const shaft = calculateTolerance("h6", 50);
-console.log(shaft);
+// Example: Housing Bore Toelrances
+const housingTolerances = getAllTolerancesFor("housing");
+console.log(housingTolerances["housingBoresTolerances"]);
 ```
 
 ---
 
 ## API
 
-### `calculateTolerance(designation, nominalSize)`
+### `getAllTolerancesFor(materialType: String)`
 
 **Parameters**
 
-- `designation` (`string`) — ISO tolerance designation (e.g. `"H7"`, `"h6"`, `"IT6"`).
-- `nominalSize` (`number`) — Nominal dimension in millimetres.
+- `materialType` (`string`) — Type of material to check tolerances for (e.g. `"housing"`, `"shaft"`, `"shell"`).
 
 **Returns**
 
@@ -48,25 +43,55 @@ An object with the following shape (example):
 
 ```json
 {
-  "type": "hole" | "shaft",
-  "nominal": 50,
-  "designation": "H7",
-  "ITGrade": 7,
-  "upperDeviation": 0.025,
-  "lowerDeviation": 0.000,
-  "tolerance": 0.025,
-  "limits": {
-    "maximumMaterialCondition": 50.000,
-    "leastMaterialCondition": 50.025
+  "type": "housing bore" | "shaft" | "shell bore",
+  "specifications": {
+     "H6": [
+      {
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": 0.006,
+        "lower_deviation": 0,
+        "IT6": 0.006,
+        "IT5": 0.004
+      },
+      {
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": 0.008,
+        "lower_deviation": 0,
+        "IT6": 0.008,
+        "IT5": 0.005
+      }
+     ],
+
+     "H7": [
+      {
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": 0.01,
+        "lower_deviation": 0,
+        "IT7": 0.01,
+        "IT6": 0.006,
+        "IT5": 0.004
+      },
+      {
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": 0.012,
+        "lower_deviation": 0,
+        "IT7": 0.012,
+        "IT6": 0.008,
+        "IT5": 0.005
+      },
+     ]
   }
 }
 ```
 
-- `type`: `"hole"` or `"shaft"` inferred from the designation letter (uppercase = hole, lowercase = shaft).
-- `ITGrade`: numerical IT grade.
-- `upperDeviation` / `lowerDeviation`: deviations in mm.
-- `tolerance`: total tolerance (upper - lower).
-- `limits`: absolute dimension limits (mm).
+- `type`: `"housing bore"` or `"shaft"` or `"shell bore"` inferred from the materialType parameter.
+- `specification`: ISO or ANSI fit/tolerance designation associated with the entry (e.g., H7, h6, etc.).
+  { - `maximum_diameter`: The upper bound of the nominal diameter range (in millimetres) for which the tolerance values apply. - `minimum_diameter`: The upper bound of the nominal diameter range (in millimetres) for which the tolerance values apply. - `upper_deviation` / `lower_deviation`: The positive / negative deviation limit from the basic size (in millimetres). - `IT5` / `IT6` / `IT8`, etc: International Tolerance (IT) grades defining standard tolerance magnitudes for each grade level.
+  }
 
 ---
 

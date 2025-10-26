@@ -136,7 +136,7 @@
         "maximum_diameter": 3,
         "upper_deviation": 0.01,
         "lower_deviation": 0,
-        "IT7_mm": 0.01,
+        "IT7": 0.01,
         "IT6": 0.006,
         "IT5": 0.004
       },
@@ -145,7 +145,7 @@
         "maximum_diameter": 6,
         "upper_deviation": 0.012,
         "lower_deviation": 0,
-        "IT7_mm": 0.012,
+        "IT7": 0.012,
         "IT6": 0.008,
         "IT5": 0.005
       },
@@ -154,7 +154,7 @@
         "maximum_diameter": 10,
         "upper_deviation": 0.015,
         "lower_deviation": 0,
-        "IT7_mm": 0.015,
+        "IT7": 0.015,
         "IT6": 0.009,
         "IT5": 0.006
       },
@@ -163,7 +163,7 @@
         "maximum_diameter": 18,
         "upper_deviation": 0.018,
         "lower_deviation": 0,
-        "IT7_mm": 0.018,
+        "IT7": 0.018,
         "IT6": 0.011,
         "IT5": 0.008
       },
@@ -172,7 +172,7 @@
         "maximum_diameter": 30,
         "upper_deviation": 0.021,
         "lower_deviation": 0,
-        "IT7_mm": 0.021,
+        "IT7": 0.021,
         "IT6": 0.013,
         "IT5": 0.009
       },
@@ -181,7 +181,7 @@
         "maximum_diameter": 50,
         "upper_deviation": 0.025,
         "lower_deviation": 0,
-        "IT7_mm": 0.025,
+        "IT7": 0.025,
         "IT6": 0.016,
         "IT5": 0.011
       },
@@ -190,7 +190,7 @@
         "maximum_diameter": 80,
         "upper_deviation": 0.03,
         "lower_deviation": 0,
-        "IT7_mm": 0.03,
+        "IT7": 0.03,
         "IT6": 0.019,
         "IT5": 0.013
       },
@@ -199,7 +199,7 @@
         "maximum_diameter": 120,
         "upper_deviation": 0.035,
         "lower_deviation": 0,
-        "IT7_mm": 0.035,
+        "IT7": 0.035,
         "IT6": 0.022,
         "IT5": 0.015
       },
@@ -208,7 +208,7 @@
         "maximum_diameter": 180,
         "upper_deviation": 0.04,
         "lower_deviation": 0,
-        "IT7_mm": 0.04,
+        "IT7": 0.04,
         "IT6": 0.025,
         "IT5": 0.018
       },
@@ -217,7 +217,7 @@
         "maximum_diameter": 250,
         "upper_deviation": 0.046,
         "lower_deviation": 0,
-        "IT7_mm": 0.046,
+        "IT7": 0.046,
         "IT6": 0.029,
         "IT5": 0.02
       },
@@ -226,7 +226,7 @@
         "maximum_diameter": 315,
         "upper_deviation": 0.052,
         "lower_deviation": 0,
-        "IT7_mm": 0.052,
+        "IT7": 0.052,
         "IT6": 0.032,
         "IT5": 0.023
       },
@@ -235,7 +235,7 @@
         "maximum_diameter": 400,
         "upper_deviation": 0.057,
         "lower_deviation": 0,
-        "IT7_mm": 0.057,
+        "IT7": 0.057,
         "IT6": 0.036,
         "IT5": 0.025
       },
@@ -244,7 +244,7 @@
         "maximum_diameter": 500,
         "upper_deviation": 0.063,
         "lower_deviation": 0,
-        "IT7_mm": 0.063,
+        "IT7": 0.063,
         "IT6": 0.04,
         "IT5": 0.027
       },
@@ -253,7 +253,7 @@
         "maximum_diameter": 630,
         "upper_deviation": 0.07,
         "lower_deviation": 0,
-        "IT7_mm": 0.07,
+        "IT7": 0.07,
         "IT6": 0.044,
         "IT5": 0.032
       },
@@ -262,7 +262,7 @@
         "maximum_diameter": 800,
         "upper_deviation": 0.08,
         "lower_deviation": 0,
-        "IT7_mm": 0.08,
+        "IT7": 0.08,
         "IT6": 0.05,
         "IT5": 0.036
       },
@@ -271,7 +271,7 @@
         "maximum_diameter": 1000,
         "upper_deviation": 0.09,
         "lower_deviation": 0,
-        "IT7_mm": 0.09,
+        "IT7": 0.09,
         "IT6": 0.056,
         "IT5": 0.04
       }
@@ -706,7 +706,7 @@
         "maximum_diameter": 3,
         "upper_deviation": 0,
         "lower_deviation": -0.01,
-        "IT7_mm": 0.01,
+        "IT7": 0.01,
         "IT5": 0.004
       },
       {
@@ -714,7 +714,7 @@
         "maximum_diameter": 6,
         "upper_deviation": 0,
         "lower_deviation": -0.012,
-        "IT7_mm": 0.012,
+        "IT7": 0.012,
         "IT5": 0.005
       },
       {
@@ -722,7 +722,7 @@
         "maximum_diameter": 10,
         "upper_deviation": 0,
         "lower_deviation": -0.015,
-        "IT7_mm": 0.015,
+        "IT7": 0.015,
         "IT5": 0.006
       },
       {
@@ -730,7 +730,7 @@
         "maximum_diameter": 18,
         "upper_deviation": 0,
         "lower_deviation": -0.018,
-        "IT7_mm": 0.018,
+        "IT7": 0.018,
         "IT5": 0.008
       },
       {
@@ -738,7 +738,7 @@
         "maximum_diameter": 30,
         "upper_deviation": 0,
         "lower_deviation": -0.021,
-        "IT7_mm": 0.021,
+        "IT7": 0.021,
         "IT5": 0.009
       },
       {
@@ -746,7 +746,7 @@
         "maximum_diameter": 50,
         "upper_deviation": 0,
         "lower_deviation": -0.025,
-        "IT7_mm": 0.025,
+        "IT7": 0.025,
         "IT5": 0.011
       },
       {
@@ -754,7 +754,7 @@
         "maximum_diameter": 80,
         "upper_deviation": 0,
         "lower_deviation": -0.03,
-        "IT7_mm": 0.03,
+        "IT7": 0.03,
         "IT5": 0.013
       },
       {
@@ -762,7 +762,7 @@
         "maximum_diameter": 120,
         "upper_deviation": 0,
         "lower_deviation": -0.035,
-        "IT7_mm": 0.035,
+        "IT7": 0.035,
         "IT5": 0.015
       },
       {
@@ -770,7 +770,7 @@
         "maximum_diameter": 180,
         "upper_deviation": 0,
         "lower_deviation": -0.04,
-        "IT7_mm": 0.04,
+        "IT7": 0.04,
         "IT5": 0.018
       },
       {
@@ -778,7 +778,7 @@
         "maximum_diameter": 250,
         "upper_deviation": 0,
         "lower_deviation": -0.046,
-        "IT7_mm": 0.046,
+        "IT7": 0.046,
         "IT5": 0.02
       },
       {
@@ -786,7 +786,7 @@
         "maximum_diameter": 315,
         "upper_deviation": 0,
         "lower_deviation": -0.052,
-        "IT7_mm": 0.052,
+        "IT7": 0.052,
         "IT5": 0.023
       },
       {
@@ -794,7 +794,7 @@
         "maximum_diameter": 400,
         "upper_deviation": 0,
         "lower_deviation": -0.057,
-        "IT7_mm": 0.057,
+        "IT7": 0.057,
         "IT5": 0.025
       },
       {
@@ -802,7 +802,7 @@
         "maximum_diameter": 500,
         "upper_deviation": 0,
         "lower_deviation": -0.063,
-        "IT7_mm": 0.063,
+        "IT7": 0.063,
         "IT5": 0.027
       },
       {
@@ -810,7 +810,7 @@
         "maximum_diameter": 630,
         "upper_deviation": 0,
         "lower_deviation": -0.07,
-        "IT7_mm": 0.07,
+        "IT7": 0.07,
         "IT5": 0.032
       },
       {
@@ -818,7 +818,7 @@
         "maximum_diameter": 800,
         "upper_deviation": 0,
         "lower_deviation": -0.08,
-        "IT7_mm": 0.08,
+        "IT7": 0.08,
         "IT5": 0.036
       },
       {
@@ -826,7 +826,7 @@
         "maximum_diameter": 1000,
         "upper_deviation": 0,
         "lower_deviation": -0.09,
-        "IT7_mm": 0.09,
+        "IT7": 0.09,
         "IT5": 0.04
       }
     ],

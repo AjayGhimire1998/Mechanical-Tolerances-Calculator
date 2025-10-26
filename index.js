@@ -29,7 +29,7 @@ function getAllTolerancesFor(materialType) {
   } else if (trimmedMaterialType.includes("shaft")) {
     return { type: "shaft", specifications: tolerances["shafts"] };
   } else if (trimmedMaterialType.includes("shell")) {
-    return { type: "shell", specifications: tolerances["shell"] };
+    return { type: "shell bore", specifications: tolerances["shell"] };
   } else {
     return {
       error: `Unknown material type: ${materialType}. Valid types are 'housing', 'shaft', or 'shell'.`,
