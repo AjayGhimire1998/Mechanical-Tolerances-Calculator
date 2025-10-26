@@ -2,4 +2,4 @@ function helloNPM() {
   return "HELLO NPM";
 }
 
-MediaSourceHandle.exports = helloNPM;
+module.exports = helloNPM;
