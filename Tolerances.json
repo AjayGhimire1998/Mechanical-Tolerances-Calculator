@@ -2,1237 +2,1237 @@
   "housingBores": {
     "H6": [
       {
-        "minDia": 0,
-        "maxDia": 3,
-        "upper": 0.006,
-        "lower": 0,
-        "IT6_mm": 0.006,
-        "IT5_mm": 0.004
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": 0.006,
+        "lower_deviation": 0,
+        "IT6": 0.006,
+        "IT5": 0.004
       },
       {
-        "minDia": 3,
-        "maxDia": 6,
-        "upper": 0.008,
-        "lower": 0,
-        "IT6_mm": 0.008,
-        "IT5_mm": 0.005
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": 0.008,
+        "lower_deviation": 0,
+        "IT6": 0.008,
+        "IT5": 0.005
       },
       {
-        "minDia": 6,
-        "maxDia": 10,
-        "upper": 0.009,
-        "lower": 0,
-        "IT6_mm": 0.009,
-        "IT5_mm": 0.006
+        "minimum_diameter": 6,
+        "maximum_diameter": 10,
+        "upper_deviation": 0.009,
+        "lower_deviation": 0,
+        "IT6": 0.009,
+        "IT5": 0.006
       },
       {
-        "minDia": 10,
-        "maxDia": 18,
-        "upper": 0.011,
-        "lower": 0,
-        "IT6_mm": 0.011,
-        "IT5_mm": 0.008
+        "minimum_diameter": 10,
+        "maximum_diameter": 18,
+        "upper_deviation": 0.011,
+        "lower_deviation": 0,
+        "IT6": 0.011,
+        "IT5": 0.008
       },
       {
-        "minDia": 18,
-        "maxDia": 30,
-        "upper": 0.013,
-        "lower": 0,
-        "IT6_mm": 0.013,
-        "IT5_mm": 0.009
+        "minimum_diameter": 18,
+        "maximum_diameter": 30,
+        "upper_deviation": 0.013,
+        "lower_deviation": 0,
+        "IT6": 0.013,
+        "IT5": 0.009
       },
       {
-        "minDia": 30,
-        "maxDia": 50,
-        "upper": 0.016,
-        "lower": 0,
-        "IT6_mm": 0.016,
-        "IT5_mm": 0.011
+        "minimum_diameter": 30,
+        "maximum_diameter": 50,
+        "upper_deviation": 0.016,
+        "lower_deviation": 0,
+        "IT6": 0.016,
+        "IT5": 0.011
       },
       {
-        "minDia": 50,
-        "maxDia": 80,
-        "upper": 0.019,
-        "lower": 0,
-        "IT6_mm": 0.019,
-        "IT5_mm": 0.013
+        "minimum_diameter": 50,
+        "maximum_diameter": 80,
+        "upper_deviation": 0.019,
+        "lower_deviation": 0,
+        "IT6": 0.019,
+        "IT5": 0.013
       },
       {
-        "minDia": 80,
-        "maxDia": 120,
-        "upper": 0.022,
-        "lower": 0,
-        "IT6_mm": 0.022,
-        "IT5_mm": 0.015
+        "minimum_diameter": 80,
+        "maximum_diameter": 120,
+        "upper_deviation": 0.022,
+        "lower_deviation": 0,
+        "IT6": 0.022,
+        "IT5": 0.015
       },
       {
-        "minDia": 120,
-        "maxDia": 180,
-        "upper": 0.025,
-        "lower": 0,
-        "IT6_mm": 0.025,
-        "IT5_mm": 0.018
+        "minimum_diameter": 120,
+        "maximum_diameter": 180,
+        "upper_deviation": 0.025,
+        "lower_deviation": 0,
+        "IT6": 0.025,
+        "IT5": 0.018
       },
       {
-        "minDia": 180,
-        "maxDia": 250,
-        "upper": 0.029,
-        "lower": 0,
-        "IT6_mm": 0.029,
-        "IT5_mm": 0.02
+        "minimum_diameter": 180,
+        "maximum_diameter": 250,
+        "upper_deviation": 0.029,
+        "lower_deviation": 0,
+        "IT6": 0.029,
+        "IT5": 0.02
       },
       {
-        "minDia": 250,
-        "maxDia": 315,
-        "upper": 0.032,
-        "lower": 0,
-        "IT6_mm": 0.032,
-        "IT5_mm": 0.023
+        "minimum_diameter": 250,
+        "maximum_diameter": 315,
+        "upper_deviation": 0.032,
+        "lower_deviation": 0,
+        "IT6": 0.032,
+        "IT5": 0.023
       },
       {
-        "minDia": 315,
-        "maxDia": 400,
-        "upper": 0.036,
-        "lower": 0,
-        "IT6_mm": 0.036,
-        "IT5_mm": 0.025
+        "minimum_diameter": 315,
+        "maximum_diameter": 400,
+        "upper_deviation": 0.036,
+        "lower_deviation": 0,
+        "IT6": 0.036,
+        "IT5": 0.025
       },
       {
-        "minDia": 400,
-        "maxDia": 500,
-        "upper": 0.04,
-        "lower": 0,
-        "IT6_mm": 0.04,
-        "IT5_mm": 0.027
+        "minimum_diameter": 400,
+        "maximum_diameter": 500,
+        "upper_deviation": 0.04,
+        "lower_deviation": 0,
+        "IT6": 0.04,
+        "IT5": 0.027
       },
       {
-        "minDia": 500,
-        "maxDia": 630,
-        "upper": 0.044,
-        "lower": 0,
-        "IT6_mm": 0.044,
-        "IT5_mm": 0.032
+        "minimum_diameter": 500,
+        "maximum_diameter": 630,
+        "upper_deviation": 0.044,
+        "lower_deviation": 0,
+        "IT6": 0.044,
+        "IT5": 0.032
       },
       {
-        "minDia": 630,
-        "maxDia": 800,
-        "upper": 0.05,
-        "lower": 0,
-        "IT6_mm": 0.05,
-        "IT5_mm": 0.036
+        "minimum_diameter": 630,
+        "maximum_diameter": 800,
+        "upper_deviation": 0.05,
+        "lower_deviation": 0,
+        "IT6": 0.05,
+        "IT5": 0.036
       },
       {
-        "minDia": 800,
-        "maxDia": 1000,
-        "upper": 0.056,
-        "lower": 0,
-        "IT6_mm": 0.056,
-        "IT5_mm": 0.04
+        "minimum_diameter": 800,
+        "maximum_diameter": 1000,
+        "upper_deviation": 0.056,
+        "lower_deviation": 0,
+        "IT6": 0.056,
+        "IT5": 0.04
       }
     ],
     "H7": [
       {
-        "minDia": 0,
-        "maxDia": 3,
-        "upper": 0.01,
-        "lower": 0,
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": 0.01,
+        "lower_deviation": 0,
         "IT7_mm": 0.01,
-        "IT6_mm": 0.006,
-        "IT5_mm": 0.004
+        "IT6": 0.006,
+        "IT5": 0.004
       },
       {
-        "minDia": 3,
-        "maxDia": 6,
-        "upper": 0.012,
-        "lower": 0,
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": 0.012,
+        "lower_deviation": 0,
         "IT7_mm": 0.012,
-        "IT6_mm": 0.008,
-        "IT5_mm": 0.005
+        "IT6": 0.008,
+        "IT5": 0.005
       },
       {
-        "minDia": 6,
-        "maxDia": 10,
-        "upper": 0.015,
-        "lower": 0,
+        "minimum_diameter": 6,
+        "maximum_diameter": 10,
+        "upper_deviation": 0.015,
+        "lower_deviation": 0,
         "IT7_mm": 0.015,
-        "IT6_mm": 0.009,
-        "IT5_mm": 0.006
+        "IT6": 0.009,
+        "IT5": 0.006
       },
       {
-        "minDia": 10,
-        "maxDia": 18,
-        "upper": 0.018,
-        "lower": 0,
+        "minimum_diameter": 10,
+        "maximum_diameter": 18,
+        "upper_deviation": 0.018,
+        "lower_deviation": 0,
         "IT7_mm": 0.018,
-        "IT6_mm": 0.011,
-        "IT5_mm": 0.008
+        "IT6": 0.011,
+        "IT5": 0.008
       },
       {
-        "minDia": 18,
-        "maxDia": 30,
-        "upper": 0.021,
-        "lower": 0,
+        "minimum_diameter": 18,
+        "maximum_diameter": 30,
+        "upper_deviation": 0.021,
+        "lower_deviation": 0,
         "IT7_mm": 0.021,
-        "IT6_mm": 0.013,
-        "IT5_mm": 0.009
+        "IT6": 0.013,
+        "IT5": 0.009
       },
       {
-        "minDia": 30,
-        "maxDia": 50,
-        "upper": 0.025,
-        "lower": 0,
+        "minimum_diameter": 30,
+        "maximum_diameter": 50,
+        "upper_deviation": 0.025,
+        "lower_deviation": 0,
         "IT7_mm": 0.025,
-        "IT6_mm": 0.016,
-        "IT5_mm": 0.011
+        "IT6": 0.016,
+        "IT5": 0.011
       },
       {
-        "minDia": 50,
-        "maxDia": 80,
-        "upper": 0.03,
-        "lower": 0,
+        "minimum_diameter": 50,
+        "maximum_diameter": 80,
+        "upper_deviation": 0.03,
+        "lower_deviation": 0,
         "IT7_mm": 0.03,
-        "IT6_mm": 0.019,
-        "IT5_mm": 0.013
+        "IT6": 0.019,
+        "IT5": 0.013
       },
       {
-        "minDia": 80,
-        "maxDia": 120,
-        "upper": 0.035,
-        "lower": 0,
+        "minimum_diameter": 80,
+        "maximum_diameter": 120,
+        "upper_deviation": 0.035,
+        "lower_deviation": 0,
         "IT7_mm": 0.035,
-        "IT6_mm": 0.022,
-        "IT5_mm": 0.015
+        "IT6": 0.022,
+        "IT5": 0.015
       },
       {
-        "minDia": 120,
-        "maxDia": 180,
-        "upper": 0.04,
-        "lower": 0,
+        "minimum_diameter": 120,
+        "maximum_diameter": 180,
+        "upper_deviation": 0.04,
+        "lower_deviation": 0,
         "IT7_mm": 0.04,
-        "IT6_mm": 0.025,
-        "IT5_mm": 0.018
+        "IT6": 0.025,
+        "IT5": 0.018
       },
       {
-        "minDia": 180,
-        "maxDia": 250,
-        "upper": 0.046,
-        "lower": 0,
+        "minimum_diameter": 180,
+        "maximum_diameter": 250,
+        "upper_deviation": 0.046,
+        "lower_deviation": 0,
         "IT7_mm": 0.046,
-        "IT6_mm": 0.029,
-        "IT5_mm": 0.02
+        "IT6": 0.029,
+        "IT5": 0.02
       },
       {
-        "minDia": 250,
-        "maxDia": 315,
-        "upper": 0.052,
-        "lower": 0,
+        "minimum_diameter": 250,
+        "maximum_diameter": 315,
+        "upper_deviation": 0.052,
+        "lower_deviation": 0,
         "IT7_mm": 0.052,
-        "IT6_mm": 0.032,
-        "IT5_mm": 0.023
+        "IT6": 0.032,
+        "IT5": 0.023
       },
       {
-        "minDia": 315,
-        "maxDia": 400,
-        "upper": 0.057,
-        "lower": 0,
+        "minimum_diameter": 315,
+        "maximum_diameter": 400,
+        "upper_deviation": 0.057,
+        "lower_deviation": 0,
         "IT7_mm": 0.057,
-        "IT6_mm": 0.036,
-        "IT5_mm": 0.025
+        "IT6": 0.036,
+        "IT5": 0.025
       },
       {
-        "minDia": 400,
-        "maxDia": 500,
-        "upper": 0.063,
-        "lower": 0,
+        "minimum_diameter": 400,
+        "maximum_diameter": 500,
+        "upper_deviation": 0.063,
+        "lower_deviation": 0,
         "IT7_mm": 0.063,
-        "IT6_mm": 0.04,
-        "IT5_mm": 0.027
+        "IT6": 0.04,
+        "IT5": 0.027
       },
       {
-        "minDia": 500,
-        "maxDia": 630,
-        "upper": 0.07,
-        "lower": 0,
+        "minimum_diameter": 500,
+        "maximum_diameter": 630,
+        "upper_deviation": 0.07,
+        "lower_deviation": 0,
         "IT7_mm": 0.07,
-        "IT6_mm": 0.044,
-        "IT5_mm": 0.032
+        "IT6": 0.044,
+        "IT5": 0.032
       },
       {
-        "minDia": 630,
-        "maxDia": 800,
-        "upper": 0.08,
-        "lower": 0,
+        "minimum_diameter": 630,
+        "maximum_diameter": 800,
+        "upper_deviation": 0.08,
+        "lower_deviation": 0,
         "IT7_mm": 0.08,
-        "IT6_mm": 0.05,
-        "IT5_mm": 0.036
+        "IT6": 0.05,
+        "IT5": 0.036
       },
       {
-        "minDia": 800,
-        "maxDia": 1000,
-        "upper": 0.09,
-        "lower": 0,
+        "minimum_diameter": 800,
+        "maximum_diameter": 1000,
+        "upper_deviation": 0.09,
+        "lower_deviation": 0,
         "IT7_mm": 0.09,
-        "IT6_mm": 0.056,
-        "IT5_mm": 0.04
+        "IT6": 0.056,
+        "IT5": 0.04
       }
     ],
     "H8": [
       {
-        "minDia": 0,
-        "maxDia": 3,
-        "upper": 0.014,
-        "lower": 0,
-        "IT8_mm": 0.014,
-        "IT6_mm": 0.006,
-        "IT5_mm": 0.004
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": 0.014,
+        "lower_deviation": 0,
+        "IT8": 0.014,
+        "IT6": 0.006,
+        "IT5": 0.004
       },
       {
-        "minDia": 3,
-        "maxDia": 6,
-        "upper": 0.018,
-        "lower": 0,
-        "IT8_mm": 0.018,
-        "IT6_mm": 0.008,
-        "IT5_mm": 0.005
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": 0.018,
+        "lower_deviation": 0,
+        "IT8": 0.018,
+        "IT6": 0.008,
+        "IT5": 0.005
       },
       {
-        "minDia": 6,
-        "maxDia": 10,
-        "upper": 0.022,
-        "lower": 0,
-        "IT8_mm": 0.022,
-        "IT6_mm": 0.009,
-        "IT5_mm": 0.006
+        "minimum_diameter": 6,
+        "maximum_diameter": 10,
+        "upper_deviation": 0.022,
+        "lower_deviation": 0,
+        "IT8": 0.022,
+        "IT6": 0.009,
+        "IT5": 0.006
       },
       {
-        "minDia": 10,
-        "maxDia": 18,
-        "upper": 0.027,
-        "lower": 0,
-        "IT8_mm": 0.027,
-        "IT6_mm": 0.011,
-        "IT5_mm": 0.008
+        "minimum_diameter": 10,
+        "maximum_diameter": 18,
+        "upper_deviation": 0.027,
+        "lower_deviation": 0,
+        "IT8": 0.027,
+        "IT6": 0.011,
+        "IT5": 0.008
       },
       {
-        "minDia": 18,
-        "maxDia": 30,
-        "upper": 0.033,
-        "lower": 0,
-        "IT8_mm": 0.033,
-        "IT6_mm": 0.013,
-        "IT5_mm": 0.009
+        "minimum_diameter": 18,
+        "maximum_diameter": 30,
+        "upper_deviation": 0.033,
+        "lower_deviation": 0,
+        "IT8": 0.033,
+        "IT6": 0.013,
+        "IT5": 0.009
       },
       {
-        "minDia": 30,
-        "maxDia": 50,
-        "upper": 0.039,
-        "lower": 0,
-        "IT8_mm": 0.039,
-        "IT6_mm": 0.016,
-        "IT5_mm": 0.011
+        "minimum_diameter": 30,
+        "maximum_diameter": 50,
+        "upper_deviation": 0.039,
+        "lower_deviation": 0,
+        "IT8": 0.039,
+        "IT6": 0.016,
+        "IT5": 0.011
       },
       {
-        "minDia": 50,
-        "maxDia": 80,
-        "upper": 0.046,
-        "lower": 0,
-        "IT8_mm": 0.046,
-        "IT6_mm": 0.019,
-        "IT5_mm": 0.013
+        "minimum_diameter": 50,
+        "maximum_diameter": 80,
+        "upper_deviation": 0.046,
+        "lower_deviation": 0,
+        "IT8": 0.046,
+        "IT6": 0.019,
+        "IT5": 0.013
       },
       {
-        "minDia": 80,
-        "maxDia": 120,
-        "upper": 0.054,
-        "lower": 0,
-        "IT8_mm": 0.054,
-        "IT6_mm": 0.022,
-        "IT5_mm": 0.015
+        "minimum_diameter": 80,
+        "maximum_diameter": 120,
+        "upper_deviation": 0.054,
+        "lower_deviation": 0,
+        "IT8": 0.054,
+        "IT6": 0.022,
+        "IT5": 0.015
       },
       {
-        "minDia": 120,
-        "maxDia": 180,
-        "upper": 0.063,
-        "lower": 0,
-        "IT8_mm": 0.063,
-        "IT6_mm": 0.025,
-        "IT5_mm": 0.018
+        "minimum_diameter": 120,
+        "maximum_diameter": 180,
+        "upper_deviation": 0.063,
+        "lower_deviation": 0,
+        "IT8": 0.063,
+        "IT6": 0.025,
+        "IT5": 0.018
       },
       {
-        "minDia": 180,
-        "maxDia": 250,
-        "upper": 0.072,
-        "lower": 0,
-        "IT8_mm": 0.072,
-        "IT6_mm": 0.029,
-        "IT5_mm": 0.02
+        "minimum_diameter": 180,
+        "maximum_diameter": 250,
+        "upper_deviation": 0.072,
+        "lower_deviation": 0,
+        "IT8": 0.072,
+        "IT6": 0.029,
+        "IT5": 0.02
       },
       {
-        "minDia": 250,
-        "maxDia": 315,
-        "upper": 0.081,
-        "lower": 0,
-        "IT8_mm": 0.081,
-        "IT6_mm": 0.032,
-        "IT5_mm": 0.023
+        "minimum_diameter": 250,
+        "maximum_diameter": 315,
+        "upper_deviation": 0.081,
+        "lower_deviation": 0,
+        "IT8": 0.081,
+        "IT6": 0.032,
+        "IT5": 0.023
       },
       {
-        "minDia": 315,
-        "maxDia": 400,
-        "upper": 0.089,
-        "lower": 0,
-        "IT8_mm": 0.089,
-        "IT6_mm": 0.036,
-        "IT5_mm": 0.025
+        "minimum_diameter": 315,
+        "maximum_diameter": 400,
+        "upper_deviation": 0.089,
+        "lower_deviation": 0,
+        "IT8": 0.089,
+        "IT6": 0.036,
+        "IT5": 0.025
       },
       {
-        "minDia": 400,
-        "maxDia": 500,
-        "upper": 0.097,
-        "lower": 0,
-        "IT8_mm": 0.097,
-        "IT6_mm": 0.04,
-        "IT5_mm": 0.027
+        "minimum_diameter": 400,
+        "maximum_diameter": 500,
+        "upper_deviation": 0.097,
+        "lower_deviation": 0,
+        "IT8": 0.097,
+        "IT6": 0.04,
+        "IT5": 0.027
       },
       {
-        "minDia": 500,
-        "maxDia": 630,
-        "upper": 0.11,
-        "lower": 0,
-        "IT8_mm": 0.11,
-        "IT6_mm": 0.044,
-        "IT5_mm": 0.032
+        "minimum_diameter": 500,
+        "maximum_diameter": 630,
+        "upper_deviation": 0.11,
+        "lower_deviation": 0,
+        "IT8": 0.11,
+        "IT6": 0.044,
+        "IT5": 0.032
       },
       {
-        "minDia": 630,
-        "maxDia": 800,
-        "upper": 0.125,
-        "lower": 0,
-        "IT8_mm": 0.125,
-        "IT6_mm": 0.05,
-        "IT5_mm": 0.036
+        "minimum_diameter": 630,
+        "maximum_diameter": 800,
+        "upper_deviation": 0.125,
+        "lower_deviation": 0,
+        "IT8": 0.125,
+        "IT6": 0.05,
+        "IT5": 0.036
       },
       {
-        "minDia": 800,
-        "maxDia": 1000,
-        "upper": 0.14,
-        "lower": 0,
-        "IT8_mm": 0.14,
-        "IT6_mm": 0.056,
-        "IT5_mm": 0.04
+        "minimum_diameter": 800,
+        "maximum_diameter": 1000,
+        "upper_deviation": 0.14,
+        "lower_deviation": 0,
+        "IT8": 0.14,
+        "IT6": 0.056,
+        "IT5": 0.04
       }
     ],
     "H9": [
       {
-        "minDia": 0,
-        "maxDia": 3,
-        "upper": 0.025,
-        "lower": 0,
-        "IT9_mm": 0.025,
-        "IT6_mm": 0.006,
-        "IT5_mm": 0.004
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": 0.025,
+        "lower_deviation": 0,
+        "IT9": 0.025,
+        "IT6": 0.006,
+        "IT5": 0.004
       },
       {
-        "minDia": 3,
-        "maxDia": 6,
-        "upper": 0.03,
-        "lower": 0,
-        "IT9_mm": 0.03,
-        "IT6_mm": 0.008,
-        "IT5_mm": 0.005
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": 0.03,
+        "lower_deviation": 0,
+        "IT9": 0.03,
+        "IT6": 0.008,
+        "IT5": 0.005
       },
       {
-        "minDia": 6,
-        "maxDia": 10,
-        "upper": 0.036,
-        "lower": 0,
-        "IT9_mm": 0.036,
-        "IT6_mm": 0.009,
-        "IT5_mm": 0.006
+        "minimum_diameter": 6,
+        "maximum_diameter": 10,
+        "upper_deviation": 0.036,
+        "lower_deviation": 0,
+        "IT9": 0.036,
+        "IT6": 0.009,
+        "IT5": 0.006
       },
       {
-        "minDia": 10,
-        "maxDia": 18,
-        "upper": 0.043,
-        "lower": 0,
-        "IT9_mm": 0.043,
-        "IT6_mm": 0.011,
-        "IT5_mm": 0.008
+        "minimum_diameter": 10,
+        "maximum_diameter": 18,
+        "upper_deviation": 0.043,
+        "lower_deviation": 0,
+        "IT9": 0.043,
+        "IT6": 0.011,
+        "IT5": 0.008
       },
       {
-        "minDia": 18,
-        "maxDia": 30,
-        "upper": 0.052,
-        "lower": 0,
-        "IT9_mm": 0.052,
-        "IT6_mm": 0.013,
-        "IT5_mm": 0.009
+        "minimum_diameter": 18,
+        "maximum_diameter": 30,
+        "upper_deviation": 0.052,
+        "lower_deviation": 0,
+        "IT9": 0.052,
+        "IT6": 0.013,
+        "IT5": 0.009
       },
       {
-        "minDia": 30,
-        "maxDia": 50,
-        "upper": 0.062,
-        "lower": 0,
-        "IT9_mm": 0.062,
-        "IT6_mm": 0.016,
-        "IT5_mm": 0.011
+        "minimum_diameter": 30,
+        "maximum_diameter": 50,
+        "upper_deviation": 0.062,
+        "lower_deviation": 0,
+        "IT9": 0.062,
+        "IT6": 0.016,
+        "IT5": 0.011
       },
       {
-        "minDia": 50,
-        "maxDia": 80,
-        "upper": 0.074,
-        "lower": 0,
-        "IT9_mm": 0.074,
-        "IT6_mm": 0.019,
-        "IT5_mm": 0.013
+        "minimum_diameter": 50,
+        "maximum_diameter": 80,
+        "upper_deviation": 0.074,
+        "lower_deviation": 0,
+        "IT9": 0.074,
+        "IT6": 0.019,
+        "IT5": 0.013
       },
       {
-        "minDia": 80,
-        "maxDia": 120,
-        "upper": 0.087,
-        "lower": 0,
-        "IT9_mm": 0.087,
-        "IT6_mm": 0.022,
-        "IT5_mm": 0.015
+        "minimum_diameter": 80,
+        "maximum_diameter": 120,
+        "upper_deviation": 0.087,
+        "lower_deviation": 0,
+        "IT9": 0.087,
+        "IT6": 0.022,
+        "IT5": 0.015
       },
       {
-        "minDia": 120,
-        "maxDia": 180,
-        "upper": 0.1,
-        "lower": 0,
-        "IT9_mm": 0.1,
-        "IT6_mm": 0.025,
-        "IT5_mm": 0.018
+        "minimum_diameter": 120,
+        "maximum_diameter": 180,
+        "upper_deviation": 0.1,
+        "lower_deviation": 0,
+        "IT9": 0.1,
+        "IT6": 0.025,
+        "IT5": 0.018
       },
       {
-        "minDia": 180,
-        "maxDia": 250,
-        "upper": 0.115,
-        "lower": 0,
-        "IT9_mm": 0.115,
-        "IT6_mm": 0.029,
-        "IT5_mm": 0.02
+        "minimum_diameter": 180,
+        "maximum_diameter": 250,
+        "upper_deviation": 0.115,
+        "lower_deviation": 0,
+        "IT9": 0.115,
+        "IT6": 0.029,
+        "IT5": 0.02
       },
       {
-        "minDia": 250,
-        "maxDia": 315,
-        "upper": 0.13,
-        "lower": 0,
-        "IT9_mm": 0.13,
-        "IT6_mm": 0.032,
-        "IT5_mm": 0.023
+        "minimum_diameter": 250,
+        "maximum_diameter": 315,
+        "upper_deviation": 0.13,
+        "lower_deviation": 0,
+        "IT9": 0.13,
+        "IT6": 0.032,
+        "IT5": 0.023
       },
       {
-        "minDia": 315,
-        "maxDia": 400,
-        "upper": 0.14,
-        "lower": 0,
-        "IT9_mm": 0.14,
-        "IT6_mm": 0.036,
-        "IT5_mm": 0.025
+        "minimum_diameter": 315,
+        "maximum_diameter": 400,
+        "upper_deviation": 0.14,
+        "lower_deviation": 0,
+        "IT9": 0.14,
+        "IT6": 0.036,
+        "IT5": 0.025
       },
       {
-        "minDia": 400,
-        "maxDia": 500,
-        "upper": 0.155,
-        "lower": 0,
-        "IT9_mm": 0.155,
-        "IT6_mm": 0.04,
-        "IT5_mm": 0.027
+        "minimum_diameter": 400,
+        "maximum_diameter": 500,
+        "upper_deviation": 0.155,
+        "lower_deviation": 0,
+        "IT9": 0.155,
+        "IT6": 0.04,
+        "IT5": 0.027
       },
       {
-        "minDia": 500,
-        "maxDia": 630,
-        "upper": 0.175,
-        "lower": 0,
-        "IT9_mm": 0.175,
-        "IT6_mm": 0.044,
-        "IT5_mm": 0.032
+        "minimum_diameter": 500,
+        "maximum_diameter": 630,
+        "upper_deviation": 0.175,
+        "lower_deviation": 0,
+        "IT9": 0.175,
+        "IT6": 0.044,
+        "IT5": 0.032
       },
       {
-        "minDia": 630,
-        "maxDia": 800,
-        "upper": 0.2,
-        "lower": 0,
-        "IT9_mm": 0.2,
-        "IT6_mm": 0.05,
-        "IT5_mm": 0.036
+        "minimum_diameter": 630,
+        "maximum_diameter": 800,
+        "upper_deviation": 0.2,
+        "lower_deviation": 0,
+        "IT9": 0.2,
+        "IT6": 0.05,
+        "IT5": 0.036
       },
       {
-        "minDia": 800,
-        "maxDia": 1000,
-        "upper": 0.23,
-        "lower": 0,
-        "IT9_mm": 0.23,
-        "IT6_mm": 0.056,
-        "IT5_mm": 0.04
+        "minimum_diameter": 800,
+        "maximum_diameter": 1000,
+        "upper_deviation": 0.23,
+        "lower_deviation": 0,
+        "IT9": 0.23,
+        "IT6": 0.056,
+        "IT5": 0.04
       }
     ]
   },
   "shafts": {
     "h6": [
       {
-        "minDia": 0,
-        "maxDia": 3,
-        "upper": 0,
-        "lower": -0.006,
-        "IT6_mm": 0.006,
-        "IT5_mm": 0.004
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": 0,
+        "lower_deviation": -0.006,
+        "IT6": 0.006,
+        "IT5": 0.004
       },
       {
-        "minDia": 3,
-        "maxDia": 6,
-        "upper": 0,
-        "lower": -0.008,
-        "IT6_mm": 0.008,
-        "IT5_mm": 0.005
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": 0,
+        "lower_deviation": -0.008,
+        "IT6": 0.008,
+        "IT5": 0.005
       },
       {
-        "minDia": 6,
-        "maxDia": 10,
-        "upper": 0,
-        "lower": -0.009,
-        "IT6_mm": 0.009,
-        "IT5_mm": 0.006
+        "minimum_diameter": 6,
+        "maximum_diameter": 10,
+        "upper_deviation": 0,
+        "lower_deviation": -0.009,
+        "IT6": 0.009,
+        "IT5": 0.006
       },
       {
-        "minDia": 10,
-        "maxDia": 18,
-        "upper": 0,
-        "lower": -0.011,
-        "IT6_mm": 0.011,
-        "IT5_mm": 0.008
+        "minimum_diameter": 10,
+        "maximum_diameter": 18,
+        "upper_deviation": 0,
+        "lower_deviation": -0.011,
+        "IT6": 0.011,
+        "IT5": 0.008
       },
       {
-        "minDia": 18,
-        "maxDia": 30,
-        "upper": 0,
-        "lower": -0.013,
-        "IT6_mm": 0.013,
-        "IT5_mm": 0.009
+        "minimum_diameter": 18,
+        "maximum_diameter": 30,
+        "upper_deviation": 0,
+        "lower_deviation": -0.013,
+        "IT6": 0.013,
+        "IT5": 0.009
       },
       {
-        "minDia": 30,
-        "maxDia": 50,
-        "upper": 0,
-        "lower": -0.016,
-        "IT6_mm": 0.016,
-        "IT5_mm": 0.011
+        "minimum_diameter": 30,
+        "maximum_diameter": 50,
+        "upper_deviation": 0,
+        "lower_deviation": -0.016,
+        "IT6": 0.016,
+        "IT5": 0.011
       },
       {
-        "minDia": 50,
-        "maxDia": 80,
-        "upper": 0,
-        "lower": -0.019,
-        "IT6_mm": 0.019,
-        "IT5_mm": 0.013
+        "minimum_diameter": 50,
+        "maximum_diameter": 80,
+        "upper_deviation": 0,
+        "lower_deviation": -0.019,
+        "IT6": 0.019,
+        "IT5": 0.013
       },
       {
-        "minDia": 80,
-        "maxDia": 120,
-        "upper": 0,
-        "lower": -0.022,
-        "IT6_mm": 0.022,
-        "IT5_mm": 0.015
+        "minimum_diameter": 80,
+        "maximum_diameter": 120,
+        "upper_deviation": 0,
+        "lower_deviation": -0.022,
+        "IT6": 0.022,
+        "IT5": 0.015
       },
       {
-        "minDia": 120,
-        "maxDia": 180,
-        "upper": 0,
-        "lower": -0.025,
-        "IT6_mm": 0.025,
-        "IT5_mm": 0.018
+        "minimum_diameter": 120,
+        "maximum_diameter": 180,
+        "upper_deviation": 0,
+        "lower_deviation": -0.025,
+        "IT6": 0.025,
+        "IT5": 0.018
       },
       {
-        "minDia": 180,
-        "maxDia": 250,
-        "upper": 0,
-        "lower": -0.029,
-        "IT6_mm": 0.029,
-        "IT5_mm": 0.02
+        "minimum_diameter": 180,
+        "maximum_diameter": 250,
+        "upper_deviation": 0,
+        "lower_deviation": -0.029,
+        "IT6": 0.029,
+        "IT5": 0.02
       },
       {
-        "minDia": 250,
-        "maxDia": 315,
-        "upper": 0,
-        "lower": -0.032,
-        "IT6_mm": 0.032,
-        "IT5_mm": 0.023
+        "minimum_diameter": 250,
+        "maximum_diameter": 315,
+        "upper_deviation": 0,
+        "lower_deviation": -0.032,
+        "IT6": 0.032,
+        "IT5": 0.023
       },
       {
-        "minDia": 315,
-        "maxDia": 400,
-        "upper": 0,
-        "lower": -0.036,
-        "IT6_mm": 0.036,
-        "IT5_mm": 0.025
+        "minimum_diameter": 315,
+        "maximum_diameter": 400,
+        "upper_deviation": 0,
+        "lower_deviation": -0.036,
+        "IT6": 0.036,
+        "IT5": 0.025
       },
       {
-        "minDia": 400,
-        "maxDia": 500,
-        "upper": 0,
-        "lower": -0.04,
-        "IT6_mm": 0.04,
-        "IT5_mm": 0.027
+        "minimum_diameter": 400,
+        "maximum_diameter": 500,
+        "upper_deviation": 0,
+        "lower_deviation": -0.04,
+        "IT6": 0.04,
+        "IT5": 0.027
       },
       {
-        "minDia": 500,
-        "maxDia": 630,
-        "upper": 0,
-        "lower": -0.044,
-        "IT6_mm": 0.044,
-        "IT5_mm": 0.032
+        "minimum_diameter": 500,
+        "maximum_diameter": 630,
+        "upper_deviation": 0,
+        "lower_deviation": -0.044,
+        "IT6": 0.044,
+        "IT5": 0.032
       },
       {
-        "minDia": 630,
-        "maxDia": 800,
-        "upper": 0,
-        "lower": -0.05,
-        "IT6_mm": 0.05,
-        "IT5_mm": 0.036
+        "minimum_diameter": 630,
+        "maximum_diameter": 800,
+        "upper_deviation": 0,
+        "lower_deviation": -0.05,
+        "IT6": 0.05,
+        "IT5": 0.036
       },
       {
-        "minDia": 800,
-        "maxDia": 1000,
-        "upper": 0,
-        "lower": -0.056,
-        "IT6_mm": 0.056,
-        "IT5_mm": 0.04
+        "minimum_diameter": 800,
+        "maximum_diameter": 1000,
+        "upper_deviation": 0,
+        "lower_deviation": -0.056,
+        "IT6": 0.056,
+        "IT5": 0.04
       }
     ],
     "h7": [
       {
-        "minDia": 0,
-        "maxDia": 3,
-        "upper": 0,
-        "lower": -0.01,
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": 0,
+        "lower_deviation": -0.01,
         "IT7_mm": 0.01,
-        "IT5_mm": 0.004
+        "IT5": 0.004
       },
       {
-        "minDia": 3,
-        "maxDia": 6,
-        "upper": 0,
-        "lower": -0.012,
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": 0,
+        "lower_deviation": -0.012,
         "IT7_mm": 0.012,
-        "IT5_mm": 0.005
+        "IT5": 0.005
       },
       {
-        "minDia": 6,
-        "maxDia": 10,
-        "upper": 0,
-        "lower": -0.015,
+        "minimum_diameter": 6,
+        "maximum_diameter": 10,
+        "upper_deviation": 0,
+        "lower_deviation": -0.015,
         "IT7_mm": 0.015,
-        "IT5_mm": 0.006
+        "IT5": 0.006
       },
       {
-        "minDia": 10,
-        "maxDia": 18,
-        "upper": 0,
-        "lower": -0.018,
+        "minimum_diameter": 10,
+        "maximum_diameter": 18,
+        "upper_deviation": 0,
+        "lower_deviation": -0.018,
         "IT7_mm": 0.018,
-        "IT5_mm": 0.008
+        "IT5": 0.008
       },
       {
-        "minDia": 18,
-        "maxDia": 30,
-        "upper": 0,
-        "lower": -0.021,
+        "minimum_diameter": 18,
+        "maximum_diameter": 30,
+        "upper_deviation": 0,
+        "lower_deviation": -0.021,
         "IT7_mm": 0.021,
-        "IT5_mm": 0.009
+        "IT5": 0.009
       },
       {
-        "minDia": 30,
-        "maxDia": 50,
-        "upper": 0,
-        "lower": -0.025,
+        "minimum_diameter": 30,
+        "maximum_diameter": 50,
+        "upper_deviation": 0,
+        "lower_deviation": -0.025,
         "IT7_mm": 0.025,
-        "IT5_mm": 0.011
+        "IT5": 0.011
       },
       {
-        "minDia": 50,
-        "maxDia": 80,
-        "upper": 0,
-        "lower": -0.03,
+        "minimum_diameter": 50,
+        "maximum_diameter": 80,
+        "upper_deviation": 0,
+        "lower_deviation": -0.03,
         "IT7_mm": 0.03,
-        "IT5_mm": 0.013
+        "IT5": 0.013
       },
       {
-        "minDia": 80,
-        "maxDia": 120,
-        "upper": 0,
-        "lower": -0.035,
+        "minimum_diameter": 80,
+        "maximum_diameter": 120,
+        "upper_deviation": 0,
+        "lower_deviation": -0.035,
         "IT7_mm": 0.035,
-        "IT5_mm": 0.015
+        "IT5": 0.015
       },
       {
-        "minDia": 120,
-        "maxDia": 180,
-        "upper": 0,
-        "lower": -0.04,
+        "minimum_diameter": 120,
+        "maximum_diameter": 180,
+        "upper_deviation": 0,
+        "lower_deviation": -0.04,
         "IT7_mm": 0.04,
-        "IT5_mm": 0.018
+        "IT5": 0.018
       },
       {
-        "minDia": 180,
-        "maxDia": 250,
-        "upper": 0,
-        "lower": -0.046,
+        "minimum_diameter": 180,
+        "maximum_diameter": 250,
+        "upper_deviation": 0,
+        "lower_deviation": -0.046,
         "IT7_mm": 0.046,
-        "IT5_mm": 0.02
+        "IT5": 0.02
       },
       {
-        "minDia": 250,
-        "maxDia": 315,
-        "upper": 0,
-        "lower": -0.052,
+        "minimum_diameter": 250,
+        "maximum_diameter": 315,
+        "upper_deviation": 0,
+        "lower_deviation": -0.052,
         "IT7_mm": 0.052,
-        "IT5_mm": 0.023
+        "IT5": 0.023
       },
       {
-        "minDia": 315,
-        "maxDia": 400,
-        "upper": 0,
-        "lower": -0.057,
+        "minimum_diameter": 315,
+        "maximum_diameter": 400,
+        "upper_deviation": 0,
+        "lower_deviation": -0.057,
         "IT7_mm": 0.057,
-        "IT5_mm": 0.025
+        "IT5": 0.025
       },
       {
-        "minDia": 400,
-        "maxDia": 500,
-        "upper": 0,
-        "lower": -0.063,
+        "minimum_diameter": 400,
+        "maximum_diameter": 500,
+        "upper_deviation": 0,
+        "lower_deviation": -0.063,
         "IT7_mm": 0.063,
-        "IT5_mm": 0.027
+        "IT5": 0.027
       },
       {
-        "minDia": 500,
-        "maxDia": 630,
-        "upper": 0,
-        "lower": -0.07,
+        "minimum_diameter": 500,
+        "maximum_diameter": 630,
+        "upper_deviation": 0,
+        "lower_deviation": -0.07,
         "IT7_mm": 0.07,
-        "IT5_mm": 0.032
+        "IT5": 0.032
       },
       {
-        "minDia": 630,
-        "maxDia": 800,
-        "upper": 0,
-        "lower": -0.08,
+        "minimum_diameter": 630,
+        "maximum_diameter": 800,
+        "upper_deviation": 0,
+        "lower_deviation": -0.08,
         "IT7_mm": 0.08,
-        "IT5_mm": 0.036
+        "IT5": 0.036
       },
       {
-        "minDia": 800,
-        "maxDia": 1000,
-        "upper": 0,
-        "lower": -0.09,
+        "minimum_diameter": 800,
+        "maximum_diameter": 1000,
+        "upper_deviation": 0,
+        "lower_deviation": -0.09,
         "IT7_mm": 0.09,
-        "IT5_mm": 0.04
+        "IT5": 0.04
       }
     ],
     "h8": [
       {
-        "minDia": 0,
-        "maxDia": 3,
-        "upper": 0,
-        "lower": -0.014,
-        "IT8_mm": 0.014,
-        "IT5_mm": 0.004
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": 0,
+        "lower_deviation": -0.014,
+        "IT8": 0.014,
+        "IT5": 0.004
       },
       {
-        "minDia": 3,
-        "maxDia": 6,
-        "upper": 0,
-        "lower": -0.018,
-        "IT8_mm": 0.018,
-        "IT5_mm": 0.005
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": 0,
+        "lower_deviation": -0.018,
+        "IT8": 0.018,
+        "IT5": 0.005
       },
       {
-        "minDia": 6,
-        "maxDia": 10,
-        "upper": 0,
-        "lower": -0.022,
-        "IT8_mm": 0.022,
-        "IT5_mm": 0.006
+        "minimum_diameter": 6,
+        "maximum_diameter": 10,
+        "upper_deviation": 0,
+        "lower_deviation": -0.022,
+        "IT8": 0.022,
+        "IT5": 0.006
       },
       {
-        "minDia": 10,
-        "maxDia": 18,
-        "upper": 0,
-        "lower": -0.027,
-        "IT8_mm": 0.027,
-        "IT5_mm": 0.008
+        "minimum_diameter": 10,
+        "maximum_diameter": 18,
+        "upper_deviation": 0,
+        "lower_deviation": -0.027,
+        "IT8": 0.027,
+        "IT5": 0.008
       },
       {
-        "minDia": 18,
-        "maxDia": 30,
-        "upper": 0,
-        "lower": -0.033,
-        "IT8_mm": 0.033,
-        "IT5_mm": 0.009
+        "minimum_diameter": 18,
+        "maximum_diameter": 30,
+        "upper_deviation": 0,
+        "lower_deviation": -0.033,
+        "IT8": 0.033,
+        "IT5": 0.009
       },
       {
-        "minDia": 30,
-        "maxDia": 50,
-        "upper": 0,
-        "lower": -0.039,
-        "IT8_mm": 0.039,
-        "IT5_mm": 0.011
+        "minimum_diameter": 30,
+        "maximum_diameter": 50,
+        "upper_deviation": 0,
+        "lower_deviation": -0.039,
+        "IT8": 0.039,
+        "IT5": 0.011
       },
       {
-        "minDia": 50,
-        "maxDia": 80,
-        "upper": 0,
-        "lower": -0.046,
-        "IT8_mm": 0.046,
-        "IT5_mm": 0.013
+        "minimum_diameter": 50,
+        "maximum_diameter": 80,
+        "upper_deviation": 0,
+        "lower_deviation": -0.046,
+        "IT8": 0.046,
+        "IT5": 0.013
       },
       {
-        "minDia": 80,
-        "maxDia": 120,
-        "upper": 0,
-        "lower": -0.054,
-        "IT8_mm": 0.054,
-        "IT5_mm": 0.015
+        "minimum_diameter": 80,
+        "maximum_diameter": 120,
+        "upper_deviation": 0,
+        "lower_deviation": -0.054,
+        "IT8": 0.054,
+        "IT5": 0.015
       },
       {
-        "minDia": 120,
-        "maxDia": 180,
-        "upper": 0,
-        "lower": -0.063,
-        "IT8_mm": 0.063,
-        "IT5_mm": 0.018
+        "minimum_diameter": 120,
+        "maximum_diameter": 180,
+        "upper_deviation": 0,
+        "lower_deviation": -0.063,
+        "IT8": 0.063,
+        "IT5": 0.018
       },
       {
-        "minDia": 180,
-        "maxDia": 250,
-        "upper": 0,
-        "lower": -0.072,
-        "IT8_mm": 0.072,
-        "IT5_mm": 0.02
+        "minimum_diameter": 180,
+        "maximum_diameter": 250,
+        "upper_deviation": 0,
+        "lower_deviation": -0.072,
+        "IT8": 0.072,
+        "IT5": 0.02
       },
       {
-        "minDia": 250,
-        "maxDia": 315,
-        "upper": 0,
-        "lower": -0.081,
-        "IT8_mm": 0.081,
-        "IT5_mm": 0.023
+        "minimum_diameter": 250,
+        "maximum_diameter": 315,
+        "upper_deviation": 0,
+        "lower_deviation": -0.081,
+        "IT8": 0.081,
+        "IT5": 0.023
       },
       {
-        "minDia": 315,
-        "maxDia": 400,
-        "upper": 0,
-        "lower": -0.089,
-        "IT8_mm": 0.089,
-        "IT5_mm": 0.025
+        "minimum_diameter": 315,
+        "maximum_diameter": 400,
+        "upper_deviation": 0,
+        "lower_deviation": -0.089,
+        "IT8": 0.089,
+        "IT5": 0.025
       },
       {
-        "minDia": 400,
-        "maxDia": 500,
-        "upper": 0,
-        "lower": -0.097,
-        "IT8_mm": 0.097,
-        "IT5_mm": 0.027
+        "minimum_diameter": 400,
+        "maximum_diameter": 500,
+        "upper_deviation": 0,
+        "lower_deviation": -0.097,
+        "IT8": 0.097,
+        "IT5": 0.027
       },
       {
-        "minDia": 500,
-        "maxDia": 630,
-        "upper": 0,
-        "lower": -0.11,
-        "IT8_mm": 0.11,
-        "IT5_mm": 0.032
+        "minimum_diameter": 500,
+        "maximum_diameter": 630,
+        "upper_deviation": 0,
+        "lower_deviation": -0.11,
+        "IT8": 0.11,
+        "IT5": 0.032
       },
       {
-        "minDia": 630,
-        "maxDia": 800,
-        "upper": 0,
-        "lower": -0.125,
-        "IT8_mm": 0.125,
-        "IT5_mm": 0.036
+        "minimum_diameter": 630,
+        "maximum_diameter": 800,
+        "upper_deviation": 0,
+        "lower_deviation": -0.125,
+        "IT8": 0.125,
+        "IT5": 0.036
       },
       {
-        "minDia": 800,
-        "maxDia": 1000,
-        "upper": 0,
-        "lower": -0.14,
-        "IT8_mm": 0.14,
-        "IT5_mm": 0.04
+        "minimum_diameter": 800,
+        "maximum_diameter": 1000,
+        "upper_deviation": 0,
+        "lower_deviation": -0.14,
+        "IT8": 0.14,
+        "IT5": 0.04
       }
     ],
     "h9": [
       {
-        "minDia": 0,
-        "maxDia": 3,
-        "upper": 0,
-        "lower": -0.025,
-        "IT9_mm": 0.025,
-        "IT5_mm": 0.004
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": 0,
+        "lower_deviation": -0.025,
+        "IT9": 0.025,
+        "IT5": 0.004
       },
       {
-        "minDia": 3,
-        "maxDia": 6,
-        "upper": 0,
-        "lower": -0.03,
-        "IT9_mm": 0.03,
-        "IT5_mm": 0.005
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": 0,
+        "lower_deviation": -0.03,
+        "IT9": 0.03,
+        "IT5": 0.005
       },
       {
-        "minDia": 6,
-        "maxDia": 10,
-        "upper": 0,
-        "lower": -0.036,
-        "IT9_mm": 0.036,
-        "IT5_mm": 0.006
+        "minimum_diameter": 6,
+        "maximum_diameter": 10,
+        "upper_deviation": 0,
+        "lower_deviation": -0.036,
+        "IT9": 0.036,
+        "IT5": 0.006
       },
       {
-        "minDia": 10,
-        "maxDia": 18,
-        "upper": 0,
-        "lower": -0.043,
-        "IT9_mm": 0.043,
-        "IT5_mm": 0.008
+        "minimum_diameter": 10,
+        "maximum_diameter": 18,
+        "upper_deviation": 0,
+        "lower_deviation": -0.043,
+        "IT9": 0.043,
+        "IT5": 0.008
       },
       {
-        "minDia": 18,
-        "maxDia": 30,
-        "upper": 0,
-        "lower": -0.052,
-        "IT9_mm": 0.052,
-        "IT5_mm": 0.009
+        "minimum_diameter": 18,
+        "maximum_diameter": 30,
+        "upper_deviation": 0,
+        "lower_deviation": -0.052,
+        "IT9": 0.052,
+        "IT5": 0.009
       },
       {
-        "minDia": 30,
-        "maxDia": 50,
-        "upper": 0,
-        "lower": -0.062,
-        "IT9_mm": 0.062,
-        "IT5_mm": 0.011
+        "minimum_diameter": 30,
+        "maximum_diameter": 50,
+        "upper_deviation": 0,
+        "lower_deviation": -0.062,
+        "IT9": 0.062,
+        "IT5": 0.011
       },
       {
-        "minDia": 50,
-        "maxDia": 80,
-        "upper": 0,
-        "lower": -0.074,
-        "IT9_mm": 0.074,
-        "IT5_mm": 0.013
+        "minimum_diameter": 50,
+        "maximum_diameter": 80,
+        "upper_deviation": 0,
+        "lower_deviation": -0.074,
+        "IT9": 0.074,
+        "IT5": 0.013
       },
       {
-        "minDia": 80,
-        "maxDia": 120,
-        "upper": 0,
-        "lower": -0.087,
-        "IT9_mm": 0.087,
-        "IT5_mm": 0.015
+        "minimum_diameter": 80,
+        "maximum_diameter": 120,
+        "upper_deviation": 0,
+        "lower_deviation": -0.087,
+        "IT9": 0.087,
+        "IT5": 0.015
       },
       {
-        "minDia": 120,
-        "maxDia": 180,
-        "upper": 0,
-        "lower": -0.1,
-        "IT9_mm": 0.1,
-        "IT5_mm": 0.018
+        "minimum_diameter": 120,
+        "maximum_diameter": 180,
+        "upper_deviation": 0,
+        "lower_deviation": -0.1,
+        "IT9": 0.1,
+        "IT5": 0.018
       },
       {
-        "minDia": 180,
-        "maxDia": 250,
-        "upper": 0,
-        "lower": -0.115,
-        "IT9_mm": 0.115,
-        "IT5_mm": 0.02
+        "minimum_diameter": 180,
+        "maximum_diameter": 250,
+        "upper_deviation": 0,
+        "lower_deviation": -0.115,
+        "IT9": 0.115,
+        "IT5": 0.02
       },
       {
-        "minDia": 250,
-        "maxDia": 315,
-        "upper": 0,
-        "lower": -0.13,
-        "IT9_mm": 0.13,
-        "IT5_mm": 0.023
+        "minimum_diameter": 250,
+        "maximum_diameter": 315,
+        "upper_deviation": 0,
+        "lower_deviation": -0.13,
+        "IT9": 0.13,
+        "IT5": 0.023
       },
       {
-        "minDia": 315,
-        "maxDia": 400,
-        "upper": 0,
-        "lower": -0.14,
-        "IT9_mm": 0.14,
-        "IT5_mm": 0.025
+        "minimum_diameter": 315,
+        "maximum_diameter": 400,
+        "upper_deviation": 0,
+        "lower_deviation": -0.14,
+        "IT9": 0.14,
+        "IT5": 0.025
       },
       {
-        "minDia": 400,
-        "maxDia": 500,
-        "upper": 0,
-        "lower": -0.155,
-        "IT9_mm": 0.155,
-        "IT5_mm": 0.027
+        "minimum_diameter": 400,
+        "maximum_diameter": 500,
+        "upper_deviation": 0,
+        "lower_deviation": -0.155,
+        "IT9": 0.155,
+        "IT5": 0.027
       },
       {
-        "minDia": 500,
-        "maxDia": 630,
-        "upper": 0,
-        "lower": -0.175,
-        "IT9_mm": 0.175,
-        "IT5_mm": 0.032
+        "minimum_diameter": 500,
+        "maximum_diameter": 630,
+        "upper_deviation": 0,
+        "lower_deviation": -0.175,
+        "IT9": 0.175,
+        "IT5": 0.032
       },
       {
-        "minDia": 630,
-        "maxDia": 800,
-        "upper": 0,
-        "lower": -0.2,
-        "IT9_mm": 0.2,
-        "IT5_mm": 0.036
+        "minimum_diameter": 630,
+        "maximum_diameter": 800,
+        "upper_deviation": 0,
+        "lower_deviation": -0.2,
+        "IT9": 0.2,
+        "IT5": 0.036
       },
       {
-        "minDia": 800,
-        "maxDia": 1000,
-        "upper": 0,
-        "lower": -0.23,
-        "IT9_mm": 0.23,
-        "IT5_mm": 0.04
+        "minimum_diameter": 800,
+        "maximum_diameter": 1000,
+        "upper_deviation": 0,
+        "lower_deviation": -0.23,
+        "IT9": 0.23,
+        "IT5": 0.04
       }
     ]
   },
   "shell": {
     "H9": [
       {
-        "minDia": 0,
-        "maxDia": 3,
-        "upper": 0.025,
-        "lower": 0,
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": 0.025,
+        "lower_deviation": 0,
         "IT9": 0.025,
         "IT6": 0.006,
         "IT5": 0.004
       },
       {
-        "minDia": 3,
-        "maxDia": 6,
-        "upper": 0.03,
-        "lower": 0,
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": 0.03,
+        "lower_deviation": 0,
         "IT9": 0.03,
         "IT6": 0.008,
         "IT5": 0.005
       },
       {
-        "minDia": 6,
-        "maxDia": 10,
-        "upper": 0.036,
-        "lower": 0,
+        "minimum_diameter": 6,
+        "maximum_diameter": 10,
+        "upper_deviation": 0.036,
+        "lower_deviation": 0,
         "IT9": 0.036,
         "IT6": 0.009,
         "IT5": 0.006
       },
       {
-        "minDia": 10,
-        "maxDia": 18,
-        "upper": 0.043,
-        "lower": 0,
+        "minimum_diameter": 10,
+        "maximum_diameter": 18,
+        "upper_deviation": 0.043,
+        "lower_deviation": 0,
         "IT9": 0.043,
         "IT6": 0.011,
         "IT5": 0.008
       },
       {
-        "minDia": 18,
-        "maxDia": 30,
-        "upper": 0.052,
-        "lower": 0,
+        "minimum_diameter": 18,
+        "maximum_diameter": 30,
+        "upper_deviation": 0.052,
+        "lower_deviation": 0,
         "IT9": 0.052,
         "IT6": 0.013,
         "IT5": 0.009
       },
       {
-        "minDia": 30,
-        "maxDia": 50,
-        "upper": 0.062,
-        "lower": 0,
+        "minimum_diameter": 30,
+        "maximum_diameter": 50,
+        "upper_deviation": 0.062,
+        "lower_deviation": 0,
         "IT9": 0.062,
         "IT6": 0.016,
         "IT5": 0.011
       },
       {
-        "minDia": 50,
-        "maxDia": 80,
-        "upper": 0.074,
-        "lower": 0,
+        "minimum_diameter": 50,
+        "maximum_diameter": 80,
+        "upper_deviation": 0.074,
+        "lower_deviation": 0,
         "IT9": 0.074,
         "IT6": 0.019,
         "IT5": 0.013
       },
       {
-        "minDia": 80,
-        "maxDia": 120,
-        "upper": 0.087,
-        "lower": 0,
+        "minimum_diameter": 80,
+        "maximum_diameter": 120,
+        "upper_deviation": 0.087,
+        "lower_deviation": 0,
         "IT9": 0.087,
         "IT6": 0.022,
         "IT5": 0.015
       },
       {
-        "minDia": 120,
-        "maxDia": 180,
-        "upper": 0.1,
-        "lower": 0,
+        "minimum_diameter": 120,
+        "maximum_diameter": 180,
+        "upper_deviation": 0.1,
+        "lower_deviation": 0,
         "IT9": 0.1,
         "IT6": 0.025,
         "IT5": 0.018
       },
       {
-        "minDia": 180,
-        "maxDia": 250,
-        "upper": 0.115,
-        "lower": 0,
+        "minimum_diameter": 180,
+        "maximum_diameter": 250,
+        "upper_deviation": 0.115,
+        "lower_deviation": 0,
         "IT9": 0.115,
         "IT6": 0.029,
         "IT5": 0.02
       },
       {
-        "minDia": 250,
-        "maxDia": 315,
-        "upper": 0.13,
-        "lower": 0,
+        "minimum_diameter": 250,
+        "maximum_diameter": 315,
+        "upper_deviation": 0.13,
+        "lower_deviation": 0,
         "IT9": 0.13,
         "IT6": 0.032,
         "IT5": 0.023
       },
       {
-        "minDia": 315,
-        "maxDia": 400,
-        "upper": 0.14,
-        "lower": 0,
+        "minimum_diameter": 315,
+        "maximum_diameter": 400,
+        "upper_deviation": 0.14,
+        "lower_deviation": 0,
         "IT9": 0.14,
         "IT6": 0.036,
         "IT5": 0.025
       },
       {
-        "minDia": 400,
-        "maxDia": 500,
-        "upper": 0.155,
-        "lower": 0,
+        "minimum_diameter": 400,
+        "maximum_diameter": 500,
+        "upper_deviation": 0.155,
+        "lower_deviation": 0,
         "IT9": 0.155,
         "IT6": 0.04,
         "IT5": 0.027
       },
       {
-        "minDia": 500,
-        "maxDia": 630,
-        "upper": 0.175,
-        "lower": 0,
+        "minimum_diameter": 500,
+        "maximum_diameter": 630,
+        "upper_deviation": 0.175,
+        "lower_deviation": 0,
         "IT9": 0.175,
         "IT6": 0.044,
         "IT5": 0.032
       },
       {
-        "minDia": 630,
-        "maxDia": 800,
-        "upper": 0.2,
-        "lower": 0,
+        "minimum_diameter": 630,
+        "maximum_diameter": 800,
+        "upper_deviation": 0.2,
+        "lower_deviation": 0,
         "IT9": 0.2,
         "IT6": 0.05,
         "IT5": 0.036
       },
       {
-        "minDia": 800,
-        "maxDia": 1000,
-        "upper": 0.23,
-        "lower": 0,
+        "minimum_diameter": 800,
+        "maximum_diameter": 1000,
+        "upper_deviation": 0.23,
+        "lower_deviation": 0,
         "IT9": 0.23,
         "IT6": 0.056,
         "IT5": 0.04
@@ -1241,145 +1241,145 @@
 
     "H8": [
       {
-        "minDia": 0,
-        "maxDia": 3,
-        "upper": 0.014,
-        "lower": 0,
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": 0.014,
+        "lower_deviation": 0,
         "IT8": 0.014,
         "IT6": 0.006,
         "IT5": 0.004
       },
       {
-        "minDia": 3,
-        "maxDia": 6,
-        "upper": 0.018,
-        "lower": 0,
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": 0.018,
+        "lower_deviation": 0,
         "IT8": 0.018,
         "IT6": 0.008,
         "IT5": 0.005
       },
       {
-        "minDia": 6,
-        "maxDia": 10,
-        "upper": 0.022,
-        "lower": 0,
+        "minimum_diameter": 6,
+        "maximum_diameter": 10,
+        "upper_deviation": 0.022,
+        "lower_deviation": 0,
         "IT8": 0.022,
         "IT6": 0.009,
         "IT5": 0.006
       },
       {
-        "minDia": 10,
-        "maxDia": 18,
-        "upper": 0.027,
-        "lower": 0,
+        "minimum_diameter": 10,
+        "maximum_diameter": 18,
+        "upper_deviation": 0.027,
+        "lower_deviation": 0,
         "IT8": 0.027,
         "IT6": 0.011,
         "IT5": 0.008
       },
       {
-        "minDia": 18,
-        "maxDia": 30,
-        "upper": 0.033,
-        "lower": 0,
+        "minimum_diameter": 18,
+        "maximum_diameter": 30,
+        "upper_deviation": 0.033,
+        "lower_deviation": 0,
         "IT8": 0.033,
         "IT6": 0.013,
         "IT5": 0.009
       },
       {
-        "minDia": 30,
-        "maxDia": 50,
-        "upper": 0.039,
-        "lower": 0,
+        "minimum_diameter": 30,
+        "maximum_diameter": 50,
+        "upper_deviation": 0.039,
+        "lower_deviation": 0,
         "IT8": 0.039,
         "IT6": 0.016,
         "IT5": 0.011
       },
       {
-        "minDia": 50,
-        "maxDia": 80,
-        "upper": 0.046,
-        "lower": 0,
+        "minimum_diameter": 50,
+        "maximum_diameter": 80,
+        "upper_deviation": 0.046,
+        "lower_deviation": 0,
         "IT8": 0.046,
         "IT6": 0.019,
         "IT5": 0.013
       },
       {
-        "minDia": 80,
-        "maxDia": 120,
-        "upper": 0.054,
-        "lower": 0,
+        "minimum_diameter": 80,
+        "maximum_diameter": 120,
+        "upper_deviation": 0.054,
+        "lower_deviation": 0,
         "IT8": 0.054,
         "IT6": 0.022,
         "IT5": 0.015
       },
       {
-        "minDia": 120,
-        "maxDia": 180,
-        "upper": 0.063,
-        "lower": 0,
+        "minimum_diameter": 120,
+        "maximum_diameter": 180,
+        "upper_deviation": 0.063,
+        "lower_deviation": 0,
         "IT8": 0.063,
         "IT6": 0.025,
         "IT5": 0.018
       },
       {
-        "minDia": 180,
-        "maxDia": 250,
-        "upper": 0.072,
-        "lower": 0,
+        "minimum_diameter": 180,
+        "maximum_diameter": 250,
+        "upper_deviation": 0.072,
+        "lower_deviation": 0,
         "IT8": 0.072,
         "IT6": 0.029,
         "IT5": 0.02
       },
       {
-        "minDia": 250,
-        "maxDia": 315,
-        "upper": 0.081,
-        "lower": 0,
+        "minimum_diameter": 250,
+        "maximum_diameter": 315,
+        "upper_deviation": 0.081,
+        "lower_deviation": 0,
         "IT8": 0.081,
         "IT6": 0.032,
         "IT5": 0.023
       },
       {
-        "minDia": 315,
-        "maxDia": 400,
-        "upper": 0.089,
-        "lower": 0,
+        "minimum_diameter": 315,
+        "maximum_diameter": 400,
+        "upper_deviation": 0.089,
+        "lower_deviation": 0,
         "IT8": 0.089,
         "IT6": 0.036,
         "IT5": 0.025
       },
       {
-        "minDia": 400,
-        "maxDia": 500,
-        "upper": 0.097,
-        "lower": 0,
+        "minimum_diameter": 400,
+        "maximum_diameter": 500,
+        "upper_deviation": 0.097,
+        "lower_deviation": 0,
         "IT8": 0.097,
         "IT6": 0.04,
         "IT5": 0.027
       },
       {
-        "minDia": 500,
-        "maxDia": 630,
-        "upper": 0.11,
-        "lower": 0,
+        "minimum_diameter": 500,
+        "maximum_diameter": 630,
+        "upper_deviation": 0.11,
+        "lower_deviation": 0,
         "IT8": 0.11,
         "IT6": 0.044,
         "IT5": 0.032
       },
       {
-        "minDia": 630,
-        "maxDia": 800,
-        "upper": 0.125,
-        "lower": 0,
+        "minimum_diameter": 630,
+        "maximum_diameter": 800,
+        "upper_deviation": 0.125,
+        "lower_deviation": 0,
         "IT8": 0.125,
         "IT6": 0.05,
         "IT5": 0.036
       },
       {
-        "minDia": 800,
-        "maxDia": 1000,
-        "upper": 0.14,
-        "lower": 0,
+        "minimum_diameter": 800,
+        "maximum_diameter": 1000,
+        "upper_deviation": 0.14,
+        "lower_deviation": 0,
         "IT8": 0.14,
         "IT6": 0.056,
         "IT5": 0.04
@@ -1388,145 +1388,145 @@
 
     "H7": [
       {
-        "minDia": 0,
-        "maxDia": 3,
-        "upper": 0.01,
-        "lower": 0,
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": 0.01,
+        "lower_deviation": 0,
         "IT7": 0.01,
         "IT6": 0.006,
         "IT5": 0.004
       },
       {
-        "minDia": 3,
-        "maxDia": 6,
-        "upper": 0.012,
-        "lower": 0,
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": 0.012,
+        "lower_deviation": 0,
         "IT7": 0.012,
         "IT6": 0.008,
         "IT5": 0.005
       },
       {
-        "minDia": 6,
-        "maxDia": 10,
-        "upper": 0.015,
-        "lower": 0,
+        "minimum_diameter": 6,
+        "maximum_diameter": 10,
+        "upper_deviation": 0.015,
+        "lower_deviation": 0,
         "IT7": 0.015,
         "IT6": 0.009,
         "IT5": 0.006
       },
       {
-        "minDia": 10,
-        "maxDia": 18,
-        "upper": 0.018,
-        "lower": 0,
+        "minimum_diameter": 10,
+        "maximum_diameter": 18,
+        "upper_deviation": 0.018,
+        "lower_deviation": 0,
         "IT7": 0.018,
         "IT6": 0.011,
         "IT5": 0.008
       },
       {
-        "minDia": 18,
-        "maxDia": 30,
-        "upper": 0.021,
-        "lower": 0,
+        "minimum_diameter": 18,
+        "maximum_diameter": 30,
+        "upper_deviation": 0.021,
+        "lower_deviation": 0,
         "IT7": 0.021,
         "IT6": 0.013,
         "IT5": 0.009
       },
       {
-        "minDia": 30,
-        "maxDia": 50,
-        "upper": 0.025,
-        "lower": 0,
+        "minimum_diameter": 30,
+        "maximum_diameter": 50,
+        "upper_deviation": 0.025,
+        "lower_deviation": 0,
         "IT7": 0.025,
         "IT6": 0.016,
         "IT5": 0.011
       },
       {
-        "minDia": 50,
-        "maxDia": 80,
-        "upper": 0.03,
-        "lower": 0,
+        "minimum_diameter": 50,
+        "maximum_diameter": 80,
+        "upper_deviation": 0.03,
+        "lower_deviation": 0,
         "IT7": 0.03,
         "IT6": 0.019,
         "IT5": 0.013
       },
       {
-        "minDia": 80,
-        "maxDia": 120,
-        "upper": 0.035,
-        "lower": 0,
+        "minimum_diameter": 80,
+        "maximum_diameter": 120,
+        "upper_deviation": 0.035,
+        "lower_deviation": 0,
         "IT7": 0.035,
         "IT6": 0.022,
         "IT5": 0.015
       },
       {
-        "minDia": 120,
-        "maxDia": 180,
-        "upper": 0.04,
-        "lower": 0,
+        "minimum_diameter": 120,
+        "maximum_diameter": 180,
+        "upper_deviation": 0.04,
+        "lower_deviation": 0,
         "IT7": 0.04,
         "IT6": 0.025,
         "IT5": 0.018
       },
       {
-        "minDia": 180,
-        "maxDia": 250,
-        "upper": 0.046,
-        "lower": 0,
+        "minimum_diameter": 180,
+        "maximum_diameter": 250,
+        "upper_deviation": 0.046,
+        "lower_deviation": 0,
         "IT7": 0.046,
         "IT6": 0.029,
         "IT5": 0.02
       },
       {
-        "minDia": 250,
-        "maxDia": 315,
-        "upper": 0.052,
-        "lower": 0,
+        "minimum_diameter": 250,
+        "maximum_diameter": 315,
+        "upper_deviation": 0.052,
+        "lower_deviation": 0,
         "IT7": 0.052,
         "IT6": 0.032,
         "IT5": 0.023
       },
       {
-        "minDia": 315,
-        "maxDia": 400,
-        "upper": 0.057,
-        "lower": 0,
+        "minimum_diameter": 315,
+        "maximum_diameter": 400,
+        "upper_deviation": 0.057,
+        "lower_deviation": 0,
         "IT7": 0.057,
         "IT6": 0.036,
         "IT5": 0.025
       },
       {
-        "minDia": 400,
-        "maxDia": 500,
-        "upper": 0.063,
-        "lower": 0,
+        "minimum_diameter": 400,
+        "maximum_diameter": 500,
+        "upper_deviation": 0.063,
+        "lower_deviation": 0,
         "IT7": 0.063,
         "IT6": 0.04,
         "IT5": 0.027
       },
       {
-        "minDia": 500,
-        "maxDia": 630,
-        "upper": 0.07,
-        "lower": 0,
+        "minimum_diameter": 500,
+        "maximum_diameter": 630,
+        "upper_deviation": 0.07,
+        "lower_deviation": 0,
         "IT7": 0.07,
         "IT6": 0.044,
         "IT5": 0.032
       },
       {
-        "minDia": 630,
-        "maxDia": 800,
-        "upper": 0.08,
-        "lower": 0,
+        "minimum_diameter": 630,
+        "maximum_diameter": 800,
+        "upper_deviation": 0.08,
+        "lower_deviation": 0,
         "IT7": 0.08,
         "IT6": 0.05,
         "IT5": 0.036
       },
       {
-        "minDia": 800,
-        "maxDia": 1000,
-        "upper": 0.09,
-        "lower": 0,
+        "minimum_diameter": 800,
+        "maximum_diameter": 1000,
+        "upper_deviation": 0.09,
+        "lower_deviation": 0,
         "IT7": 0.09,
         "IT6": 0.056,
         "IT5": 0.04
