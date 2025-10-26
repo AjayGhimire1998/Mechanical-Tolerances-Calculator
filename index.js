@@ -10,7 +10,7 @@ const tolerances = require("./Tolerances.json");
  * @param {String} materialType
  * @returns {Object} An object containing the relevant tolerances or an error message.
  */
-function getAllTolerances(materialType) {
+function getAllTolerancesFor(materialType) {
   if (typeof materialType !== "string") {
     return { error: "Material type must be a string." };
   }
@@ -25,11 +25,11 @@ function getAllTolerances(materialType) {
 
   const trimmedMaterialType = materialType.trim().toLowerCase();
   if (trimmedMaterialType.includes("housing")) {
-    return { housingBoresTolerances: tolerances["housingBores"] };
+    return { type: "housing bore", specifications: tolerances["housingBores"] };
   } else if (trimmedMaterialType.includes("shaft")) {
-    return { shaftTolerances: tolerances["shafts"] };
+    return { type: "shaft", specifications: tolerances["shafts"] };
   } else if (trimmedMaterialType.includes("shell")) {
-    return { shellBoreTolerances: tolerances["shell"] };
+    return { type: "shell", specifications: tolerances["shell"] };
   } else {
     return {
       error: `Unknown material type: ${materialType}. Valid types are 'housing', 'shaft', or 'shell'.`,
@@ -37,4 +37,4 @@ function getAllTolerances(materialType) {
   }
 }
 
-module.exports = getAllTolerances;
+module.exports = { getAllTolerancesFor };
