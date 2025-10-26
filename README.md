@@ -20,7 +20,7 @@ npm install mechanical-tolerance-calculator
 const { getAllTolerancesFor } = require("mechanical-tolerance-calculator");
 
 // ES module
-// import { calculateTolerance } from "mechanical-tolerance-calculator";
+// import { getAllTolerancesFor } from "mechanical-tolerance-calculator";
 
 // Example: Housing Bore Toelrances
 const housingTolerances = getAllTolerancesFor("housing");
