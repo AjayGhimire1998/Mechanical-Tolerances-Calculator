@@ -10,7 +10,7 @@ const tolerances = require("./Tolerances.json");
  * @param {String} materialType
  * @returns {Object} An object containing the relevant tolerances or an error message.
  */
-function getAllTolerancesFor(materialType, specification = "") {
+function getAllTolerancesFor(materialType) {
   // Validate input as string. If not a string, return error
   if (typeof materialType !== "string") {
     return { error: "Material type must be a string." }; // early return with error message
@@ -42,7 +42,66 @@ function getAllTolerancesFor(materialType, specification = "") {
   }
 }
 
-function parseNominalFromMeasurement(measurement) {
+/**
+ *  Returns Camco Standard specification and tolerances for the given material type.
+ *  @description
+ * The function checks the provided material type string to determine
+ * which category of camco standard tolerances to return. It supports 'housing', 'shaft',
+ * and 'shell' as valid material types. If the input is invalid or does not
+ * match any known category, an error message is returned.
+ * @param {String} materialType
+ * @returns {Object} An object containing the relevant tolerances or an error message.
+ */
+function getCamcoStandardTolerancesFor(materialType) {
+  if (typeof materialType != "string") {
+    return { error: "Material type must be a string." }; // early return with error message
+  }
+
+  if (
+    materialType == undefined ||
+    materialType == null ||
+    materialType.trim() === ""
+  ) {
+    return { error: "Material type is required and cannot be empty." };
+  }
+
+  const trimmedMaterialType = materialType.trim().toLowerCase();
+
+  if (trimmedMaterialType.includes("housing")) {
+    return {
+      type: "housing bore",
+      specification: tolerances["housingBores"]["H8"],
+    };
+  } else if (trimmedMaterialType.includes("shell")) {
+    return { type: "shell bore", specification: tolerances["shell"]["H9"] };
+  } else if (trimmedMaterialType.includes("shaft")) {
+    return { type: "shaft", specification: tolerances["shaft"]["h9"] };
+  } else {
+    return {
+      error: `Unknown material type: ${materialType}. Valid types are 'housing', 'shaft', or 'shell'.`,
+    };
+  }
+}
+
+function convertMaterialToExecutableType(materialType) {}
+
+function validateMaterialType(materialType) {
+  if (typeof materialType != "string") {
+    return { error: "Material type must be a string." }; // early return with error message
+  }
+
+  if (
+    materialType == undefined ||
+    materialType == null ||
+    materialType.trim() === ""
+  ) {
+    return { error: "Material type is required and cannot be empty." };
+  }
+
+  return materialType;
+}
+
+function parseNominalFromMeasurement(measurement, materialType) {
   const nominalString = measurement.toString();
   let nominal = ""; // initialize empty string
   for (let index = 0; index < nominalString.length; index++) {
@@ -54,28 +113,9 @@ function parseNominalFromMeasurement(measurement) {
   return parseInt(nominal); // convert to integer and return
 }
 
-function checkOneMeasurementFor(materialType, measurement) {
-  const allTolerances = getAllTolerancesFor(materialType);
-  if (allTolerances.error) {
-    return allTolerances; // return error if material type is invalid
-  }
-  let nominal = parseNominalFromMeasurement(measurement);
+// function checkOneMeasurementFor(materialType, measurement) {}
 
-  Object.keys(allTolerances.specifications).forEach((spec) => {
-    const toleranceArray = allTolerances.specifications[spec];
-    toleranceArray.forEach((range) => {
-      if (
-        nominal >= range.minimum_diameter &&
-        nominal <= range.maximum_diameter
-      ) {
-        console.log(
-          `For measurement ${measurement} (nominal: ${nominal}), spec ${spec}:`
-        );
-        console.log(`  Upper Deviation: ${range.upper_deviation} mm`);
-        console.log(`  Lower Deviation: ${range.lower_deviation} mm`);
-      }
-    });
-  });
-}
-
-module.exports = { getAllTolerancesFor, checkOneMeasurementFor };
+module.exports = {
+  getAllTolerancesFor,
+  getCamcoStandardTolerancesFor,
+};
