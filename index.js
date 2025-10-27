@@ -113,4 +113,5 @@ function parseNominalFromMeasurement(measurement) {
 module.exports = {
   getAllTolerancesFor,
   getCamcoStandardTolerancesFor,
+  parseNominalFromMeasurement,
 };
