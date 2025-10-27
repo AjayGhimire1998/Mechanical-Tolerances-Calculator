@@ -10,7 +10,7 @@ const tolerances = require("./Tolerances.json");
  * @param {String} materialType
  * @returns {Object} An object containing the relevant tolerances or an error message.
  */
-function getAllTolerancesFor(materialType) {
+function getAllTolerancesFor(materialType, specification = "") {
   // Validate input as string. If not a string, return error
   if (typeof materialType !== "string") {
     return { error: "Material type must be a string." }; // early return with error message
