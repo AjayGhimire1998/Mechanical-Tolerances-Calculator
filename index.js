@@ -16,13 +16,13 @@ function getAllTolerancesFor(materialType) {
   const trimmedMaterialType = validatedMaterialType.trim().toLowerCase(); // normalize input
   if (trimmedMaterialType.includes("housing")) {
     // includes to allow variations like "housing bore"
-    return { type: "housing bore", specifications: tolerances["housingBores"] }; // return relevant tolerances
+    return returnTolerancesFor("housingBores"); // return relevant tolerances
   } else if (trimmedMaterialType.includes("shaft")) {
     // includes to allow variations like "shaft rod"
-    return { type: "shaft", specifications: tolerances["shafts"] }; // return relevant tolerances
+    return returnTolerancesFor("shafts"); // return relevant tolerances
   } else if (trimmedMaterialType.includes("shell")) {
     // includes to allow variations like "shell bore"
-    return { type: "shell bore", specifications: tolerances["shell"] }; // return relevant tolerances
+    return returnTolerancesFor("shellBores"); // return relevant tolerances
   } else {
     return {
       error: `Unknown material type: ${materialType}. Valid types are 'housing', 'shaft', or 'shell'.`, // error for invalid typefac
@@ -46,11 +46,11 @@ function getCamcoStandardTolerancesFor(materialType) {
   const trimmedMaterialType = validatedMaterialType.trim().toLowerCase();
 
   if (trimmedMaterialType.includes("housing")) {
-    return returnCamcoTolerancesFor("housingBores", "H8");
+    return returnTolerancesFor("housingBores", "H8");
   } else if (trimmedMaterialType.includes("shell")) {
-    return returnCamcoTolerancesFor("shellBores", "H9");
+    return returnTolerancesFor("shellBores", "H9");
   } else if (trimmedMaterialType.includes("shaft")) {
-    return returnCamcoTolerancesFor("shafts", "h9");
+    return returnTolerancesFor("shafts", "h9");
   } else {
     return {
       error: `Unknown material type: ${materialType}. Valid types are 'housing', 'shaft', or 'shell'.`,
@@ -58,32 +58,9 @@ function getCamcoStandardTolerancesFor(materialType) {
   }
 }
 
-/**
- * Validate a material type value.
- * @description
- * Checks that the provided value is a non-empty string (not undefined, null,
- * or whitespace-only). If validation fails, an object with an `error` message
- * is returned; otherwise the original string value is returned.
- *
- * @param {string} materialType - The material type to validate.
- * @returns {string|{error: string}} The original materialType string when valid,
- * or an object with an `error` property describing the validation failure.
- *
- * @example
- * // returns "Steel"
- * validateMaterialType("Steel");
- *
- * @example
- * // returns { error: "Material type must be a string." }
- * validateMaterialType(123);
- *
- * @example
- * // returns { error: "Material type is required and cannot be empty." }
- * validateMaterialType("   ");
- */
 function validateMaterialType(materialType) {
   if (typeof materialType != "string") {
-    return { error: "Material type must be a string." }; // early return with error message
+    return { error: "Material type must be a string." };
   }
 
   if (
@@ -97,24 +74,29 @@ function validateMaterialType(materialType) {
   return materialType;
 }
 
-function returnCamcoTolerancesFor(executableMaterialType, spec) {
-  const allTolerances = getAllTolerancesFor(executableMaterialType);
-  console.log(Object.keys(allTolerances["specifications"]));
-
-  if (!Object.keys(allTolerances["specifications"]).includes(spec)) {
+function returnTolerancesFor(executableMaterialType, spec = "") {
+  if (spec) {
+    const allTolerances = tolerances[executableMaterialType];
+    if (!Object.keys(allTolerances).includes(spec)) {
+      return {
+        error: `Currently available specifications are ${Object.keys(
+          allTolerances
+        )}`,
+      };
+    }
     return {
-      error: `Currently available specifications are ${Object.keys(
-        allTolerances["specifications"]
-      )}`,
+      type: executableMaterialType,
+      specification: tolerances[executableMaterialType][spec],
     };
   }
+
   return {
     type: executableMaterialType,
-    specification: tolerances[executableMaterialType][spec],
+    specifications: tolerances[executableMaterialType],
   };
 }
 
-function parseNominalFromMeasurement(measurement, materialType) {
+function parseNominalFromMeasurement(measurement) {
   const nominalString = measurement.toString();
   let nominal = ""; // initialize empty string
   for (let index = 0; index < nominalString.length; index++) {
