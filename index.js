@@ -98,20 +98,38 @@ function returnTolerancesFor(executableMaterialType, spec = "") {
 
 function parseNominalFromMeasurement(measurement) {
   const nominalString = measurement.toString();
-  let nominal = ""; // initialize empty string
+  let nominal = "";
   for (let index = 0; index < nominalString.length; index++) {
     if (nominalString[index] === ".") {
-      break; // stop at decimal point
+      break;
     }
-    nominal += nominalString[index]; // append character to nominal
+    nominal += nominalString[index];
   }
-  return parseInt(nominal); // convert to integer and return
+  return parseInt(nominal);
 }
 
-// function checkOneMeasurementFor(materialType, measurement) {}
+function checkOneMeasurementFor(materialType, measurement) {
+  const camcoStandardTolerances = getCamcoStandardTolerancesFor(materialType);
+  let nominal = parseNominalFromMeasurement(measurement);
+  let matchedSpec = [];
+  if (camcoStandardTolerances.type === "shafts") {
+    const shaftNominal = nominal + 1;
+    const specs = camcoStandardTolerances["specification"];
+    Array.from(specs).forEach((spec) => {
+      if (nominal > spec.minimum_diameter && nominal <= spec.maximum_diameter) {
+        matchedSpec = spec;
+      }
+    });
+    console.log(shaftNominal);
+  }
+  console.log(nominal);
+
+  console.log(matchedSpec);
+}
 
 module.exports = {
   getAllTolerancesFor,
   getCamcoStandardTolerancesFor,
   parseNominalFromMeasurement,
+  checkOneMeasurementFor,
 };
