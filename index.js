@@ -123,6 +123,9 @@ function checkOneMeasurementFor(materialType, measurement) {
         matchedSpec = spec;
       }
     });
+
+    const check = Number(matchedSpec.upper_deviation).toFixed(3);
+    console.log(check);
   }
   console.log(nominal);
 
