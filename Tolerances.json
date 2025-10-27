@@ -1091,7 +1091,7 @@
       }
     ]
   },
-  "shell": {
+  "shellBores": {
     "H9": [
       {
         "minimum_diameter": 0,

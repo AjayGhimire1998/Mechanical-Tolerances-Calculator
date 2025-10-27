@@ -7,25 +7,13 @@ const tolerances = require("./Tolerances.json");
  * which category of tolerances to return. It supports 'housing', 'shaft',
  * and 'shell' as valid material types. If the input is invalid or does not
  * match any known category, an error message is returned.
- * @param {String} materialType
- * @returns {Object} An object containing the relevant tolerances or an error message.
+ * @param {string} materialType
+ * @returns {object} An object containing the relevant tolerances or an error message.
  */
 function getAllTolerancesFor(materialType) {
-  // Validate input as string. If not a string, return error
-  if (typeof materialType !== "string") {
-    return { error: "Material type must be a string." }; // early return with error message
-  }
+  const validatedMaterialType = validateMaterialType(materialType);
 
-  // Validate input is not empty,null or undefined or only whitespace
-  if (
-    materialType === undefined ||
-    materialType === null ||
-    materialType.trim() === ""
-  ) {
-    return { error: "Material type is required and cannot be empty." }; // early return with error message
-  }
-
-  const trimmedMaterialType = materialType.trim().toLowerCase(); // normalize input
+  const trimmedMaterialType = validatedMaterialType.trim().toLowerCase(); // normalize input
   if (trimmedMaterialType.includes("housing")) {
     // includes to allow variations like "housing bore"
     return { type: "housing bore", specifications: tolerances["housingBores"] }; // return relevant tolerances
@@ -43,39 +31,26 @@ function getAllTolerancesFor(materialType) {
 }
 
 /**
- *  Returns Camco Standard specification and tolerances for the given material type.
- *  @description
+ * Returns Camco Standard specification and tolerances for the given material type.
+ * @description
  * The function checks the provided material type string to determine
  * which category of camco standard tolerances to return. It supports 'housing', 'shaft',
  * and 'shell' as valid material types. If the input is invalid or does not
  * match any known category, an error message is returned.
- * @param {String} materialType
- * @returns {Object} An object containing the relevant tolerances or an error message.
+ * @param {string} materialType
+ * @returns {object} An object containing the relevant tolerances or an error message.
  */
 function getCamcoStandardTolerancesFor(materialType) {
-  if (typeof materialType != "string") {
-    return { error: "Material type must be a string." }; // early return with error message
-  }
+  const validatedMaterialType = validateMaterialType(materialType);
 
-  if (
-    materialType == undefined ||
-    materialType == null ||
-    materialType.trim() === ""
-  ) {
-    return { error: "Material type is required and cannot be empty." };
-  }
-
-  const trimmedMaterialType = materialType.trim().toLowerCase();
+  const trimmedMaterialType = validatedMaterialType.trim().toLowerCase();
 
   if (trimmedMaterialType.includes("housing")) {
-    return {
-      type: "housing bore",
-      specification: tolerances["housingBores"]["H8"],
-    };
+    return returnCamcoTolerancesFor("housingBores", "H8");
   } else if (trimmedMaterialType.includes("shell")) {
-    return { type: "shell bore", specification: tolerances["shell"]["H9"] };
+    return returnCamcoTolerancesFor("shellBores", "H9");
   } else if (trimmedMaterialType.includes("shaft")) {
-    return { type: "shaft", specification: tolerances["shaft"]["h9"] };
+    return returnCamcoTolerancesFor("shafts", "h9");
   } else {
     return {
       error: `Unknown material type: ${materialType}. Valid types are 'housing', 'shaft', or 'shell'.`,
@@ -83,8 +58,29 @@ function getCamcoStandardTolerancesFor(materialType) {
   }
 }
 
-function convertMaterialToExecutableType(materialType) {}
-
+/**
+ * Validate a material type value.
+ * @description
+ * Checks that the provided value is a non-empty string (not undefined, null,
+ * or whitespace-only). If validation fails, an object with an `error` message
+ * is returned; otherwise the original string value is returned.
+ *
+ * @param {string} materialType - The material type to validate.
+ * @returns {string|{error: string}} The original materialType string when valid,
+ * or an object with an `error` property describing the validation failure.
+ *
+ * @example
+ * // returns "Steel"
+ * validateMaterialType("Steel");
+ *
+ * @example
+ * // returns { error: "Material type must be a string." }
+ * validateMaterialType(123);
+ *
+ * @example
+ * // returns { error: "Material type is required and cannot be empty." }
+ * validateMaterialType("   ");
+ */
 function validateMaterialType(materialType) {
   if (typeof materialType != "string") {
     return { error: "Material type must be a string." }; // early return with error message
@@ -99,6 +95,23 @@ function validateMaterialType(materialType) {
   }
 
   return materialType;
+}
+
+function returnCamcoTolerancesFor(executableMaterialType, spec) {
+  const allTolerances = getAllTolerancesFor(executableMaterialType);
+  console.log(Object.keys(allTolerances["specifications"]));
+
+  if (!Object.keys(allTolerances["specifications"]).includes(spec)) {
+    return {
+      error: `Currently available specifications are ${Object.keys(
+        allTolerances["specifications"]
+      )}`,
+    };
+  }
+  return {
+    type: executableMaterialType,
+    specification: tolerances[executableMaterialType][spec],
+  };
 }
 
 function parseNominalFromMeasurement(measurement, materialType) {
