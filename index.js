@@ -111,16 +111,18 @@ function parseNominalFromMeasurement(measurement) {
 function checkOneMeasurementFor(materialType, measurement) {
   const camcoStandardTolerances = getCamcoStandardTolerancesFor(materialType);
   let nominal = parseNominalFromMeasurement(measurement);
-  let matchedSpec = [];
+  let matchedSpec = {};
   if (camcoStandardTolerances.type === "shafts") {
     const shaftNominal = nominal + 1;
     const specs = camcoStandardTolerances["specification"];
     Array.from(specs).forEach((spec) => {
-      if (nominal > spec.minimum_diameter && nominal <= spec.maximum_diameter) {
+      if (
+        shaftNominal > spec.minimum_diameter &&
+        shaftNominal <= spec.maximum_diameter
+      ) {
         matchedSpec = spec;
       }
     });
-    console.log(shaftNominal);
   }
   console.log(nominal);
 
