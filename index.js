@@ -116,6 +116,10 @@ function parseNominalFromMeasurement(measurement, materialType) {
 function checkOneMeasurementFor(materialType, measurement) {
   const camcoStandardTolerances = getCamcoStandardTolerancesFor(materialType);
 
+  if (camcoStandardTolerances.error) {
+    return camcoStandardTolerances;
+  }
+
   let matchedSpec = {};
   let meetsSpec = false;
   let meetsTolerance = false;
@@ -168,11 +172,107 @@ function checkOneMeasurementFor(materialType, measurement) {
         parseStringFloat(computedBounds.lowerBound) &&
       parseStringFloat(measurement) <=
         parseStringFloat(computedBounds.upperBound);
-
+    meetsTolerance = meetsSpec;
     return {
       measurement: parseStringFloat(measurement),
       specification: "h9",
       IT_grade: "IT5",
+      computed_specification_bounds: computedBounds,
+      uncomputed_specification_bounds: uncomputedBounds,
+
+      meet_specification: meetsSpec,
+      meets_IT_tolerance: meetsTolerance,
+    };
+  }
+
+  if (camcoStandardTolerances.type === "housingBores") {
+    let nominal = parseNominalFromMeasurement(measurement, "housingBores");
+    const specs = camcoStandardTolerances["specification"];
+    Array.from(specs).forEach((spec) => {
+      if (nominal >= spec.minimum_diameter && nominal < spec.maximum_diameter) {
+        matchedSpec = spec;
+      }
+    });
+
+    computedBounds.upperBound = parseComputedBound(
+      nominal,
+      matchedSpec.upper_deviation,
+      3
+    );
+    computedBounds.lowerBound = parseComputedBound(
+      nominal,
+      matchedSpec.lower_deviation,
+      3
+    );
+
+    uncomputedBounds.upperBound = parseUncomputedBound(
+      nominal,
+      matchedSpec.upper_deviation
+    );
+
+    uncomputedBounds.lowerBound = parseUncomputedBound(
+      nominal,
+      matchedSpec.lower_deviation
+    );
+
+    meetsSpec =
+      parseStringFloat(measurement) >=
+        parseStringFloat(computedBounds.lowerBound) &&
+      parseStringFloat(measurement) <=
+        parseStringFloat(computedBounds.upperBound);
+    meetsTolerance = meetsSpec;
+    return {
+      measurement: parseStringFloat(measurement),
+      specification: "H8",
+      IT_grade: "IT6",
+      computed_specification_bounds: computedBounds,
+      uncomputed_specification_bounds: uncomputedBounds,
+
+      meet_specification: meetsSpec,
+      meets_IT_tolerance: meetsTolerance,
+    };
+  }
+
+  if (camcoStandardTolerances.type === "shellBores") {
+    let nominal = parseNominalFromMeasurement(measurement, "shellBores");
+    const specs = camcoStandardTolerances["specification"];
+    Array.from(specs).forEach((spec) => {
+      if (nominal >= spec.minimum_diameter && nominal < spec.maximum_diameter) {
+        matchedSpec = spec;
+      }
+    });
+
+    computedBounds.upperBound = parseComputedBound(
+      nominal,
+      matchedSpec.upper_deviation,
+      3
+    );
+    computedBounds.lowerBound = parseComputedBound(
+      nominal,
+      matchedSpec.lower_deviation,
+      3
+    );
+
+    uncomputedBounds.upperBound = parseUncomputedBound(
+      nominal,
+      matchedSpec.upper_deviation
+    );
+
+    uncomputedBounds.lowerBound = parseUncomputedBound(
+      nominal,
+      matchedSpec.lower_deviation
+    );
+
+    meetsSpec =
+      parseStringFloat(measurement) >=
+        parseStringFloat(computedBounds.lowerBound) &&
+      parseStringFloat(measurement) <=
+        parseStringFloat(computedBounds.upperBound);
+    meetsTolerance = meetsSpec;
+    return {
+      measurement: parseStringFloat(measurement),
+      specification: "H9",
+      IT_grade: "IT6",
       computed_specification_bounds: computedBounds,
       uncomputed_specification_bounds: uncomputedBounds,
 
