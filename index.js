@@ -96,21 +96,26 @@ function returnTolerancesFor(executableMaterialType, spec = "") {
   };
 }
 
-function parseNominalFromMeasurement(measurement) {
-  const nominalString = measurement.toString();
-  let nominal = "";
-  for (let index = 0; index < nominalString.length; index++) {
-    if (nominalString[index] === ".") {
-      break;
-    }
-    nominal += nominalString[index];
+function parseNominalFromMeasurement(measurement, materialType) {
+  // For shafts: upper_deviation is 0, so measurement ≤ nominal
+  // Therefore, nominal must be ceiling of measurement
+  if (materialType === "shafts") {
+    return Math.ceil(measurement);
   }
-  return parseInt(nominal);
+
+  // For bores: lower_deviation is 0, so measurement ≥ nominal
+  // Therefore, nominal must be floor of measurement
+  if (materialType === "housingBores" || materialType === "shellBores") {
+    return Math.floor(measurement);
+  }
+
+  // Default: round to nearest
+  return Math.round(measurement);
 }
 
 function checkOneMeasurementFor(materialType, measurement) {
   const camcoStandardTolerances = getCamcoStandardTolerancesFor(materialType);
-  let nominal = parseNominalFromMeasurement(measurement);
+
   let matchedSpec = {};
   let meetsSpec = false;
   let meetsTolerance = false;
@@ -125,7 +130,8 @@ function checkOneMeasurementFor(materialType, measurement) {
   };
 
   if (camcoStandardTolerances.type === "shafts") {
-    const shaftNominal = nominalForShaft(nominal);
+    let nominal = parseNominalFromMeasurement(measurement, "shafts");
+    const shaftNominal = nominal;
     const specs = camcoStandardTolerances["specification"];
     Array.from(specs).forEach((spec) => {
       if (
@@ -163,16 +169,17 @@ function checkOneMeasurementFor(materialType, measurement) {
       parseStringFloat(measurement) <=
         parseStringFloat(computedBounds.upperBound);
 
-    console.log("upper: ", computedBounds.upperBound);
-    console.log("lower: ", computedBounds.lowerBound);
-    console.log("upper: ", uncomputedBounds.upperBound);
-    console.log("lower: ", uncomputedBounds.lowerBound);
-    console.log("meetsSpec: ", meetsSpec);
-  }
-}
+    return {
+      measurement: parseStringFloat(measurement),
+      specification: "h9",
+      IT_grade: "IT5",
+      computed_specification_bounds: computedBounds,
+      uncomputed_specification_bounds: uncomputedBounds,
 
-function nominalForShaft(nominal) {
-  return nominal + 1;
+      meet_specification: meetsSpec,
+      meets_IT_tolerance: meetsTolerance,
+    };
+  }
 }
 
 function parseComputedBound(base, value, decimalCount) {
