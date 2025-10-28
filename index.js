@@ -112,8 +112,12 @@ function checkOneMeasurementFor(materialType, measurement) {
   const camcoStandardTolerances = getCamcoStandardTolerancesFor(materialType);
   let nominal = parseNominalFromMeasurement(measurement);
   let matchedSpec = {};
+  let meetsSpec = false;
+  let meetsTolerance = false;
+  let upperBound;
+  let lowerBound;
   if (camcoStandardTolerances.type === "shafts") {
-    const shaftNominal = nominal + 1;
+    const shaftNominal = nominalForShaft(nominal);
     const specs = camcoStandardTolerances["specification"];
     Array.from(specs).forEach((spec) => {
       if (
@@ -124,12 +128,39 @@ function checkOneMeasurementFor(materialType, measurement) {
       }
     });
 
-    const check = Number(matchedSpec.upper_deviation).toFixed(3);
-    console.log(check);
-  }
-  console.log(nominal);
+    upperBound = shaftNominal + parseStringFloat(matchedSpec.upper_deviation);
+    lowerBound = shaftNominal + parseStringFloat(matchedSpec.lower_deviation);
 
-  console.log(matchedSpec);
+    console.log("upper: ", upperBound.toFixed(3));
+    console.log("lower: ", lowerBound.toFixed(3));
+  }
+}
+
+function nominalForShaft(nominal) {
+  return nominal + 1;
+}
+
+/**
+ * Converts string float values to actual float numbers
+ * @param {string} value - The string representation of a float number
+ * @returns {number} - The parsed float number
+ */
+function parseStringFloat(value) {
+  // Handle edge cases
+  if (value === null || value === undefined) {
+    return 0;
+  }
+
+  // If it's already a number, return it
+  if (typeof value === "number") {
+    return value;
+  }
+
+  // Convert string to float
+  const parsed = parseFloat(value);
+
+  // Return 0 if parsing fails (NaN)
+  return isNaN(parsed) ? 0 : parsed;
 }
 
 module.exports = {
