@@ -114,8 +114,16 @@ function checkOneMeasurementFor(materialType, measurement) {
   let matchedSpec = {};
   let meetsSpec = false;
   let meetsTolerance = false;
-  let upperBound;
-  let lowerBound;
+
+  let computedBounds = {
+    upperBound,
+    lowerBound,
+  };
+  let uncomputedUpperBound = {
+    upperBound,
+    lowerBound,
+  };
+
   if (camcoStandardTolerances.type === "shafts") {
     const shaftNominal = nominalForShaft(nominal);
     const specs = camcoStandardTolerances["specification"];
@@ -128,16 +136,28 @@ function checkOneMeasurementFor(materialType, measurement) {
       }
     });
 
-    upperBound = shaftNominal + parseStringFloat(matchedSpec.upper_deviation);
-    lowerBound = shaftNominal + parseStringFloat(matchedSpec.lower_deviation);
+    computedBounds.upperBound = parseBoundToFixedThree(
+      shaftNominal,
+      matchedSpec.upper_deviation,
+      3
+    );
+    computedBounds.lowerBound = parseBoundToFixedThree(
+      shaftNominal,
+      matchedSpec.lower_deviation,
+      3
+    );
 
-    console.log("upper: ", upperBound.toFixed(3));
-    console.log("lower: ", lowerBound.toFixed(3));
+    console.log("upper: ", upperBound);
+    console.log("lower: ", lowerBound);
   }
 }
 
 function nominalForShaft(nominal) {
   return nominal + 1;
+}
+
+function parseBoundToFixedThree(base, value, decimalCount) {
+  return Number(base + parseStringFloat(value)).toFixed(decimalCount);
 }
 
 /**
