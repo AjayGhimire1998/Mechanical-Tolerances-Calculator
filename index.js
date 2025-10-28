@@ -116,12 +116,12 @@ function checkOneMeasurementFor(materialType, measurement) {
   let meetsTolerance = false;
 
   let computedBounds = {
-    upperBound,
-    lowerBound,
+    upperBound: 0,
+    lowerBound: 0,
   };
-  let uncomputedUpperBound = {
-    upperBound,
-    lowerBound,
+  let uncomputedBounds = {
+    upperBound: "",
+    lowerBound: "",
   };
 
   if (camcoStandardTolerances.type === "shafts") {
@@ -136,19 +136,31 @@ function checkOneMeasurementFor(materialType, measurement) {
       }
     });
 
-    computedBounds.upperBound = parseBoundToFixedThree(
+    computedBounds.upperBound = parseComputedBound(
       shaftNominal,
       matchedSpec.upper_deviation,
       3
     );
-    computedBounds.lowerBound = parseBoundToFixedThree(
+    computedBounds.lowerBound = parseComputedBound(
       shaftNominal,
       matchedSpec.lower_deviation,
       3
     );
 
-    console.log("upper: ", upperBound);
-    console.log("lower: ", lowerBound);
+    uncomputedBounds.upperBound = parseUncomputedBound(
+      shaftNominal,
+      matchedSpec.upper_deviation
+    );
+
+    uncomputedBounds.lowerBound = parseUncomputedBound(
+      shaftNominal,
+      matchedSpec.lower_deviation
+    );
+
+    console.log("upper: ", computedBounds.upperBound);
+    console.log("lower: ", computedBounds.lowerBound);
+    console.log("upper: ", uncomputedBounds.upperBound);
+    console.log("lower: ", uncomputedBounds.lowerBound);
   }
 }
 
@@ -156,8 +168,29 @@ function nominalForShaft(nominal) {
   return nominal + 1;
 }
 
-function parseBoundToFixedThree(base, value, decimalCount) {
+function parseComputedBound(base, value, decimalCount) {
   return Number(base + parseStringFloat(value)).toFixed(decimalCount);
+}
+
+function parseUncomputedBound(value1, value2) {
+  if (value2.startsWith("-")) {
+    return (
+      parseToFixedThreeString(value1) +
+      " - " +
+      parseToFixedThreeString(value2.slice(1, value2.length))
+    );
+  }
+
+  return (
+    parseToFixedThreeString(value1) + " + " + parseToFixedThreeString(value2)
+  );
+}
+
+function parseToFixedThreeString(value) {
+  if (typeof value === "number") {
+    return value.toFixed(3);
+  }
+  return value;
 }
 
 /**
