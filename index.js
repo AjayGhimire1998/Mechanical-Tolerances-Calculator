@@ -157,10 +157,17 @@ function checkOneMeasurementFor(materialType, measurement) {
       matchedSpec.lower_deviation
     );
 
+    meetsSpec =
+      parseStringFloat(measurement) >=
+        parseStringFloat(computedBounds.lowerBound) &&
+      parseStringFloat(measurement) <=
+        parseStringFloat(computedBounds.upperBound);
+
     console.log("upper: ", computedBounds.upperBound);
     console.log("lower: ", computedBounds.lowerBound);
     console.log("upper: ", uncomputedBounds.upperBound);
     console.log("lower: ", uncomputedBounds.lowerBound);
+    console.log("meetsSpec: ", meetsSpec);
   }
 }
 
