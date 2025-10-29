@@ -196,6 +196,13 @@ function processMeasurement(materialType, measurement, tolerances) {
 
   // Check if measurement meets specification
   const meetsSpec = checkMeetsSpecification(measurement, computedBounds);
+  const specMeetingReason = meetsSpec
+    ? `${parseToFixedThreeString(measurement)} falls between ${
+        computedBounds.lowerBound
+      } and ${computedBounds.upperBound}`
+    : `${parseToFixedThreeString(measurement)} doesn't fall between ${
+        computedBounds.lowerBound
+      } and ${computedBounds.upperBound}`;
 
   return {
     measurement: parseStringFloat(measurement),
@@ -204,9 +211,21 @@ function processMeasurement(materialType, measurement, tolerances) {
     IT_grade: config.itGrade,
     computed_specification_bounds: computedBounds,
     uncomputed_specification_bounds: uncomputedBounds,
-    meet_specification: meetsSpec,
-    meets_IT_tolerance: meetsSpec,
     matched_spec: matchedSpec,
+
+    meets_specification: { meetsSpec, reason: specMeetingReason },
+  };
+}
+
+function processOneMeasurement(materialType, measurement, tolerances) {
+  const processedMeasurement = processMeasurement(
+    materialType,
+    measurement,
+    tolerances
+  );
+  return {
+    ...processedMeasurement,
+    meets_IT_tolerance: processedMeasurement.meet_specification,
   };
 }
 
@@ -224,7 +243,7 @@ function checkOneMeasurementFor(materialType, measurement) {
     };
   }
 
-  return processMeasurement(
+  return processOneMeasurement(
     camcoStandardTolerances.type,
     measurement,
     camcoStandardTolerances
@@ -284,10 +303,71 @@ function parseStringFloat(value) {
   // Return 0 if parsing fails (NaN)
   return isNaN(parsed) ? 0 : parsed;
 }
+function processIndividualMeasurement(
+  materialType,
+  measurement,
+  tolerances,
+  meetsIT,
+  ITMeetingReason
+) {
+  const processedMeasurement = processMeasurement(
+    materialType,
+    measurement,
+    tolerances
+  );
+  return {
+    ...processedMeasurement,
+    meets_IT_tolerance: {
+      meetsIT,
+      reason: ITMeetingReason,
+    },
+  };
+}
+
+function checkMultipleMeasurementsFor(materialType, measurements) {
+  const validation = validateMeasurements(measurements);
+  if (validation?.error) {
+    return validation;
+  }
+  const camcoStandardTolerances = getCamcoStandardTolerancesFor(materialType);
+
+  let largestMeasurement = Math.max(...measurements);
+  let smallestMeasurement = Math.min(...measurements);
+  let ITDifference = parseToFixedThreeString(
+    largestMeasurement - smallestMeasurement
+  );
+
+  const results = measurements.map((measurement) =>
+    processIndividualMeasurement(
+      camcoStandardTolerances.type,
+      measurement,
+      camcoStandardTolerances
+    )
+  );
+
+  return ITDifference;
+}
+
+function validateMeasurements(measurements) {
+  if (!Array.isArray(measurements)) {
+    return {
+      error: "Measurements must be an array of numbers",
+    };
+  }
+
+  if (measurements.length === 0) {
+    return {
+      error: "Measurements array cannot be empty",
+    };
+  }
+
+  return null;
+}
 
 module.exports = {
   getAllTolerancesFor,
   getCamcoStandardTolerancesFor,
   parseNominalFromMeasurement,
   checkOneMeasurementFor,
+  checkMultipleMeasurementsFor,
 };
