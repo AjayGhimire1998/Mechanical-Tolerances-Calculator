@@ -317,10 +317,6 @@ function processIndividualMeasurement(
   );
   return {
     ...processedMeasurement,
-    meets_IT_tolerance: {
-      meetsIT,
-      reason: ITMeetingReason,
-    },
   };
 }
 
@@ -337,15 +333,46 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
     largestMeasurement - smallestMeasurement
   );
 
-  const results = measurements.map((measurement) =>
-    processIndividualMeasurement(
+  const ITs = {
+    IT5: 0,
+    IT6: 0,
+    IT7: 0,
+    IT8: 0,
+    IT9: 0,
+  };
+
+  const results = measurements.map((measurement) => {
+    const result = processIndividualMeasurement(
       camcoStandardTolerances.type,
       measurement,
       camcoStandardTolerances
-    )
-  );
+    );
 
-  return ITDifference;
+    ITs[result.IT_grade]++;
+
+    return result;
+  });
+
+  const baseSpec = results[0];
+  const baseITValue = baseSpec.matched_spec[baseSpec.IT_grade];
+
+  const meetsIT = ITDifference <= baseITValue;
+  const itMeetingReason = meetsIT
+    ? `The difference between ${parseToFixedThreeString(
+        largestMeasurement
+      )} and ${parseToFixedThreeString(
+        smallestMeasurement
+      )} is less than or equal to ${baseITValue}.`
+    : `The difference between ${parseToFixedThreeString(
+        largestMeasurement
+      )} and ${parseToFixedThreeString(
+        smallestMeasurement
+      )} is greater than to ${baseITValue}.`;
+
+  return {
+    baseSpec,
+    meets_IT_Tolerance: { meetsIT, reason: itMeetingReason },
+  };
 }
 
 function validateMeasurements(measurements) {
