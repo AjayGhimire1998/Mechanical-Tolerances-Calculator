@@ -117,12 +117,14 @@ const MATERIAL_TYPE_CONFIG = {
   shafts: {
     specification: "h9",
     itGrade: "IT5",
+
     rangeMatch: (nominal, spec) =>
       nominal > spec.minimum_diameter && nominal <= spec.maximum_diameter,
   },
   housingBores: {
     specification: "H8",
     itGrade: "IT6",
+
     rangeMatch: (nominal, spec) =>
       nominal >= spec.minimum_diameter && nominal < spec.maximum_diameter,
   },
@@ -147,8 +149,8 @@ function calculateComputedBounds(nominal, spec) {
 
 function calculateUncomputedBounds(nominal, spec) {
   return {
-    upperBound: parseUncomputedBound(nominal, spec.upper_deviation),
-    lowerBound: parseUncomputedBound(nominal, spec.lower_deviation),
+    upperBound: parseUncomputedBound(nominal, spec.upper_deviation, "+"),
+    lowerBound: parseUncomputedBound(nominal, spec.lower_deviation, "-"),
   };
 }
 
@@ -233,17 +235,23 @@ function parseComputedBound(base, value, decimalCount) {
   return Number(base + parseStringFloat(value)).toFixed(decimalCount);
 }
 
-function parseUncomputedBound(value1, value2) {
+function parseUncomputedBound(value1, value2, sign) {
   if (value2.startsWith("-")) {
     return (
       parseToFixedThreeString(value1) +
-      " - " +
+      " " +
+      sign +
+      " " +
       parseToFixedThreeString(value2.slice(1, value2.length))
     );
   }
 
   return (
-    parseToFixedThreeString(value1) + " + " + parseToFixedThreeString(value2)
+    parseToFixedThreeString(value1) +
+    " " +
+    sign +
+    " " +
+    parseToFixedThreeString(value2)
   );
 }
 
