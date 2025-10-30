@@ -29,7 +29,7 @@ console.log(housingTolerances["housingBoresTolerances"]);
 
 ---
 
-## API
+## API EXACPLES
 
 ### `getAllTolerancesFor(materialType: String)`
 
