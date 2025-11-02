@@ -325,15 +325,26 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
     largestMeasurement - smallestMeasurement
   );
 
+  let mostFarMeasurement = largestMeasurement;
   const nominals = {};
   let count = 0;
+  let withInSpecs = [];
   const results = measurements.map((measurement) => {
     const result = processIndividualMeasurement(
       camcoStandardTolerances.type,
       measurement,
       camcoStandardTolerances
     );
+    withInSpecs.push(result.meets_specification.meetsSpec);
     nominals[result.nominal] = count++;
+
+    if (
+      Math.abs(result.nominal - result.measurement) >
+      Math.abs(result.nominal - mostFarMeasurement)
+    ) {
+      mostFarMeasurement = result.measurement;
+    }
+
     return result;
   });
 
@@ -342,7 +353,6 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
   let mostOccuredNominal = Object.keys(nominals).find(
     (nominal) => nominals[nominal] === countOfMostOccuredNominal
   );
-  console.log(mostOccuredNominal);
 
   const baseSpec = results.find(
     (result) => result.nominal === parseInt(mostOccuredNominal)
@@ -363,25 +373,40 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
       )} is greater than to ${baseITValue}.`;
 
   // Check if measurement meets specification
-  const meetsSpec = checkMeetsSpecification(
-    largestMeasurement,
-    baseSpec.computedBounds
-  );
-  console.log(meetsSpec);
+  const meetsSpec = withInSpecs.every((v) => v === true);
 
-  const specMeetingReason = meetsSpec
-    ? `${parseToFixedThreeString(baseSpec.measurement)} falls between ${
-        baseSpec.computedBounds.lowerBound
-      } and ${baseSpec.computedBounds.upperBound}`
-    : `${parseToFixedThreeString(largestMeasurement)} doesn't fall between ${
-        baseSpec.computedBounds.lowerBound
-      } and ${baseSpec.computedBounds.upperBound}`;
+  // const specMeetingReason = meetsSpec
+  //   ? `${parseToFixedThreeString(mostFarMeasurement)} falls between ${
+  //       baseSpec.computed_specification_bounds.lowerBound
+  //     } and ${baseSpec.computed_specification_bounds.upperBound}`
+  //   : `${parseToFixedThreeString(mostFarMeasurement)} doesn't fall between ${
+  //       baseSpec.computed_specification_bounds.lowerBound
+  //     } and ${baseSpec.computed_specification_bounds.upperBound}`;
+
+  const specMeetingReason = generateReasonForSpecs(
+    meetsSpec,
+    mostFarMeasurement,
+    baseSpec.computed_specification_bounds.lowerBound,
+    baseSpec.computed_specification_bounds.upperBound
+  );
   return {
+    ...baseSpec,
     meets_specification: { meetsSpec, reason: specMeetingReason },
     meets_IT_Tolerance: { meetsIT, reason: itMeetingReason },
     meets_final_compliance: meetsIT && baseSpec?.meets_specification?.meetsSpec,
-    ...baseSpec,
   };
+}
+
+function generateReasonForSpecs(spec, measurement, base1, base2) {
+  if (spec === true) {
+    return `${parseToFixedThreeString(
+      measurement
+    )} falls between ${base1} and ${base2}`;
+  }
+
+  return `${parseToFixedThreeString(
+    measurement
+  )} doesn't fall between ${base1} and ${base2}`;
 }
 
 function validateMeasurements(measurements) {
