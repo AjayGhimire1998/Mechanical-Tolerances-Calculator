@@ -225,7 +225,7 @@ function processOneMeasurement(materialType, measurement, tolerances) {
   );
   return {
     ...processedMeasurement,
-    meets_IT_tolerance: processedMeasurement.meets_specification,
+    meets_IT_tolerance: processedMeasurement.meets_specification.meetsSpec,
   };
 }
 
@@ -303,21 +303,13 @@ function parseStringFloat(value) {
   // Return 0 if parsing fails (NaN)
   return isNaN(parsed) ? 0 : parsed;
 }
-function processIndividualMeasurement(
-  materialType,
-  measurement,
-  tolerances,
-  meetsIT,
-  ITMeetingReason
-) {
+function processIndividualMeasurement(materialType, measurement, tolerances) {
   const processedMeasurement = processMeasurement(
     materialType,
     measurement,
     tolerances
   );
-  return {
-    ...processedMeasurement,
-  };
+  return processedMeasurement;
 }
 
 function checkMultipleMeasurementsFor(materialType, measurements) {
@@ -372,7 +364,7 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
 
   // Check if measurement meets specification
   const meetsSpec = checkMeetsSpecification(
-    baseSpec.largestMeasurement,
+    largestMeasurement,
     baseSpec.computedBounds
   );
   console.log(meetsSpec);
@@ -385,10 +377,10 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
         baseSpec.computedBounds.lowerBound
       } and ${baseSpec.computedBounds.upperBound}`;
   return {
-    ...baseSpec,
-    meets_specification: { meetsSpec },
+    meets_specification: { meetsSpec, reason: specMeetingReason },
     meets_IT_Tolerance: { meetsIT, reason: itMeetingReason },
-    meets_final_compliance: meetsIT && baseSpec?.meet_specification?.meetsSpec,
+    meets_final_compliance: meetsIT && baseSpec?.meets_specification?.meetsSpec,
+    ...baseSpec,
   };
 }
 
