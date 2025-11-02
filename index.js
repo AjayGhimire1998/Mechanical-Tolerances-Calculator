@@ -225,7 +225,7 @@ function processOneMeasurement(materialType, measurement, tolerances) {
   );
   return {
     ...processedMeasurement,
-    meets_IT_tolerance: processedMeasurement.meet_specification,
+    meets_IT_tolerance: processedMeasurement.meets_specification,
   };
 }
 
@@ -333,27 +333,28 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
     largestMeasurement - smallestMeasurement
   );
 
-  const ITs = {
-    IT5: 0,
-    IT6: 0,
-    IT7: 0,
-    IT8: 0,
-    IT9: 0,
-  };
-
+  const nominals = {};
+  let count = 0;
   const results = measurements.map((measurement) => {
     const result = processIndividualMeasurement(
       camcoStandardTolerances.type,
       measurement,
       camcoStandardTolerances
     );
-
-    ITs[result.IT_grade]++;
-
+    nominals[result.nominal] = count++;
     return result;
   });
 
-  const baseSpec = results[0];
+  let countOfMostOccuredNominal = Math.max(...Object.values(nominals));
+
+  let mostOccuredNominal = Object.keys(nominals).find(
+    (nominal) => nominals[nominal] === countOfMostOccuredNominal
+  );
+  console.log(mostOccuredNominal);
+
+  const baseSpec = results.find(
+    (result) => result.nominal === parseInt(mostOccuredNominal)
+  );
   const baseITValue = baseSpec.matched_spec[baseSpec.IT_grade];
 
   const meetsIT = ITDifference <= baseITValue;
@@ -369,9 +370,25 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
         smallestMeasurement
       )} is greater than to ${baseITValue}.`;
 
+  // Check if measurement meets specification
+  const meetsSpec = checkMeetsSpecification(
+    baseSpec.largestMeasurement,
+    baseSpec.computedBounds
+  );
+  console.log(meetsSpec);
+
+  const specMeetingReason = meetsSpec
+    ? `${parseToFixedThreeString(baseSpec.measurement)} falls between ${
+        baseSpec.computedBounds.lowerBound
+      } and ${baseSpec.computedBounds.upperBound}`
+    : `${parseToFixedThreeString(largestMeasurement)} doesn't fall between ${
+        baseSpec.computedBounds.lowerBound
+      } and ${baseSpec.computedBounds.upperBound}`;
   return {
-    baseSpec,
+    ...baseSpec,
+    meets_specification: { meetsSpec },
     meets_IT_Tolerance: { meetsIT, reason: itMeetingReason },
+    meets_final_compliance: meetsIT && baseSpec?.meet_specification?.meetsSpec,
   };
 }
 
@@ -387,7 +404,6 @@ function validateMeasurements(measurements) {
       error: "Measurements array cannot be empty",
     };
   }
-
   return null;
 }
 
