@@ -101,38 +101,35 @@ function parseNominalFromMeasurement(
   materialType,
   THRESHOLD = 0.1
 ) {
+  const lowerNominal = Math.floor(measurement);
+
   // For shafts: upper_deviation is 0, so measurement ≤ nominal
   // Therefore, nominal must be ceiling of measurement
   if (materialType === "shafts") {
-    const primeNominal = Math.ceil(measurement);
-    const edgeNominal = Math.floor(measurement);
+    const standardNominal = Math.ceil(measurement);
+    console.log("standar", standardNominal);
 
-    if (measurement > primeNominal) {
-      // this mean shaft is bigger than it should be
-      const thresholdDiff = measurement - primeNominal;
-      console.log(thresholdDiff);
-
-      if (thresholdDiff <= THRESHOLD) {
-        //we drop down to the primal nominal for checking.
-        return primeNominal;
-      } else if (thresholdDiff > THRESHOLD) {
-        return edgeNominal;
-      }
-    }
-    return primeNominal;
+    return measurement - lowerNominal <= THRESHOLD
+      ? lowerNominal
+      : Math.ceil(measurement);
   }
 
   // For bores: lower_deviation is 0, so measurement ≥ nominal
   // Therefore, nominal must be floor of measurement
   if (materialType === "housingBores" || materialType === "shellBores") {
-    return Math.floor(measurement);
+    const standardNominal = Math.floor(measurement);
+    console.log("standar", standardNominal);
+    return Math.ceil(measurement) - measurement <= THRESHOLD
+      ? Math.ceil(measurement)
+      : Math.floor(measurement);
   }
 
   // Default: round to nearest
   return Math.round(measurement);
 }
 
-console.log(parseNominalFromMeasurement(200.05, "shafts"));
+console.log(parseNominalFromMeasurement(200.95, "shafts"));
+console.log(parseNominalFromMeasurement(199.95, "housingBores"));
 
 const MATERIAL_TYPE_CONFIG = {
   shafts: {
