@@ -427,7 +427,6 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
     meets_specification: { meetsSpec, reason: specMeetingReason },
     meets_IT_Tolerance: { meetsIT, reason: itMeetingReason },
     meets_final_compliance: meetsIT && baseSpec?.meets_specification?.meetsSpec,
-    concludedReason: outcome,
   };
 }
 
