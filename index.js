@@ -99,37 +99,36 @@ function returnTolerancesFor(executableMaterialType, spec = "") {
 function parseNominalFromMeasurement(
   measurement,
   materialType,
-  THRESHOLD = 0.1
+  THRESHOLD = 0.9
 ) {
   const lowerNominal = Math.floor(measurement);
 
   // For shafts: upper_deviation is 0, so measurement ≤ nominal
   // Therefore, nominal must be ceiling of measurement
   if (materialType === "shafts") {
-    const standardNominal = Math.ceil(measurement);
-    console.log("standar", standardNominal);
+    const standardNominal = Math.ceil(measurement); //a standard shaft will always have measurements less than the nominal
 
-    return measurement - lowerNominal <= THRESHOLD
-      ? lowerNominal
-      : Math.ceil(measurement);
+    //however, in some cases, we get shafts going beyond the upper deviation
+    //so, we work with a threshold of 0.10 (meaning, a shaft can only go upto 0.10 of it's upper deviation)
+    if (standardNominal - measurement >= THRESHOLD) {
+      return Math.floor(measurement);
+    }
+    return Math.ceil(measurement);
   }
 
   // For bores: lower_deviation is 0, so measurement ≥ nominal
   // Therefore, nominal must be floor of measurement
   if (materialType === "housingBores" || materialType === "shellBores") {
     const standardNominal = Math.floor(measurement);
-    console.log("standar", standardNominal);
-    return Math.ceil(measurement) - measurement <= THRESHOLD
+
+    return measurement - standardNominal >= THRESHOLD
       ? Math.ceil(measurement)
-      : Math.floor(measurement);
+      : standardNominal;
   }
 
   // Default: round to nearest
   return Math.round(measurement);
 }
-
-console.log(parseNominalFromMeasurement(200.95, "shafts"));
-console.log(parseNominalFromMeasurement(199.95, "housingBores"));
 
 const MATERIAL_TYPE_CONFIG = {
   shafts: {
