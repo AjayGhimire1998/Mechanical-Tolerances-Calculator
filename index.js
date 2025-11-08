@@ -221,6 +221,14 @@ function processMeasurement(materialType, measurement, tolerances) {
     computedBounds.upperBound
   );
 
+  const outcome =
+    measurement > computedBounds.upperBound
+      ? `${materialType} is over-sized.`
+      : measurement >= computedBounds.lowerBound &&
+        measurement <= computedBounds.upperBound
+      ? `${materialType} is in acceptable size.`
+      : `${materialType} is under-sized.`;
+
   return {
     measurement: parseStringFloat(measurement),
     nominal,
@@ -230,7 +238,11 @@ function processMeasurement(materialType, measurement, tolerances) {
     uncomputed_specification_bounds: uncomputedBounds,
     matched_spec: matchedSpec,
 
-    meets_specification: { meetsSpec, reason: specMeetingReason },
+    meets_specification: {
+      meetsSpec,
+      reason: specMeetingReason,
+      concludedReason: outcome,
+    },
   };
 }
 
@@ -391,12 +403,31 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
     baseSpec.computed_specification_bounds.lowerBound,
     baseSpec.computed_specification_bounds.upperBound
   );
+
+  const isOverSized =
+    mostFarMeasurement > baseSpec.computed_specification_bounds.upperBound;
+  const isWithinSizeRange =
+    mostFarMeasurement <= baseSpec.computed_specification_bounds.upperBound &&
+    mostFarMeasurement >= baseSpec.computed_specification_bounds.lowerBound;
+  const outcome =
+    (isWithinSizeRange
+      ? `${materialType} is acceptable in size`
+      : isOverSized
+      ? `${materialType} is over-sized`
+      : `${materialType} is under-sized`) +
+    (isWithinSizeRange && meetsIT
+      ? `, and `
+      : !meetsIT && isWithinSizeRange
+      ? `, but `
+      : `, and `) +
+    (meetsIT ? `meets IT tolerance.` : `doesn't meet IT tolerance.`);
   return {
     ...baseSpec,
     measurement: measurements,
     meets_specification: { meetsSpec, reason: specMeetingReason },
     meets_IT_Tolerance: { meetsIT, reason: itMeetingReason },
     meets_final_compliance: meetsIT && baseSpec?.meets_specification?.meetsSpec,
+    concludedReason: outcome,
   };
 }
 
