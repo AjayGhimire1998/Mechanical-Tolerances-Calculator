@@ -96,11 +96,30 @@ function returnTolerancesFor(executableMaterialType, spec = "") {
   };
 }
 
-function parseNominalFromMeasurement(measurement, materialType) {
+function parseNominalFromMeasurement(
+  measurement,
+  materialType,
+  THRESHOLD = 0.1
+) {
   // For shafts: upper_deviation is 0, so measurement ≤ nominal
   // Therefore, nominal must be ceiling of measurement
   if (materialType === "shafts") {
-    return Math.ceil(measurement);
+    const primeNominal = Math.ceil(measurement);
+    const edgeNominal = Math.floor(measurement);
+
+    if (measurement > primeNominal) {
+      // this mean shaft is bigger than it should be
+      const thresholdDiff = measurement - primeNominal;
+      console.log(thresholdDiff);
+
+      if (thresholdDiff <= THRESHOLD) {
+        //we drop down to the primal nominal for checking.
+        return primeNominal;
+      } else if (thresholdDiff > THRESHOLD) {
+        return edgeNominal;
+      }
+    }
+    return primeNominal;
   }
 
   // For bores: lower_deviation is 0, so measurement ≥ nominal
@@ -112,6 +131,8 @@ function parseNominalFromMeasurement(measurement, materialType) {
   // Default: round to nearest
   return Math.round(measurement);
 }
+
+console.log(parseNominalFromMeasurement(200.05, "shafts"));
 
 const MATERIAL_TYPE_CONFIG = {
   shafts: {
@@ -196,13 +217,13 @@ function processMeasurement(materialType, measurement, tolerances) {
 
   // Check if measurement meets specification
   const meetsSpec = checkMeetsSpecification(measurement, computedBounds);
-  const specMeetingReason = meetsSpec
-    ? `${parseToFixedThreeString(measurement)} falls between ${
-        computedBounds.lowerBound
-      } and ${computedBounds.upperBound}`
-    : `${parseToFixedThreeString(measurement)} doesn't fall between ${
-        computedBounds.lowerBound
-      } and ${computedBounds.upperBound}`;
+
+  const specMeetingReason = generateReasonForSpecs(
+    meetsSpec,
+    measurement,
+    computedBounds.lowerBound,
+    computedBounds.upperBound
+  );
 
   return {
     measurement: parseStringFloat(measurement),
@@ -360,29 +381,14 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
   const baseITValue = baseSpec.matched_spec[baseSpec.IT_grade];
 
   const meetsIT = ITDifference <= baseITValue;
-  const itMeetingReason = meetsIT
-    ? `The difference between ${parseToFixedThreeString(
-        largestMeasurement
-      )} and ${parseToFixedThreeString(
-        smallestMeasurement
-      )} is less than or equal to ${baseITValue}.`
-    : `The difference between ${parseToFixedThreeString(
-        largestMeasurement
-      )} and ${parseToFixedThreeString(
-        smallestMeasurement
-      )} is greater than to ${baseITValue}.`;
+  const itMeetingReason = generateReasonForTolerances(
+    meetsIT,
+    largestMeasurement,
+    smallestMeasurement,
+    baseITValue
+  );
 
-  // Check if measurement meets specification
   const meetsSpec = withInSpecs.every((v) => v === true);
-
-  // const specMeetingReason = meetsSpec
-  //   ? `${parseToFixedThreeString(mostFarMeasurement)} falls between ${
-  //       baseSpec.computed_specification_bounds.lowerBound
-  //     } and ${baseSpec.computed_specification_bounds.upperBound}`
-  //   : `${parseToFixedThreeString(mostFarMeasurement)} doesn't fall between ${
-  //       baseSpec.computed_specification_bounds.lowerBound
-  //     } and ${baseSpec.computed_specification_bounds.upperBound}`;
-
   const specMeetingReason = generateReasonForSpecs(
     meetsSpec,
     mostFarMeasurement,
@@ -391,6 +397,7 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
   );
   return {
     ...baseSpec,
+    measurement: measurements,
     meets_specification: { meetsSpec, reason: specMeetingReason },
     meets_IT_Tolerance: { meetsIT, reason: itMeetingReason },
     meets_final_compliance: meetsIT && baseSpec?.meets_specification?.meetsSpec,
@@ -403,10 +410,22 @@ function generateReasonForSpecs(spec, measurement, base1, base2) {
       measurement
     )} falls between ${base1} and ${base2}`;
   }
-
   return `${parseToFixedThreeString(
     measurement
   )} doesn't fall between ${base1} and ${base2}`;
+}
+
+function generateReasonForTolerances(spec, measurement1, measurement2, base) {
+  if (spec === true) {
+    return `The difference between ${parseToFixedThreeString(
+      measurement1
+    )} and ${parseToFixedThreeString(
+      measurement2
+    )} is less than or equal to ${base}.`;
+  }
+  return `The difference between ${parseToFixedThreeString(
+    measurement1
+  )} and ${parseToFixedThreeString(measurement2)} is greater than ${base}.`;
 }
 
 function validateMeasurements(measurements) {
@@ -427,7 +446,6 @@ function validateMeasurements(measurements) {
 module.exports = {
   getAllTolerancesFor,
   getCamcoStandardTolerancesFor,
-  parseNominalFromMeasurement,
   checkOneMeasurementFor,
   checkMultipleMeasurementsFor,
 };
