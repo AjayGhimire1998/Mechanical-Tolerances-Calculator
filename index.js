@@ -493,7 +493,9 @@ function validateMeasurements(measurements) {
     };
   }
 
-  measurements.forEach((a) => validateMeasurement(a));
+  measurements.forEach((a) => {
+    return validateMeasurement(a);
+  });
   return null;
 }
 
