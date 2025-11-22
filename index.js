@@ -101,14 +101,6 @@ function isValidMeasurement(measurement) {
   return !isNaN(num) && num >= 0 && num < 1000;
 }
 
-function validateMeasurement(measurement) {
-  const isMeasurementValid = isValidMeasurement(measurement);
-  if (!isMeasurementValid) {
-    return { error: "Measurement must be between 0 to 1000." };
-  }
-  return measurement;
-}
-
 function parseNominalFromMeasurement(
   measurement,
   materialType,
@@ -371,6 +363,11 @@ function processIndividualMeasurement(materialType, measurement, tolerances) {
 }
 
 function checkMultipleMeasurementsFor(materialType, measurements) {
+  const validated = validateMeasurements(measurements);
+  if (validated) {
+    return validated;
+  }
+
   const errors = [];
 
   measurements.forEach((m, index) => {
@@ -400,9 +397,6 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
   let count = 0;
   let withInSpecs = [];
   const results = measurements.map((measurement) => {
-    if (!isValidMeasurement(measurement)) {
-      return { error: "Measurement must be between 0 to 1000." };
-    }
     const result = processIndividualMeasurement(
       camcoStandardTolerances.type,
       measurement,
