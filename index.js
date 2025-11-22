@@ -388,6 +388,9 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
   let count = 0;
   let withInSpecs = [];
   const results = measurements.map((measurement) => {
+    if (!isValidMeasurement(measurement)) {
+      return { error: "Measurement must be between 0 to 1000." };
+    }
     const result = processIndividualMeasurement(
       camcoStandardTolerances.type,
       measurement,
