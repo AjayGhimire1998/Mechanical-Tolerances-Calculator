@@ -96,38 +96,51 @@ function returnTolerancesFor(executableMaterialType, spec = "") {
   };
 }
 
+function isValidMeasurement(measurement) {
+  const num = Number(measurement);
+  return !isNaN(num) && num >= 0 && num < 1000;
+}
+
+function validateMeasurement(measurement) {
+  const isMeasurementValid = isValidMeasurement(measurement);
+  if (!isMeasurementValid) {
+    return { error: "Measurement must be between 0 to 1000." };
+  }
+  return measurement;
+}
+
 function parseNominalFromMeasurement(
   measurement,
   materialType,
   THRESHOLD = 0.9
 ) {
-  const lowerNominal = Math.floor(measurement);
+  const validatedMeasurement = validateMeasurement(measurement);
 
   // For shafts: upper_deviation is 0, so measurement ≤ nominal
   // Therefore, nominal must be ceiling of measurement
   if (materialType === "shafts") {
-    const standardNominal = Math.ceil(measurement); //a standard shaft will always have measurements less than the nominal
+    const standardNominal = Math.ceil(validatedMeasurement); //a standard shaft will always have measurements less than the nominal
 
     //however, in some cases, we get shafts going beyond the upper deviation
     //so, we work with a threshold of 0.10 (meaning, a shaft can only go upto 0.10 of it's upper deviation)
-    if (standardNominal - measurement >= THRESHOLD) {
-      return Math.floor(measurement);
+    if (standardNominal - validatedMeasurement >= THRESHOLD) {
+      return Math.floor(validatedMeasurement);
     }
-    return Math.ceil(measurement);
+    return Math.ceil(validatedMeasurement);
   }
 
   // For bores: lower_deviation is 0, so measurement ≥ nominal
   // Therefore, nominal must be floor of measurement
   if (materialType === "housingBores" || materialType === "shellBores") {
-    const standardNominal = Math.floor(measurement);
+    const standardNominal = Math.floor(validatedMeasurement);
 
-    return measurement - standardNominal >= THRESHOLD
-      ? Math.ceil(measurement)
+    return validatedMeasurement - standardNominal >= THRESHOLD
+      ? Math.ceil(validatedMeasurement)
       : standardNominal;
   }
 
   // Default: round to nearest
-  return Math.round(measurement);
+  return Math.round(validatedMeasurement);
 }
 
 const MATERIAL_TYPE_CONFIG = {
@@ -466,6 +479,8 @@ function validateMeasurements(measurements) {
       error: "Measurements array cannot be empty",
     };
   }
+
+  measurements.forEach((a) => validateMeasurement(a));
   return null;
 }
 
