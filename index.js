@@ -185,7 +185,8 @@ function calculateUncomputedBounds(nominal, spec) {
 }
 
 function checkMeetsSpecification(measurement, bounds) {
-  const measure = parseStringFloat(measurement);
+  const validatedMeasurement = validateMeasurement(measurement);
+  const measure = parseStringFloat(validatedMeasurement);
   const upper = parseStringFloat(bounds.upperBound);
   const lower = parseStringFloat(bounds.lowerBound);
 
@@ -202,8 +203,12 @@ function processMeasurement(materialType, measurement, tolerances) {
     };
   }
 
+  const validatedMeasurement = validateMeasurement(measurement);
   // Calculate nominal diameter
-  const nominal = parseNominalFromMeasurement(measurement, materialType);
+  const nominal = parseNominalFromMeasurement(
+    validatedMeasurement,
+    materialType
+  );
 
   // Find matching specification
   const matchedSpec = findMatchingSpec(
@@ -260,9 +265,10 @@ function processMeasurement(materialType, measurement, tolerances) {
 }
 
 function processOneMeasurement(materialType, measurement, tolerances) {
+  const validatedMeasurement = validateMeasurement(measurement);
   const processedMeasurement = processMeasurement(
     materialType,
-    measurement,
+    validatedMeasurement,
     tolerances
   );
   return {
@@ -278,7 +284,8 @@ function checkOneMeasurementFor(materialType, measurement) {
     return camcoStandardTolerances;
   }
 
-  if (typeof measurement !== "number" || isNaN(measurement)) {
+  const validatedMeasurement = validateMeasurement(measurement);
+  if (typeof measurement !== "number" || isNaN(validatedMeasurement)) {
     return {
       error: true,
       message: "Invalid measurement value",
@@ -287,7 +294,7 @@ function checkOneMeasurementFor(materialType, measurement) {
 
   return processOneMeasurement(
     camcoStandardTolerances.type,
-    measurement,
+    validatedMeasurement,
     camcoStandardTolerances
   );
 }
@@ -346,9 +353,10 @@ function parseStringFloat(value) {
   return isNaN(parsed) ? 0 : parsed;
 }
 function processIndividualMeasurement(materialType, measurement, tolerances) {
+  const validatedMeasurement = validateMeasurement(measurement);
   const processedMeasurement = processMeasurement(
     materialType,
-    measurement,
+    validatedMeasurement,
     tolerances
   );
   return processedMeasurement;
@@ -444,27 +452,32 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
 }
 
 function generateReasonForSpecs(spec, measurement, base1, base2) {
+  const validatedMeasurement = validateMeasurement(measurement);
   if (spec === true) {
     return `${parseToFixedThreeString(
-      measurement
+      validatedMeasurement
     )} falls between ${base1} and ${base2}`;
   }
   return `${parseToFixedThreeString(
-    measurement
+    validatedMeasurement
   )} doesn't fall between ${base1} and ${base2}`;
 }
 
 function generateReasonForTolerances(spec, measurement1, measurement2, base) {
+  const validatedMeasurement1 = validateMeasurement(measurement1);
+  const validatedMeasurement2 = validateMeasurement(measurement2);
   if (spec === true) {
     return `The difference between ${parseToFixedThreeString(
-      measurement1
+      validatedMeasurement1
     )} and ${parseToFixedThreeString(
-      measurement2
+      validatedMeasurement2
     )} is less than or equal to ${base}.`;
   }
   return `The difference between ${parseToFixedThreeString(
-    measurement1
-  )} and ${parseToFixedThreeString(measurement2)} is greater than ${base}.`;
+    validatedMeasurement1
+  )} and ${parseToFixedThreeString(
+    validatedMeasurement2
+  )} is greater than ${base}.`;
 }
 
 function validateMeasurements(measurements) {
