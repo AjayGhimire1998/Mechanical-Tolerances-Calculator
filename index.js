@@ -371,10 +371,22 @@ function processIndividualMeasurement(materialType, measurement, tolerances) {
 }
 
 function checkMultipleMeasurementsFor(materialType, measurements) {
-  const validation = validateMeasurements(measurements);
-  if (validation?.error) {
-    return validation;
+  const errors = [];
+
+  measurements.forEach((m, index) => {
+    if (!isValidMeasurement(m)) {
+      errors.push({
+        index,
+        value: m,
+        error: "Invalid measurement: must be 0–1000",
+      });
+    }
+  });
+
+  if (errors.length > 0) {
+    return { error: "Some measurements are invalid.", details: errors };
   }
+
   const camcoStandardTolerances = getCamcoStandardTolerancesFor(materialType);
 
   let largestMeasurement = Math.max(...measurements);
@@ -499,11 +511,6 @@ function validateMeasurements(measurements) {
     };
   }
 
-  measurements.forEach((a) => {
-    if (!isValidMeasurement(a)) {
-      return { error: "Measurement must be between 0 to 1000." };
-    }
-  });
   return null;
 }
 
