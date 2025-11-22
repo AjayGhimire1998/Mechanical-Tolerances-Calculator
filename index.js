@@ -114,33 +114,34 @@ function parseNominalFromMeasurement(
   materialType,
   THRESHOLD = 0.9
 ) {
-  const validatedMeasurement = validateMeasurement(measurement);
-
+  if (!isValidMeasurement(measurement)) {
+    return { error: "Measurement must be between 0 to 1000." };
+  }
   // For shafts: upper_deviation is 0, so measurement ≤ nominal
   // Therefore, nominal must be ceiling of measurement
   if (materialType === "shafts") {
-    const standardNominal = Math.ceil(validatedMeasurement); //a standard shaft will always have measurements less than the nominal
+    const standardNominal = Math.ceil(measurement); //a standard shaft will always have measurements less than the nominal
 
     //however, in some cases, we get shafts going beyond the upper deviation
     //so, we work with a threshold of 0.10 (meaning, a shaft can only go upto 0.10 of it's upper deviation)
-    if (standardNominal - validatedMeasurement >= THRESHOLD) {
-      return Math.floor(validatedMeasurement);
+    if (standardNominal - measurement >= THRESHOLD) {
+      return Math.floor(measurement);
     }
-    return Math.ceil(validatedMeasurement);
+    return Math.ceil(measurement);
   }
 
   // For bores: lower_deviation is 0, so measurement ≥ nominal
   // Therefore, nominal must be floor of measurement
   if (materialType === "housingBores" || materialType === "shellBores") {
-    const standardNominal = Math.floor(validatedMeasurement);
+    const standardNominal = Math.floor(measurement);
 
-    return validatedMeasurement - standardNominal >= THRESHOLD
-      ? Math.ceil(validatedMeasurement)
+    return measurement - standardNominal >= THRESHOLD
+      ? Math.ceil(measurement)
       : standardNominal;
   }
 
   // Default: round to nearest
-  return Math.round(validatedMeasurement);
+  return Math.round(measurement);
 }
 
 const MATERIAL_TYPE_CONFIG = {
@@ -185,8 +186,10 @@ function calculateUncomputedBounds(nominal, spec) {
 }
 
 function checkMeetsSpecification(measurement, bounds) {
-  const validatedMeasurement = validateMeasurement(measurement);
-  const measure = parseStringFloat(validatedMeasurement);
+  if (!isValidMeasurement(measurement)) {
+    return { error: "Measurement must be between 0 to 1000." };
+  }
+  const measure = parseStringFloat(measurement);
   const upper = parseStringFloat(bounds.upperBound);
   const lower = parseStringFloat(bounds.lowerBound);
 
@@ -194,6 +197,9 @@ function checkMeetsSpecification(measurement, bounds) {
 }
 
 function processMeasurement(materialType, measurement, tolerances) {
+  if (!isValidMeasurement(measurement)) {
+    return { error: "Measurement must be between 0 to 1000." };
+  }
   const config = MATERIAL_TYPE_CONFIG[materialType];
 
   if (!config) {
@@ -203,12 +209,8 @@ function processMeasurement(materialType, measurement, tolerances) {
     };
   }
 
-  const validatedMeasurement = validateMeasurement(measurement);
   // Calculate nominal diameter
-  const nominal = parseNominalFromMeasurement(
-    validatedMeasurement,
-    materialType
-  );
+  const nominal = parseNominalFromMeasurement(measurement, materialType);
 
   // Find matching specification
   const matchedSpec = findMatchingSpec(
@@ -265,10 +267,12 @@ function processMeasurement(materialType, measurement, tolerances) {
 }
 
 function processOneMeasurement(materialType, measurement, tolerances) {
-  const validatedMeasurement = validateMeasurement(measurement);
+  if (!isValidMeasurement(measurement)) {
+    return { error: "Measurement must be between 0 to 1000." };
+  }
   const processedMeasurement = processMeasurement(
     materialType,
-    validatedMeasurement,
+    measurement,
     tolerances
   );
   return {
@@ -278,14 +282,16 @@ function processOneMeasurement(materialType, measurement, tolerances) {
 }
 
 function checkOneMeasurementFor(materialType, measurement) {
+  if (!isValidMeasurement(measurement)) {
+    return { error: "Measurement must be between 0 to 1000." };
+  }
   const camcoStandardTolerances = getCamcoStandardTolerancesFor(materialType);
 
   if (camcoStandardTolerances.error) {
     return camcoStandardTolerances;
   }
 
-  const validatedMeasurement = validateMeasurement(measurement);
-  if (typeof measurement !== "number" || isNaN(validatedMeasurement)) {
+  if (typeof measurement !== "number" || isNaN(measurement)) {
     return {
       error: true,
       message: "Invalid measurement value",
@@ -294,7 +300,7 @@ function checkOneMeasurementFor(materialType, measurement) {
 
   return processOneMeasurement(
     camcoStandardTolerances.type,
-    validatedMeasurement,
+    measurement,
     camcoStandardTolerances
   );
 }
@@ -353,10 +359,12 @@ function parseStringFloat(value) {
   return isNaN(parsed) ? 0 : parsed;
 }
 function processIndividualMeasurement(materialType, measurement, tolerances) {
-  const validatedMeasurement = validateMeasurement(measurement);
+  if (!isValidMeasurement(measurement)) {
+    return { error: "Measurement must be between 0 to 1000." };
+  }
   const processedMeasurement = processMeasurement(
     materialType,
-    validatedMeasurement,
+    measurement,
     tolerances
   );
   return processedMeasurement;
@@ -452,32 +460,27 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
 }
 
 function generateReasonForSpecs(spec, measurement, base1, base2) {
-  const validatedMeasurement = validateMeasurement(measurement);
   if (spec === true) {
     return `${parseToFixedThreeString(
-      validatedMeasurement
+      measurement
     )} falls between ${base1} and ${base2}`;
   }
   return `${parseToFixedThreeString(
-    validatedMeasurement
+    measurement
   )} doesn't fall between ${base1} and ${base2}`;
 }
 
 function generateReasonForTolerances(spec, measurement1, measurement2, base) {
-  const validatedMeasurement1 = validateMeasurement(measurement1);
-  const validatedMeasurement2 = validateMeasurement(measurement2);
   if (spec === true) {
     return `The difference between ${parseToFixedThreeString(
-      validatedMeasurement1
+      measurement1
     )} and ${parseToFixedThreeString(
-      validatedMeasurement2
+      measurement2
     )} is less than or equal to ${base}.`;
   }
   return `The difference between ${parseToFixedThreeString(
-    validatedMeasurement1
-  )} and ${parseToFixedThreeString(
-    validatedMeasurement2
-  )} is greater than ${base}.`;
+    measurement1
+  )} and ${parseToFixedThreeString(measurement2)} is greater than ${base}.`;
 }
 
 function validateMeasurements(measurements) {
@@ -494,7 +497,9 @@ function validateMeasurements(measurements) {
   }
 
   measurements.forEach((a) => {
-    return validateMeasurement(a);
+    if (!isValidMeasurement(a)) {
+      return { error: "Measurement must be between 0 to 1000." };
+    }
   });
   return null;
 }
