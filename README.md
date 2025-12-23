@@ -113,41 +113,42 @@ Checks whether a single measurement complies with the Camco standard tolerance a
 - **object**
 
   **On success**
-  ```json {
-  "measurement": 24.982,
-  "nominal": 25,
-  "specification": "h9",
-  "IT_grade": "IT5",
-  "computed_specification_bounds": {
-    "upperBound": "25.000",
-    "lowerBound": "24.970"
-  },
-  "uncomputed_specification_bounds": {
-    "upperBound": "25.000 + 0.000",
-    "lowerBound": "25.000 - 0.030"
-  },
-  "matched_spec": { ... },
-  "meets_specification": {
-    "meetsSpec": true,
-    "reason": "24.982 falls between 24.970 and 25.000",
-    "concludedReason": "shaft is in acceptable size."
-  },
-  "meets_IT_tolerance": true
-} ```
+  ```json
+  {
+    "measurement": 24.982,
+    "nominal": 25,
+    "specification": "h9",
+    "IT_grade": "IT5",
+    "computed_specification_bounds": {
+      "upperBound": "25.000",
+      "lowerBound": "24.970"
+    },
+    "uncomputed_specification_bounds": {
+      "upperBound": "25.000 + 0.000",
+      "lowerBound": "25.000 - 0.030"
+    },
+    "matched_spec": { ... },
+    "meets_specification": {
+      "meetsSpec": true,
+      "reason": "24.982 falls between 24.970 and 25.000",
+      "concludedReason": "shaft is in acceptable size."
+    },
+    "meets_IT_tolerance": true
+  }```
 
  -  **On failure**
     ```json
     {
-      "error": "Unknown material type: <value>. Valid types are 'housing', 'shaft', or 'shell'."
+      "error": "Measurement must be between 0 to 1000."
     }
     ```
 
 ### Example
 ```js
-const { getAllTolerancesFor } = require("mechanical-tolerance-calculator");
+const { checkOneMeasurementFor } = require("mechanical-tolerance-calculator");
 
-const tolerances = getAllTolerancesFor("housing");
-console.log(tolerances.specifications.H7);
+const result = checkOneMeasurementFor("shaft", 24.982);
+console.log(result.meets_IT_tolerance);
 ```
 
 ## Features
