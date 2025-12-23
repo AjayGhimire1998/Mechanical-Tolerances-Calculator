@@ -69,8 +69,14 @@ Supported material types include **housing**, **shaft**, and **shell** (case-ins
       "H7": [ { ... } ],
       "...": [ { ... } ]
     }
-  }
+  } ```
 
+  **On failure**
+    ```json
+    {
+      "error": "Unknown material type: <value>. Valid types are 'housing', 'shaft', or 'shell'."
+    }
+    ```
 
 ## Features
 
