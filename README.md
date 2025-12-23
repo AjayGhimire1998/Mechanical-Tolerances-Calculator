@@ -92,17 +92,11 @@ Checks whether a single measurement complies with the Camco standard tolerance a
 
 ### Description
 - Uses Camco standard specifications:
-
--- Housing → H8 / IT6
-
--- Shell → H9 / IT6
-
--- Shaft → h9 / IT5
-
+  - Housing → H8 / IT6
+  - Shell → H9 / IT6
+  - Shaft → h9 / IT5
 - Infers the nominal size from the measurement.
-
 - Calculates upper and lower bounds.
-
 - Evaluates whether the measurement meets specification and IT tolerance.
 
 ### Parameters
