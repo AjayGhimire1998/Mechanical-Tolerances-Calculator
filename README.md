@@ -27,20 +27,6 @@ const housingTolerances = getAllTolerancesFor("housing");
 console.log(housingTolerances["housingBoresTolerances"]);
 ```
 
----
-
-## API EXACPLES
-
-### **1. getAllTolerancesFor(materialType)** 
-
-Returns all tolerances for a given material type. - 
-**Parameters:** - `materialType` **(string)**: Type of material. Valid values include `'housing'`, `'shaft'`, `'shell'`. - **Returns:** - **object**: Contains all relevant tolerances for the material type, or an error message if invalid. - **Example:** ```js const tolerances = getAllTolerancesFor('housing'); console.log(tolerances); ``` --- ### **2. getCamcoStandardTolerancesFor(materialType)** Returns Camco Standard specification and tolerances for a given material type. - **Parameters:** - `materialType` **(string)**: Type of material. Valid values include `'housing'`, `'shaft'`, `'shell'`. - **Returns:** - **object**: Contains standard tolerances for the material type, or an error message if invalid. - **Example:** 
-
-```js const camcoTolerances = getCamcoStandardTolerancesFor('shaft'); console.log(camcoTolerances); ```
---- 
-### **3. checkOneMeasurementFor(materialType, measurement)** Checks if a single measurement complies with the Camco standard tolerance and IT grade. - **Parameters:** - `materialType` **(string)**: Type of material. Valid values include `'housing'`, `'shaft'`, `'shell'`. - `measurement` **(number)**: Measurement to check (0–1000). - **Returns:** - **object**: Contains detailed result including nominal, specification, IT grade, bounds, and whether the measurement meets specification. - **Example:** ```js const result = checkOneMeasurementFor('shaft', 25.5); console.log(result); ``` --- ### **4. checkMultipleMeasurementsFor(materialType, measurements)** Checks multiple measurements against the Camco standard tolerances and IT grades. - **Parameters:** - `materialType` **(string)**: Type of material. Valid values include `'housing'`, `'shaft'`, `'shell'`. - `measurements` **(number[])**: Array of measurements to check. - **Returns:** - **object**: Contains detailed results including nominal, IT grade compliance, specification compliance, and overall measurement analysis. - **Example:** ```js const results = checkMultipleMeasurementsFor('housing', [10.2, 10.5, 10.8]); console.log(results); ``` --- ### **Notes** - All measurement values must be **numbers between 0 and 1000**. - Functions normalize material type inputs and accept variations like `"housing bore"` or `"shaft rod"`. - Returned objects include: - `nominal`: Nominal value derived from measurement - `specification`: Standard spec used - `IT_grade`: Tolerance grade - `computed_specification_bounds`: Upper and lower bounds as numbers - `uncomputed_specification_bounds`: Upper and lower bounds as formatted strings - `meets_specification`: Boolean and reason for compliance - `meets_IT_Tolerance`: Boolean and reason for IT compliance (for multiple measurements) --- **Module Export:** ```js module.exports = { getAllTolerancesFor, getCamcoStandardTolerancesFor, checkOneMeasurementFor, checkMultipleMeasurementsFor, }; ```
----
-
 ## Features
 
 - Compute ISO/ANSI tolerance limits and deviations for common designations.
