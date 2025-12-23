@@ -88,10 +88,10 @@ console.log(tolerances.specifications.H7);
 
 ## checkOneMeasurementFor(materialType: String, measurement: Number)
 
-Checks whether a single measurement complies with the Camco standard tolerance and IT grade for the given material type.
+Checks whether a single measurement complies with the WA standard tolerance and IT grade for the given material type.
 
 ### Description
-- Uses Camco standard specifications:
+- Uses WA standard specifications:
   - Housing → H8 / IT6
   - Shell → H9 / IT6
   - Shaft → h9 / IT5
@@ -134,7 +134,8 @@ Checks whether a single measurement complies with the Camco standard tolerance a
       "concludedReason": "shaft is in acceptable size."
     },
     "meets_IT_tolerance": true
-  }```
+  }
+  ```
 
  -  **On failure**
     ```json
@@ -147,8 +148,78 @@ Checks whether a single measurement complies with the Camco standard tolerance a
 ```js
 const { checkOneMeasurementFor } = require("mechanical-tolerance-calculator");
 
-const result = checkOneMeasurementFor("shaft", 24.982);
+const result = checkOneMeasurementFor("shaft", 179.91);
 console.log(result.meets_IT_tolerance);
+```
+
+## checkMultipleMeasurementsFor(materialType: String, measurements: Numbers[])
+
+Evaluates multiple measurements against WA standard tolerances and IT limits as a group.
+
+### Description
+- Validates all measurements.
+- Computes:
+  - Nominal size distribution
+  - Maximum and minimum measurements
+  - IT difference (max − min)
+- Determines:
+  - Whether all measurements meet specification
+  - Whether the IT tolerance band is satisfied
+  - Overall compliance status
+
+### Parameters
+- **materialType** (`string`)  
+  The type of material to check tolerance and specification for.  
+  Valid values (or substrings):
+  - `"housing"`
+  - `"shaft"`
+  - `"shell"`
+- **measurement** (`number[]`)  
+  An array of measured diameters (each between 0 and 1000).
+
+### Returns
+- **object**
+
+  **On success**
+  ```json
+  {
+    "measurement": [24.982, 24.990, 24.975],
+    "nominal": 25,
+    "specification": "h9",
+    "IT_grade": "IT5",
+    "computed_specification_bounds": {
+      "upperBound": "25.000",
+      "lowerBound": "24.970"
+    },
+    "matched_spec": { ... },
+    "meets_specification": {
+      "meetsSpec": true,
+      "reason": "24.990 falls between 24.970 and 25.000"
+    },
+    "meets_IT_Tolerance": {
+      "meetsIT": true,
+      "reason": "The difference between 24.990 and 24.975 is less than or equal to 0.021."
+    },
+    "meets_final_compliance": true
+  }
+  ```
+
+ -  **On Validation Error**
+    ```json
+    {
+      "error": "Some measurements are invalid.",
+      "details": [
+        { "index": 1, "value": -5, "error": "Invalid measurement: must be 0–1000" }
+      ]
+    }
+    ```
+
+### Example
+```js
+const { checkMultipleMeasurementsFor } = require("mechanical-tolerance-calculator");
+
+const result = checkMultipleMeasurementsFor('housing', [240.05, 240.07, 240.09, 240.05, 240.06, 240.02, 240.09]); 
+console.log(result.meets_final_compliance);
 ```
 
 ## Features
