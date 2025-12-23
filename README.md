@@ -84,6 +84,7 @@ const { getAllTolerancesFor } = require("mechanical-tolerance-calculator");
 
 const tolerances = getAllTolerancesFor("housing");
 console.log(tolerances.specifications.H7);
+```
 
 ## Features
 
