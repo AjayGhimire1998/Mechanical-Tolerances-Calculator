@@ -101,25 +101,40 @@ Checks whether a single measurement complies with the Camco standard tolerance a
 
 ### Parameters
 - **materialType** (`string`)  
-  The type of material to retrieve tolerances for.  
+  The type of material to check tolerance and specification for.  
   Valid values (or substrings):
   - `"housing"`
   - `"shaft"`
   - `"shell"`
+- **measurement** (`number`)  
+  The measured diameter (must be between 0 and 1000).
 
 ### Returns
 - **object**
 
   **On success**
   ```json
-  {
-    "type": "housingBores" | "shafts" | "shellBores",
-    "specifications": {
-      "H6": [ { ... } ],
-      "H7": [ { ... } ],
-      "...": [ { ... } ]
-    }
-  } ```
+ {
+  "measurement": 24.982,
+  "nominal": 25,
+  "specification": "h9",
+  "IT_grade": "IT5",
+  "computed_specification_bounds": {
+    "upperBound": "25.000",
+    "lowerBound": "24.970"
+  },
+  "uncomputed_specification_bounds": {
+    "upperBound": "25.000 + 0.000",
+    "lowerBound": "25.000 - 0.030"
+  },
+  "matched_spec": { ... },
+  "meets_specification": {
+    "meetsSpec": true,
+    "reason": "24.982 falls between 24.970 and 25.000",
+    "concludedReason": "shaft is in acceptable size."
+  },
+  "meets_IT_tolerance": true
+} ```
 
  -  **On failure**
     ```json
