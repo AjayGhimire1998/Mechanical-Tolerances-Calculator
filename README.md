@@ -71,12 +71,19 @@ Supported material types include **housing**, **shaft**, and **shell** (case-ins
     }
   } ```
 
-  **On failure**
+ -  **On failure**
     ```json
     {
       "error": "Unknown material type: <value>. Valid types are 'housing', 'shaft', or 'shell'."
     }
     ```
+
+    ### Example
+```js
+const { getAllTolerancesFor } = require("mechanical-tolerance-calculator");
+
+const tolerances = getAllTolerancesFor("housing");
+console.log(tolerances.specifications.H7);
 
 ## Features
 
