@@ -22,9 +22,17 @@ const { getAllTolerancesFor } = require("mechanical-tolerance-calculator");
 // ES module
 // import { getAllTolerancesFor } from "mechanical-tolerance-calculator";
 
-// Example: Housing Bore Toelrances
+// Example: Housing Bore Tolerances
 const housingTolerances = getAllTolerancesFor("housing");
 console.log(housingTolerances["housingBoresTolerances"]);
+
+// Example: Checking Shaft Toleranace for a Measurement
+const result = checkOneMeasurementFor('shaft', 179.91); 
+console.log(result);
+
+// Exmaple: Checking Housing Specification Tolerance for a Collection of Measurements
+const result = checkMultipleMeasurementsFor('housing', [240.05, 240.07, 240.09, 240.05, 240.06, 240.02, 240.09]); 
+console.log(result);
 ```
 
 ## Features
