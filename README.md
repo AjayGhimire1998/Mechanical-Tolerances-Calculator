@@ -78,7 +78,7 @@ Supported material types include **housing**, **shaft**, and **shell** (case-ins
     }
     ```
 
-    ### Example
+### Example
 ```js
 const { getAllTolerancesFor } = require("mechanical-tolerance-calculator");
 
