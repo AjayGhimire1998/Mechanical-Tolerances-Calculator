@@ -91,19 +91,19 @@ console.log(tolerances.specifications.H7);
 Checks whether a single measurement complies with the Camco standard tolerance and IT grade for the given material type.
 
 ### Description
-Uses Camco standard specifications:
+- Uses Camco standard specifications:
 
-Housing → H8 / IT6
+-- Housing → H8 / IT6
 
-Shell → H9 / IT6
+-- Shell → H9 / IT6
 
-Shaft → h9 / IT5
+-- Shaft → h9 / IT5
 
-Infers the nominal size from the measurement.
+- Infers the nominal size from the measurement.
 
-Calculates upper and lower bounds.
+- Calculates upper and lower bounds.
 
-Evaluates whether the measurement meets specification and IT tolerance.
+- Evaluates whether the measurement meets specification and IT tolerance.
 
 ### Parameters
 - **materialType** (`string`)  
