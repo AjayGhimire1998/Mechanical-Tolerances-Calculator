@@ -33,7 +33,44 @@ console.log(result);
 // Exmaple: Checking Housing Specification Tolerance for a Collection of Measurements
 const result = checkMultipleMeasurementsFor('housing', [240.05, 240.07, 240.09, 240.05, 240.06, 240.02, 240.09]); 
 console.log(result);
+
 ```
+# API Documentation
+
+This section documents the exported public methods of the **Mechanical Tolerance Calculator** library.
+
+---
+
+## getAllTolerancesFor(materialType)
+
+Returns all available ISO/ANSI tolerance specifications for a given material type.
+
+### Description
+Determines the material category from the provided string and returns the full set of tolerance specifications associated with that category.  
+Supported material types include **housing**, **shaft**, and **shell** (case-insensitive and partial matches allowed, e.g. `"housing bore"`).
+
+### Parameters
+- **materialType** (`string`)  
+  The type of material to retrieve tolerances for.  
+  Valid values (or substrings):
+  - `"housing"`
+  - `"shaft"`
+  - `"shell"`
+
+### Returns
+- **object**
+
+  **On success**
+  ```json
+  {
+    "type": "housingBores" | "shafts" | "shellBores",
+    "specifications": {
+      "H6": [ { ... } ],
+      "H7": [ { ... } ],
+      "...": [ { ... } ]
+    }
+  }
+
 
 ## Features
 
