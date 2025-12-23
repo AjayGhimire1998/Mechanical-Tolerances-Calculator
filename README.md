@@ -113,8 +113,7 @@ Checks whether a single measurement complies with the Camco standard tolerance a
 - **object**
 
   **On success**
-  ```json
- {
+  ```json {
   "measurement": 24.982,
   "nominal": 25,
   "specification": "h9",
