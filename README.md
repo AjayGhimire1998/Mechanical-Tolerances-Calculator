@@ -41,13 +41,69 @@ This section documents the exported public methods of the **Mechanical Tolerance
 
 ---
 
-## getAllTolerancesFor(materialType)
+## getAllTolerancesFor(materialType: String)
 
 Returns all available ISO/ANSI tolerance specifications for a given material type.
 
 ### Description
 Determines the material category from the provided string and returns the full set of tolerance specifications associated with that category.  
 Supported material types include **housing**, **shaft**, and **shell** (case-insensitive and partial matches allowed, e.g. `"housing bore"`).
+
+### Parameters
+- **materialType** (`string`)  
+  The type of material to retrieve tolerances for.  
+  Valid values (or substrings):
+  - `"housing"`
+  - `"shaft"`
+  - `"shell"`
+
+### Returns
+- **object**
+
+  **On success**
+  ```json
+  {
+    "type": "housingBores" | "shafts" | "shellBores",
+    "specifications": {
+      "H6": [ { ... } ],
+      "H7": [ { ... } ],
+      "...": [ { ... } ]
+    }
+  } ```
+
+ -  **On failure**
+    ```json
+    {
+      "error": "Unknown material type: <value>. Valid types are 'housing', 'shaft', or 'shell'."
+    }
+    ```
+
+### Example
+```js
+const { getAllTolerancesFor } = require("mechanical-tolerance-calculator");
+
+const tolerances = getAllTolerancesFor("housing");
+console.log(tolerances.specifications.H7);
+```
+
+## checkOneMeasurementFor(materialType: String, measurement: Number)
+
+Checks whether a single measurement complies with the Camco standard tolerance and IT grade for the given material type.
+
+### Description
+Uses Camco standard specifications:
+
+Housing → H8 / IT6
+
+Shell → H9 / IT6
+
+Shaft → h9 / IT5
+
+Infers the nominal size from the measurement.
+
+Calculates upper and lower bounds.
+
+Evaluates whether the measurement meets specification and IT tolerance.
 
 ### Parameters
 - **materialType** (`string`)  
