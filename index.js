@@ -80,7 +80,7 @@ function returnTolerancesFor(executableMaterialType, spec = "") {
     if (!Object.keys(allTolerances).includes(spec)) {
       return {
         error: `Currently available specifications are ${Object.keys(
-          allTolerances
+          allTolerances,
         )}`,
       };
     }
@@ -97,14 +97,14 @@ function returnTolerancesFor(executableMaterialType, spec = "") {
 }
 
 function isValidMeasurement(measurement) {
-  const num = Number(measurement);
+  const num = parseFloat(measurement);
   return !isNaN(num) && num >= 0 && num < 1000;
 }
 
 function parseNominalFromMeasurement(
   measurement,
   materialType,
-  THRESHOLD = 0.9
+  THRESHOLD = 0.9,
 ) {
   if (!isValidMeasurement(measurement)) {
     return { error: "Measurement must be between 0 to 1000." };
@@ -208,7 +208,7 @@ function processMeasurement(materialType, measurement, tolerances) {
   const matchedSpec = findMatchingSpec(
     nominal,
     tolerances.specification,
-    config.rangeMatch
+    config.rangeMatch,
   );
 
   if (!matchedSpec) {
@@ -230,16 +230,16 @@ function processMeasurement(materialType, measurement, tolerances) {
     meetsSpec,
     measurement,
     computedBounds.lowerBound,
-    computedBounds.upperBound
+    computedBounds.upperBound,
   );
 
   const outcome =
     measurement > computedBounds.upperBound
       ? `${materialType} is over-sized.`
       : measurement >= computedBounds.lowerBound &&
-        measurement <= computedBounds.upperBound
-      ? `${materialType} is in acceptable size.`
-      : `${materialType} is under-sized.`;
+          measurement <= computedBounds.upperBound
+        ? `${materialType} is in acceptable size.`
+        : `${materialType} is under-sized.`;
 
   return {
     measurement: parseStringFloat(measurement),
@@ -265,7 +265,7 @@ function processOneMeasurement(materialType, measurement, tolerances) {
   const processedMeasurement = processMeasurement(
     materialType,
     measurement,
-    tolerances
+    tolerances,
   );
   return {
     ...processedMeasurement,
@@ -293,7 +293,7 @@ function checkOneMeasurementFor(materialType, measurement) {
   return processOneMeasurement(
     camcoStandardTolerances.type,
     measurement,
-    camcoStandardTolerances
+    camcoStandardTolerances,
   );
 }
 
@@ -357,7 +357,7 @@ function processIndividualMeasurement(materialType, measurement, tolerances) {
   const processedMeasurement = processMeasurement(
     materialType,
     measurement,
-    tolerances
+    tolerances,
   );
   return processedMeasurement;
 }
@@ -389,7 +389,7 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
   let largestMeasurement = Math.max(...measurements);
   let smallestMeasurement = Math.min(...measurements);
   let ITDifference = parseToFixedThreeString(
-    largestMeasurement - smallestMeasurement
+    largestMeasurement - smallestMeasurement,
   );
 
   let mostFarMeasurement = largestMeasurement;
@@ -400,7 +400,7 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
     const result = processIndividualMeasurement(
       camcoStandardTolerances.type,
       measurement,
-      camcoStandardTolerances
+      camcoStandardTolerances,
     );
     withInSpecs.push(result.meets_specification.meetsSpec);
     nominals[result.nominal] = count++;
@@ -418,11 +418,11 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
   let countOfMostOccuredNominal = Math.max(...Object.values(nominals));
 
   let mostOccuredNominal = Object.keys(nominals).find(
-    (nominal) => nominals[nominal] === countOfMostOccuredNominal
+    (nominal) => nominals[nominal] === countOfMostOccuredNominal,
   );
 
   const baseSpec = results.find(
-    (result) => result.nominal === parseInt(mostOccuredNominal)
+    (result) => result.nominal === parseInt(mostOccuredNominal),
   );
   const baseITValue = baseSpec.matched_spec[baseSpec.IT_grade];
 
@@ -431,7 +431,7 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
     meetsIT,
     largestMeasurement,
     smallestMeasurement,
-    baseITValue
+    baseITValue,
   );
 
   const meetsSpec = withInSpecs.every((v) => v === true);
@@ -439,7 +439,7 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
     meetsSpec,
     mostFarMeasurement,
     baseSpec.computed_specification_bounds.lowerBound,
-    baseSpec.computed_specification_bounds.upperBound
+    baseSpec.computed_specification_bounds.upperBound,
   );
 
   const isOverSized =
@@ -451,44 +451,45 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
     (isWithinSizeRange
       ? `${materialType} is acceptable in size`
       : isOverSized
-      ? `${materialType} is over-sized`
-      : `${materialType} is under-sized`) +
+        ? `${materialType} is over-sized`
+        : `${materialType} is under-sized`) +
     (isWithinSizeRange && meetsIT
       ? `, and `
       : !meetsIT && isWithinSizeRange
-      ? `, but `
-      : `, and `) +
+        ? `, but `
+        : `, and `) +
     (meetsIT ? `meets IT tolerance.` : `doesn't meet IT tolerance.`);
   return {
     ...baseSpec,
     measurement: measurements,
     meets_specification: { meetsSpec, reason: specMeetingReason },
     meets_IT_Tolerance: { meetsIT, reason: itMeetingReason },
-    meets_final_compliance: meetsIT && baseSpec?.meets_specification?.meetsSpec,
+    meets_final_compliance:
+      meetsIT === true && baseSpec?.meets_specification?.meetsSpec === true,
   };
 }
 
 function generateReasonForSpecs(spec, measurement, base1, base2) {
   if (spec === true) {
     return `${parseToFixedThreeString(
-      measurement
+      measurement,
     )} falls between ${base1} and ${base2}`;
   }
   return `${parseToFixedThreeString(
-    measurement
+    measurement,
   )} doesn't fall between ${base1} and ${base2}`;
 }
 
 function generateReasonForTolerances(spec, measurement1, measurement2, base) {
   if (spec === true) {
     return `The difference between ${parseToFixedThreeString(
-      measurement1
+      measurement1,
     )} and ${parseToFixedThreeString(
-      measurement2
+      measurement2,
     )} is less than or equal to ${base}.`;
   }
   return `The difference between ${parseToFixedThreeString(
-    measurement1
+    measurement1,
   )} and ${parseToFixedThreeString(measurement2)} is greater than ${base}.`;
 }
 
