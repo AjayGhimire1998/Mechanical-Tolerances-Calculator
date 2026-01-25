@@ -22,132 +22,205 @@ const { getAllTolerancesFor } = require("mechanical-tolerance-calculator");
 // ES module
 // import { getAllTolerancesFor } from "mechanical-tolerance-calculator";
 
-// Example: Housing Bore Toelrances
+// Example: Housing Bore Tolerances
 const housingTolerances = getAllTolerancesFor("housing");
 console.log(housingTolerances["housingBoresTolerances"]);
+
+// Example: Checking Shaft Toleranace for a Measurement
+const result = checkOneMeasurementFor('shaft', 179.91); 
+console.log(result);
+
+// Exmaple: Checking Housing Specification Tolerance for a Collection of Measurements
+const result = checkMultipleMeasurementsFor('housing', [240.05, 240.07, 240.09, 240.05, 240.06, 240.02, 240.09]); 
+console.log(result);
+
 ```
+# API Documentation
+
+This section documents the exported public methods of the **Mechanical Tolerance Calculator** library.
 
 ---
 
-## API EXACPLES
+## getAllTolerancesFor(materialType: String)
 
-### `getAllTolerancesFor(materialType: String)`
+Returns all available ISO/ANSI tolerance specifications for a given material type.
 
-**Parameters**
+### Description
+Determines the material category from the provided string and returns the full set of tolerance specifications associated with that category.  
+Supported material types include **housing**, **shaft**, and **shell** (case-insensitive and partial matches allowed, e.g. `"housing bore"`).
 
-- `materialType` (`string`) — Type of material to check tolerances for (e.g. `"housing"`, `"shaft"`, `"shell"`).
+### Parameters
+- **materialType** (`string`)  
+  The type of material to retrieve tolerances for.  
+  Valid values (or substrings):
+  - `"housing"`
+  - `"shaft"`
+  - `"shell"`
 
-**Returns**
+### Returns
+- **object**
 
-An object with the following shape (example):
+  **On success**
+  ```json
+  {
+    "type": "housingBores" | "shafts" | "shellBores",
+    "specifications": {
+      "H6": [ { ... } ],
+      "H7": [ { ... } ],
+      "...": [ { ... } ]
+    }
+  } ```
 
-```json
-{
-  "type": "housing bore" | "shaft" | "shell bore",
-  "specifications": {
-     "H6": [
-      {
-        "minimum_diameter": 0,
-        "maximum_diameter": 3,
-        "upper_deviation": 0.006,
-        "lower_deviation": 0,
-        "IT6": 0.006,
-        "IT5": 0.004
-      },
-      {
-        "minimum_diameter": 3,
-        "maximum_diameter": 6,
-        "upper_deviation": 0.008,
-        "lower_deviation": 0,
-        "IT6": 0.008,
-        "IT5": 0.005
-      }
-     ],
+ -  **On failure**
+    ```json
+    {
+      "error": "Unknown material type: <value>. Valid types are 'housing', 'shaft', or 'shell'."
+    }
+    ```
 
-     "H7": [
-      {
-        "minimum_diameter": 0,
-        "maximum_diameter": 3,
-        "upper_deviation": 0.01,
-        "lower_deviation": 0,
-        "IT7": 0.01,
-        "IT6": 0.006,
-        "IT5": 0.004
-      },
-      {
-        "minimum_diameter": 3,
-        "maximum_diameter": 6,
-        "upper_deviation": 0.012,
-        "lower_deviation": 0,
-        "IT7": 0.012,
-        "IT6": 0.008,
-        "IT5": 0.005
-      },
-     ]
+### Example
+```js
+const { getAllTolerancesFor } = require("mechanical-tolerance-calculator");
+
+const tolerances = getAllTolerancesFor("housing");
+console.log(tolerances.specifications.H7);
+```
+
+## checkOneMeasurementFor(materialType: String, measurement: Number)
+
+Checks whether a single measurement complies with the WA standard tolerance and IT grade for the given material type.
+
+### Description
+- Uses WA standard specifications:
+  - Housing → H8 / IT6
+  - Shell → H9 / IT6
+  - Shaft → h9 / IT5
+- Infers the nominal size from the measurement.
+- Calculates upper and lower bounds.
+- Evaluates whether the measurement meets specification and IT tolerance.
+
+### Parameters
+- **materialType** (`string`)  
+  The type of material to check tolerance and specification for.  
+  Valid values (or substrings):
+  - `"housing"`
+  - `"shaft"`
+  - `"shell"`
+- **measurement** (`number`)  
+  The measured diameter (must be between 0 and 1000).
+
+### Returns
+- **object**
+
+  **On success**
+  ```json
+  {
+    "measurement": 24.982,
+    "nominal": 25,
+    "specification": "h9",
+    "IT_grade": "IT5",
+    "computed_specification_bounds": {
+      "upperBound": "25.000",
+      "lowerBound": "24.970"
+    },
+    "uncomputed_specification_bounds": {
+      "upperBound": "25.000 + 0.000",
+      "lowerBound": "25.000 - 0.030"
+    },
+    "matched_spec": { ... },
+    "meets_specification": {
+      "meetsSpec": true,
+      "reason": "24.982 falls between 24.970 and 25.000",
+      "concludedReason": "shaft is in acceptable size."
+    },
+    "meets_IT_tolerance": true
   }
-}
+  ```
+
+ -  **On failure**
+    ```json
+    {
+      "error": "Measurement must be between 0 to 1000."
+    }
+    ```
+
+### Example
+```js
+const { checkOneMeasurementFor } = require("mechanical-tolerance-calculator");
+
+const result = checkOneMeasurementFor("shaft", 179.91);
+console.log(result.meets_IT_tolerance);
 ```
 
-- `type`: `"housing bore"` or `"shaft"` or `"shell bore"` inferred from the materialType parameter.
-- `specifications`: ISO or ANSI fit/tolerance designation associated with the entry (e.g., H7, h6, etc.).
+## checkMultipleMeasurementsFor(materialType: String, measurements: Numbers[])
 
-- `maximum_diameter`: The upper bound of the nominal diameter range (in millimetres) for which the tolerance values apply.
-- `minimum_diameter`: The upper bound of the nominal diameter range (in millimetres) for which the tolerance values apply.
-- `upper_deviation` / `lower_deviation`: The positive / negative deviation limit from the basic size (in millimetres).
-- `IT5` / `IT6` / `IT8`, etc: International Tolerance (IT) grades defining standard tolerance magnitudes for each grade level.
+Evaluates multiple measurements against WA standard tolerances and IT limits as a group.
 
----
+### Description
+- Validates all measurements.
+- Computes:
+  - Nominal size distribution
+  - Maximum and minimum measurements
+  - IT difference (max − min)
+- Determines:
+  - Whether all measurements meet specification
+  - Whether the IT tolerance band is satisfied
+  - Overall compliance status
 
-## Example Output
+### Parameters
+- **materialType** (`string`)  
+  The type of material to check tolerance and specification for.  
+  Valid values (or substrings):
+  - `"housing"`
+  - `"shaft"`
+  - `"shell"`
+- **measurement** (`number[]`)  
+  An array of measured diameters (each between 0 and 1000).
 
-```json
-{
-  "type": "housing bore",
-  "specifications": {
-    "H6": [
-      {
-        "minimum_diameter": 0,
-        "maximum_diameter": 3,
-        "upper_deviation": 0.006,
-        "lower_deviation": 0,
-        "IT6": 0.006,
-        "IT5": 0.004
-      },
-      {
-        "minimum_diameter": 3,
-        "maximum_diameter": 6,
-        "upper_deviation": 0.008,
-        "lower_deviation": 0,
-        "IT6": 0.008,
-        "IT5": 0.005
-      }
-    ],
+### Returns
+- **object**
 
-    "H7": [
-      {
-        "minimum_diameter": 0,
-        "maximum_diameter": 3,
-        "upper_deviation": 0.01,
-        "lower_deviation": 0,
-        "IT7": 0.01,
-        "IT6": 0.006,
-        "IT5": 0.004
-      },
-      {
-        "minimum_diameter": 3,
-        "maximum_diameter": 6,
-        "upper_deviation": 0.012,
-        "lower_deviation": 0,
-        "IT7": 0.012,
-        "IT6": 0.008,
-        "IT5": 0.005
-      }
-    ]
+  **On success**
+  ```json
+  {
+    "measurement": [24.982, 24.990, 24.975],
+    "nominal": 25,
+    "specification": "h9",
+    "IT_grade": "IT5",
+    "computed_specification_bounds": {
+      "upperBound": "25.000",
+      "lowerBound": "24.970"
+    },
+    "matched_spec": { ... },
+    "meets_specification": {
+      "meetsSpec": true,
+      "reason": "24.990 falls between 24.970 and 25.000"
+    },
+    "meets_IT_Tolerance": {
+      "meetsIT": true,
+      "reason": "The difference between 24.990 and 24.975 is less than or equal to 0.021."
+    },
+    "meets_final_compliance": true
   }
-}
-```
+  ```
 
----
+ -  **On Validation Error**
+    ```json
+    {
+      "error": "Some measurements are invalid.",
+      "details": [
+        { "index": 1, "value": -5, "error": "Invalid measurement: must be 0–1000" }
+      ]
+    }
+    ```
+
+### Example
+```js
+const { checkMultipleMeasurementsFor } = require("mechanical-tolerance-calculator");
+
+const result = checkMultipleMeasurementsFor('housing', [240.05, 240.07, 240.09, 240.05, 240.06, 240.02, 240.09]); 
+console.log(result.meets_final_compliance);
+```
 
 ## Features
 
