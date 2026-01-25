@@ -403,7 +403,10 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
       camcoStandardTolerances,
     );
     withInSpecs.push(result.meets_specification.meetsSpec);
-    nominals[result.nominal] = count++;
+    const nominal = result.nominal;
+
+    // count occurrences
+    nominals[nominal] = (nominals[nominal] || 0) + 1;
 
     if (
       Math.abs(result.nominal - result.measurement) >
@@ -414,6 +417,8 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
 
     return result;
   });
+  console.log("nominals: " + JSON.stringify(nominals));
+  console.log("within spec: " + withInSpecs);
 
   let countOfMostOccuredNominal = Math.max(...Object.values(nominals));
 
