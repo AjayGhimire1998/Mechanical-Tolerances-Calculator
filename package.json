@@ -1,6 +1,6 @@
 {
   "name": "mechanical-tolerance-calculator",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Calculates international standard specification and  tolerances for bores, round bars and metals of mechanical units. For examples; H7, H8, H9, h8, h9 specifications and IT5/IT6 tolerances.",
   "main": "index.js",
   "scripts": {

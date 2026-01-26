@@ -417,8 +417,6 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
 
     return result;
   });
-  console.log("nominals: " + JSON.stringify(nominals));
-  console.log("within spec: " + withInSpecs);
 
   let countOfMostOccuredNominal = Math.max(...Object.values(nominals));
 
