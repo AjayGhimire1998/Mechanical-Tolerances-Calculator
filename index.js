@@ -379,28 +379,27 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
     largestMeasurement - smallestMeasurement,
   );
 
-  let mostFarMeasurement = largestMeasurement;
   const nominals = {};
   let count = 0;
-  let withInSpecs = [];
+  // let withInSpecs = [];
   const results = measurements.map((measurement) => {
     const result = processIndividualMeasurement(
       camcoStandardTolerances.type,
       measurement,
       camcoStandardTolerances,
     );
-    withInSpecs.push(result.meets_specification.meetsSpec);
+    // withInSpecs.push(result.meets_specification.meetsSpec);
     const nominal = result.nominal;
 
     // count occurrences
     nominals[nominal] = (nominals[nominal] || 0) + 1;
 
-    if (
-      Math.abs(result.nominal - result.measurement) >
-      Math.abs(result.nominal - mostFarMeasurement)
-    ) {
-      mostFarMeasurement = result.measurement;
-    }
+    // if (
+    //   Math.abs(result.nominal - result.measurement) >
+    //   Math.abs(result.nominal - mostFarMeasurement)
+    // ) {
+    //   mostFarMeasurement = result.measurement;
+    // }
 
     return result;
   });
@@ -410,6 +409,12 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
   let mostOccuredNominal = Object.keys(nominals).find(
     (nominal) => nominals[nominal] === countOfMostOccuredNominal,
   );
+  let mostFarMeasurement = measurements.reduce((farthest, current) => {
+    return Math.abs(current - mostOccuredNominal) >
+      Math.abs(farthest - mostOccuredNominal)
+      ? current
+      : farthest;
+  });
 
   const baseSpec = results.find(
     (result) => result.nominal === parseInt(mostOccuredNominal),
@@ -425,7 +430,14 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
     baseSpec.IT_grade,
   );
 
-  const meetsSpec = withInSpecs.every((v) => v === true);
+  const meetsSpec = results.every((r) => {
+    const value = r.measurement;
+    return (
+      value >= baseSpec.computed_specification_bounds.lowerBound &&
+      value <= baseSpec.computed_specification_bounds.upperBound
+    );
+  });
+
   const specMeetingReason = generateReasonForSpecs(
     meetsSpec,
     mostFarMeasurement,
