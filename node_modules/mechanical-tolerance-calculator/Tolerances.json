@@ -1,0 +1,1534 @@
+{
+  "housingBores": {
+    "H6": [
+      {
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": "0.006",
+        "lower_deviation": "0.000",
+        "IT6": "0.006",
+        "IT5": "0.004"
+      },
+      {
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": "0.008",
+        "lower_deviation": "0.000",
+        "IT6": "0.008",
+        "IT5": "0.005"
+      },
+      {
+        "minimum_diameter": 6,
+        "maximum_diameter": 10,
+        "upper_deviation": "0.009",
+        "lower_deviation": "0.000",
+        "IT6": "0.009",
+        "IT5": "0.006"
+      },
+      {
+        "minimum_diameter": 10,
+        "maximum_diameter": 18,
+        "upper_deviation": "0.011",
+        "lower_deviation": "0.000",
+        "IT6": "0.011",
+        "IT5": "0.008"
+      },
+      {
+        "minimum_diameter": 18,
+        "maximum_diameter": 30,
+        "upper_deviation": "0.013",
+        "lower_deviation": "0.000",
+        "IT6": "0.013",
+        "IT5": "0.009"
+      },
+      {
+        "minimum_diameter": 30,
+        "maximum_diameter": 50,
+        "upper_deviation": "0.016",
+        "lower_deviation": "0.000",
+        "IT6": "0.016",
+        "IT5": "0.011"
+      },
+      {
+        "minimum_diameter": 50,
+        "maximum_diameter": 80,
+        "upper_deviation": "0.019",
+        "lower_deviation": "0.000",
+        "IT6": "0.019",
+        "IT5": "0.013"
+      },
+      {
+        "minimum_diameter": 80,
+        "maximum_diameter": 120,
+        "upper_deviation": "0.022",
+        "lower_deviation": "0.000",
+        "IT6": "0.022",
+        "IT5": "0.015"
+      },
+      {
+        "minimum_diameter": 120,
+        "maximum_diameter": 180,
+        "upper_deviation": "0.025",
+        "lower_deviation": "0.000",
+        "IT6": "0.025",
+        "IT5": "0.018"
+      },
+      {
+        "minimum_diameter": 180,
+        "maximum_diameter": 250,
+        "upper_deviation": "0.029",
+        "lower_deviation": "0.000",
+        "IT6": "0.029",
+        "IT5": "0.020"
+      },
+      {
+        "minimum_diameter": 250,
+        "maximum_diameter": 315,
+        "upper_deviation": "0.032",
+        "lower_deviation": "0.000",
+        "IT6": "0.032",
+        "IT5": "0.023"
+      },
+      {
+        "minimum_diameter": 315,
+        "maximum_diameter": 400,
+        "upper_deviation": "0.036",
+        "lower_deviation": "0.000",
+        "IT6": "0.036",
+        "IT5": "0.025"
+      },
+      {
+        "minimum_diameter": 400,
+        "maximum_diameter": 500,
+        "upper_deviation": "0.040",
+        "lower_deviation": "0.000",
+        "IT6": "0.040",
+        "IT5": "0.027"
+      },
+      {
+        "minimum_diameter": 500,
+        "maximum_diameter": 630,
+        "upper_deviation": "0.044",
+        "lower_deviation": "0.000",
+        "IT6": "0.044",
+        "IT5": "0.032"
+      },
+      {
+        "minimum_diameter": 630,
+        "maximum_diameter": 800,
+        "upper_deviation": "0.050",
+        "lower_deviation": "0.000",
+        "IT6": "0.050",
+        "IT5": "0.036"
+      },
+      {
+        "minimum_diameter": 800,
+        "maximum_diameter": 1000,
+        "upper_deviation": "0.056",
+        "lower_deviation": "0.000",
+        "IT6": "0.056",
+        "IT5": "0.040"
+      }
+    ],
+    "H7": [
+      {
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": "0.010",
+        "lower_deviation": "0.000",
+        "IT7": "0.010",
+        "IT6": "0.006",
+        "IT5": "0.004"
+      },
+      {
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": "0.012",
+        "lower_deviation": "0.000",
+        "IT7": "0.012",
+        "IT6": "0.008",
+        "IT5": "0.005"
+      },
+      {
+        "minimum_diameter": 6,
+        "maximum_diameter": 10,
+        "upper_deviation": "0.015",
+        "lower_deviation": "0.000",
+        "IT7": "0.015",
+        "IT6": "0.009",
+        "IT5": "0.006"
+      },
+      {
+        "minimum_diameter": 10,
+        "maximum_diameter": 18,
+        "upper_deviation": "0.018",
+        "lower_deviation": "0.000",
+        "IT7": "0.018",
+        "IT6": "0.011",
+        "IT5": "0.008"
+      },
+      {
+        "minimum_diameter": 18,
+        "maximum_diameter": 30,
+        "upper_deviation": "0.021",
+        "lower_deviation": "0.000",
+        "IT7": "0.021",
+        "IT6": "0.013",
+        "IT5": "0.009"
+      },
+      {
+        "minimum_diameter": 30,
+        "maximum_diameter": 50,
+        "upper_deviation": "0.025",
+        "lower_deviation": "0.000",
+        "IT7": "0.025",
+        "IT6": "0.016",
+        "IT5": "0.011"
+      },
+      {
+        "minimum_diameter": 50,
+        "maximum_diameter": 80,
+        "upper_deviation": "0.030",
+        "lower_deviation": "0.000",
+        "IT7": "0.030",
+        "IT6": "0.019",
+        "IT5": "0.013"
+      },
+      {
+        "minimum_diameter": 80,
+        "maximum_diameter": 120,
+        "upper_deviation": "0.035",
+        "lower_deviation": "0.000",
+        "IT7": "0.035",
+        "IT6": "0.022",
+        "IT5": "0.015"
+      },
+      {
+        "minimum_diameter": 120,
+        "maximum_diameter": 180,
+        "upper_deviation": "0.040",
+        "lower_deviation": "0.000",
+        "IT7": "0.040",
+        "IT6": "0.025",
+        "IT5": "0.018"
+      },
+      {
+        "minimum_diameter": 180,
+        "maximum_diameter": 250,
+        "upper_deviation": "0.046",
+        "lower_deviation": "0.000",
+        "IT7": "0.046",
+        "IT6": "0.029",
+        "IT5": "0.020"
+      },
+      {
+        "minimum_diameter": 250,
+        "maximum_diameter": 315,
+        "upper_deviation": "0.052",
+        "lower_deviation": "0.000",
+        "IT7": "0.052",
+        "IT6": "0.032",
+        "IT5": "0.023"
+      },
+      {
+        "minimum_diameter": 315,
+        "maximum_diameter": 400,
+        "upper_deviation": "0.057",
+        "lower_deviation": "0.000",
+        "IT7": "0.057",
+        "IT6": "0.036",
+        "IT5": "0.025"
+      },
+      {
+        "minimum_diameter": 400,
+        "maximum_diameter": 500,
+        "upper_deviation": "0.063",
+        "lower_deviation": "0.000",
+        "IT7": "0.063",
+        "IT6": "0.040",
+        "IT5": "0.027"
+      },
+      {
+        "minimum_diameter": 500,
+        "maximum_diameter": 630,
+        "upper_deviation": "0.070",
+        "lower_deviation": "0.000",
+        "IT7": "0.070",
+        "IT6": "0.044",
+        "IT5": "0.032"
+      },
+      {
+        "minimum_diameter": 630,
+        "maximum_diameter": 800,
+        "upper_deviation": "0.080",
+        "lower_deviation": "0.000",
+        "IT7": "0.080",
+        "IT6": "0.050",
+        "IT5": "0.036"
+      },
+      {
+        "minimum_diameter": 800,
+        "maximum_diameter": 1000,
+        "upper_deviation": "0.090",
+        "lower_deviation": "0.000",
+        "IT7": "0.090",
+        "IT6": "0.056",
+        "IT5": "0.040"
+      }
+    ],
+    "H8": [
+      {
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": "0.014",
+        "lower_deviation": "0.000",
+        "IT8": "0.014",
+        "IT6": "0.006",
+        "IT5": "0.004"
+      },
+      {
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": "0.018",
+        "lower_deviation": "0.000",
+        "IT8": "0.018",
+        "IT6": "0.008",
+        "IT5": "0.005"
+      },
+      {
+        "minimum_diameter": 6,
+        "maximum_diameter": 10,
+        "upper_deviation": "0.022",
+        "lower_deviation": "0.000",
+        "IT8": "0.022",
+        "IT6": "0.009",
+        "IT5": "0.006"
+      },
+      {
+        "minimum_diameter": 10,
+        "maximum_diameter": 18,
+        "upper_deviation": "0.027",
+        "lower_deviation": "0.000",
+        "IT8": "0.027",
+        "IT6": "0.011",
+        "IT5": "0.008"
+      },
+      {
+        "minimum_diameter": 18,
+        "maximum_diameter": 30,
+        "upper_deviation": "0.033",
+        "lower_deviation": "0.000",
+        "IT8": "0.033",
+        "IT6": "0.013",
+        "IT5": "0.009"
+      },
+      {
+        "minimum_diameter": 30,
+        "maximum_diameter": 50,
+        "upper_deviation": "0.039",
+        "lower_deviation": "0.000",
+        "IT8": "0.039",
+        "IT6": "0.016",
+        "IT5": "0.011"
+      },
+      {
+        "minimum_diameter": 50,
+        "maximum_diameter": 80,
+        "upper_deviation": "0.046",
+        "lower_deviation": "0.000",
+        "IT8": "0.046",
+        "IT6": "0.019",
+        "IT5": "0.013"
+      },
+      {
+        "minimum_diameter": 80,
+        "maximum_diameter": 120,
+        "upper_deviation": "0.054",
+        "lower_deviation": "0.000",
+        "IT8": "0.054",
+        "IT6": "0.022",
+        "IT5": "0.015"
+      },
+      {
+        "minimum_diameter": 120,
+        "maximum_diameter": 180,
+        "upper_deviation": "0.063",
+        "lower_deviation": "0.000",
+        "IT8": "0.063",
+        "IT6": "0.025",
+        "IT5": "0.018"
+      },
+      {
+        "minimum_diameter": 180,
+        "maximum_diameter": 250,
+        "upper_deviation": "0.072",
+        "lower_deviation": "0.000",
+        "IT8": "0.072",
+        "IT6": "0.029",
+        "IT5": "0.020"
+      },
+      {
+        "minimum_diameter": 250,
+        "maximum_diameter": 315,
+        "upper_deviation": "0.081",
+        "lower_deviation": "0.000",
+        "IT8": "0.081",
+        "IT6": "0.032",
+        "IT5": "0.023"
+      },
+      {
+        "minimum_diameter": 315,
+        "maximum_diameter": 400,
+        "upper_deviation": "0.089",
+        "lower_deviation": "0.000",
+        "IT8": "0.089",
+        "IT6": "0.036",
+        "IT5": "0.025"
+      },
+      {
+        "minimum_diameter": 400,
+        "maximum_diameter": 500,
+        "upper_deviation": "0.097",
+        "lower_deviation": "0.000",
+        "IT8": "0.097",
+        "IT6": "0.040",
+        "IT5": "0.027"
+      },
+      {
+        "minimum_diameter": 500,
+        "maximum_diameter": 630,
+        "upper_deviation": "0.110",
+        "lower_deviation": "0.000",
+        "IT8": "0.110",
+        "IT6": "0.044",
+        "IT5": "0.032"
+      },
+      {
+        "minimum_diameter": 630,
+        "maximum_diameter": 800,
+        "upper_deviation": "0.125",
+        "lower_deviation": "0.000",
+        "IT8": "0.125",
+        "IT6": "0.050",
+        "IT5": "0.036"
+      },
+      {
+        "minimum_diameter": 800,
+        "maximum_diameter": 1000,
+        "upper_deviation": "0.140",
+        "lower_deviation": "0.000",
+        "IT8": "0.140",
+        "IT6": "0.056",
+        "IT5": "0.040"
+      }
+    ],
+    "H9": [
+      {
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": "0.025",
+        "lower_deviation": "0.000",
+        "IT9": "0.025",
+        "IT6": "0.006",
+        "IT5": "0.004"
+      },
+      {
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": "0.030",
+        "lower_deviation": "0.000",
+        "IT9": "0.030",
+        "IT6": "0.008",
+        "IT5": "0.005"
+      },
+      {
+        "minimum_diameter": 6,
+        "maximum_diameter": 10,
+        "upper_deviation": "0.036",
+        "lower_deviation": "0.000",
+        "IT9": "0.036",
+        "IT6": "0.009",
+        "IT5": "0.006"
+      },
+      {
+        "minimum_diameter": 10,
+        "maximum_diameter": 18,
+        "upper_deviation": "0.043",
+        "lower_deviation": "0.000",
+        "IT9": "0.043",
+        "IT6": "0.011",
+        "IT5": "0.008"
+      },
+      {
+        "minimum_diameter": 18,
+        "maximum_diameter": 30,
+        "upper_deviation": "0.052",
+        "lower_deviation": "0.000",
+        "IT9": "0.052",
+        "IT6": "0.013",
+        "IT5": "0.009"
+      },
+      {
+        "minimum_diameter": 30,
+        "maximum_diameter": 50,
+        "upper_deviation": "0.062",
+        "lower_deviation": "0.000",
+        "IT9": "0.062",
+        "IT6": "0.016",
+        "IT5": "0.011"
+      },
+      {
+        "minimum_diameter": 50,
+        "maximum_diameter": 80,
+        "upper_deviation": "0.074",
+        "lower_deviation": "0.000",
+        "IT9": "0.074",
+        "IT6": "0.019",
+        "IT5": "0.013"
+      },
+      {
+        "minimum_diameter": 80,
+        "maximum_diameter": 120,
+        "upper_deviation": "0.087",
+        "lower_deviation": "0.000",
+        "IT9": "0.087",
+        "IT6": "0.022",
+        "IT5": "0.015"
+      },
+      {
+        "minimum_diameter": 120,
+        "maximum_diameter": 180,
+        "upper_deviation": "0.100",
+        "lower_deviation": "0.000",
+        "IT9": "0.100",
+        "IT6": "0.025",
+        "IT5": "0.018"
+      },
+      {
+        "minimum_diameter": 180,
+        "maximum_diameter": 250,
+        "upper_deviation": "0.115",
+        "lower_deviation": "0.000",
+        "IT9": "0.115",
+        "IT6": "0.029",
+        "IT5": "0.020"
+      },
+      {
+        "minimum_diameter": 250,
+        "maximum_diameter": 315,
+        "upper_deviation": "0.130",
+        "lower_deviation": "0.000",
+        "IT9": "0.130",
+        "IT6": "0.032",
+        "IT5": "0.023"
+      },
+      {
+        "minimum_diameter": 315,
+        "maximum_diameter": 400,
+        "upper_deviation": "0.140",
+        "lower_deviation": "0.000",
+        "IT9": "0.140",
+        "IT6": "0.036",
+        "IT5": "0.025"
+      },
+      {
+        "minimum_diameter": 400,
+        "maximum_diameter": 500,
+        "upper_deviation": "0.155",
+        "lower_deviation": "0.000",
+        "IT9": "0.155",
+        "IT6": "0.040",
+        "IT5": "0.027"
+      },
+      {
+        "minimum_diameter": 500,
+        "maximum_diameter": 630,
+        "upper_deviation": "0.175",
+        "lower_deviation": "0.000",
+        "IT9": "0.175",
+        "IT6": "0.044",
+        "IT5": "0.032"
+      },
+      {
+        "minimum_diameter": 630,
+        "maximum_diameter": 800,
+        "upper_deviation": "0.200",
+        "lower_deviation": "0.000",
+        "IT9": "0.200",
+        "IT6": "0.050",
+        "IT5": "0.036"
+      },
+      {
+        "minimum_diameter": 800,
+        "maximum_diameter": 1000,
+        "upper_deviation": "0.230",
+        "lower_deviation": "0.000",
+        "IT9": "0.230",
+        "IT6": "0.056",
+        "IT5": "0.040"
+      }
+    ]
+  },
+  "shafts": {
+    "h6": [
+      {
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.006",
+        "IT6": "0.006",
+        "IT5": "0.004"
+      },
+      {
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.008",
+        "IT6": "0.008",
+        "IT5": "0.005"
+      },
+      {
+        "minimum_diameter": 6,
+        "maximum_diameter": 10,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.009",
+        "IT6": "0.009",
+        "IT5": "0.006"
+      },
+      {
+        "minimum_diameter": 10,
+        "maximum_diameter": 18,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.011",
+        "IT6": "0.011",
+        "IT5": "0.008"
+      },
+      {
+        "minimum_diameter": 18,
+        "maximum_diameter": 30,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.013",
+        "IT6": "0.013",
+        "IT5": "0.009"
+      },
+      {
+        "minimum_diameter": 30,
+        "maximum_diameter": 50,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.016",
+        "IT6": "0.016",
+        "IT5": "0.011"
+      },
+      {
+        "minimum_diameter": 50,
+        "maximum_diameter": 80,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.019",
+        "IT6": "0.019",
+        "IT5": "0.013"
+      },
+      {
+        "minimum_diameter": 80,
+        "maximum_diameter": 120,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.022",
+        "IT6": "0.022",
+        "IT5": "0.015"
+      },
+      {
+        "minimum_diameter": 120,
+        "maximum_diameter": 180,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.025",
+        "IT6": "0.025",
+        "IT5": "0.018"
+      },
+      {
+        "minimum_diameter": 180,
+        "maximum_diameter": 250,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.029",
+        "IT6": "0.029",
+        "IT5": "0.020"
+      },
+      {
+        "minimum_diameter": 250,
+        "maximum_diameter": 315,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.032",
+        "IT6": "0.032",
+        "IT5": "0.023"
+      },
+      {
+        "minimum_diameter": 315,
+        "maximum_diameter": 400,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.036",
+        "IT6": "0.036",
+        "IT5": "0.025"
+      },
+      {
+        "minimum_diameter": 400,
+        "maximum_diameter": 500,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.040",
+        "IT6": "0.040",
+        "IT5": "0.027"
+      },
+      {
+        "minimum_diameter": 500,
+        "maximum_diameter": 630,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.044",
+        "IT6": "0.044",
+        "IT5": "0.032"
+      },
+      {
+        "minimum_diameter": 630,
+        "maximum_diameter": 800,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.050",
+        "IT6": "0.050",
+        "IT5": "0.036"
+      },
+      {
+        "minimum_diameter": 800,
+        "maximum_diameter": 1000,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.056",
+        "IT6": "0.056",
+        "IT5": "0.040"
+      }
+    ],
+    "h7": [
+      {
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.010",
+        "IT7": "0.010",
+        "IT5": "0.004"
+      },
+      {
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.012",
+        "IT7": "0.012",
+        "IT5": "0.005"
+      },
+      {
+        "minimum_diameter": 6,
+        "maximum_diameter": 10,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.015",
+        "IT7": "0.015",
+        "IT5": "0.006"
+      },
+      {
+        "minimum_diameter": 10,
+        "maximum_diameter": 18,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.018",
+        "IT7": "0.018",
+        "IT5": "0.008"
+      },
+      {
+        "minimum_diameter": 18,
+        "maximum_diameter": 30,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.021",
+        "IT7": "0.021",
+        "IT5": "0.009"
+      },
+      {
+        "minimum_diameter": 30,
+        "maximum_diameter": 50,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.025",
+        "IT7": "0.025",
+        "IT5": "0.011"
+      },
+      {
+        "minimum_diameter": 50,
+        "maximum_diameter": 80,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.030",
+        "IT7": "0.030",
+        "IT5": "0.013"
+      },
+      {
+        "minimum_diameter": 80,
+        "maximum_diameter": 120,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.035",
+        "IT7": "0.035",
+        "IT5": "0.015"
+      },
+      {
+        "minimum_diameter": 120,
+        "maximum_diameter": 180,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.040",
+        "IT7": "0.040",
+        "IT5": "0.018"
+      },
+      {
+        "minimum_diameter": 180,
+        "maximum_diameter": 250,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.046",
+        "IT7": "0.046",
+        "IT5": "0.020"
+      },
+      {
+        "minimum_diameter": 250,
+        "maximum_diameter": 315,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.052",
+        "IT7": "0.052",
+        "IT5": "0.023"
+      },
+      {
+        "minimum_diameter": 315,
+        "maximum_diameter": 400,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.057",
+        "IT7": "0.057",
+        "IT5": "0.025"
+      },
+      {
+        "minimum_diameter": 400,
+        "maximum_diameter": 500,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.063",
+        "IT7": "0.063",
+        "IT5": "0.027"
+      },
+      {
+        "minimum_diameter": 500,
+        "maximum_diameter": 630,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.070",
+        "IT7": "0.070",
+        "IT5": "0.032"
+      },
+      {
+        "minimum_diameter": 630,
+        "maximum_diameter": 800,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.080",
+        "IT7": "0.080",
+        "IT5": "0.036"
+      },
+      {
+        "minimum_diameter": 800,
+        "maximum_diameter": 1000,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.090",
+        "IT7": "0.090",
+        "IT5": "0.040"
+      }
+    ],
+    "h8": [
+      {
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.014",
+        "IT8": "0.014",
+        "IT5": "0.004"
+      },
+      {
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.018",
+        "IT8": "0.018",
+        "IT5": "0.005"
+      },
+      {
+        "minimum_diameter": 6,
+        "maximum_diameter": 10,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.022",
+        "IT8": "0.022",
+        "IT5": "0.006"
+      },
+      {
+        "minimum_diameter": 10,
+        "maximum_diameter": 18,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.027",
+        "IT8": "0.027",
+        "IT5": "0.008"
+      },
+      {
+        "minimum_diameter": 18,
+        "maximum_diameter": 30,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.033",
+        "IT8": "0.033",
+        "IT5": "0.009"
+      },
+      {
+        "minimum_diameter": 30,
+        "maximum_diameter": 50,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.039",
+        "IT8": "0.039",
+        "IT5": "0.011"
+      },
+      {
+        "minimum_diameter": 50,
+        "maximum_diameter": 80,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.046",
+        "IT8": "0.046",
+        "IT5": "0.013"
+      },
+      {
+        "minimum_diameter": 80,
+        "maximum_diameter": 120,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.054",
+        "IT8": "0.054",
+        "IT5": "0.015"
+      },
+      {
+        "minimum_diameter": 120,
+        "maximum_diameter": 180,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.063",
+        "IT8": "0.063",
+        "IT5": "0.018"
+      },
+      {
+        "minimum_diameter": 180,
+        "maximum_diameter": 250,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.072",
+        "IT8": "0.072",
+        "IT5": "0.020"
+      },
+      {
+        "minimum_diameter": 250,
+        "maximum_diameter": 315,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.081",
+        "IT8": "0.081",
+        "IT5": "0.023"
+      },
+      {
+        "minimum_diameter": 315,
+        "maximum_diameter": 400,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.089",
+        "IT8": "0.089",
+        "IT5": "0.025"
+      },
+      {
+        "minimum_diameter": 400,
+        "maximum_diameter": 500,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.097",
+        "IT8": "0.097",
+        "IT5": "0.027"
+      },
+      {
+        "minimum_diameter": 500,
+        "maximum_diameter": 630,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.110",
+        "IT8": "0.110",
+        "IT5": "0.032"
+      },
+      {
+        "minimum_diameter": 630,
+        "maximum_diameter": 800,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.125",
+        "IT8": "0.125",
+        "IT5": "0.036"
+      },
+      {
+        "minimum_diameter": 800,
+        "maximum_diameter": 1000,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.140",
+        "IT8": "0.140",
+        "IT5": "0.040"
+      }
+    ],
+    "h9": [
+      {
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.025",
+        "IT9": "0.025",
+        "IT5": "0.004"
+      },
+      {
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.030",
+        "IT9": "0.030",
+        "IT5": "0.005"
+      },
+      {
+        "minimum_diameter": 6,
+        "maximum_diameter": 10,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.036",
+        "IT9": "0.036",
+        "IT5": "0.006"
+      },
+      {
+        "minimum_diameter": 10,
+        "maximum_diameter": 18,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.043",
+        "IT9": "0.043",
+        "IT5": "0.008"
+      },
+      {
+        "minimum_diameter": 18,
+        "maximum_diameter": 30,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.052",
+        "IT9": "0.052",
+        "IT5": "0.009"
+      },
+      {
+        "minimum_diameter": 30,
+        "maximum_diameter": 50,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.062",
+        "IT9": "0.062",
+        "IT5": "0.011"
+      },
+      {
+        "minimum_diameter": 50,
+        "maximum_diameter": 80,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.074",
+        "IT9": "0.074",
+        "IT5": "0.013"
+      },
+      {
+        "minimum_diameter": 80,
+        "maximum_diameter": 120,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.087",
+        "IT9": "0.087",
+        "IT5": "0.015"
+      },
+      {
+        "minimum_diameter": 120,
+        "maximum_diameter": 180,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.100",
+        "IT9": "0.100",
+        "IT5": "0.018"
+      },
+      {
+        "minimum_diameter": 180,
+        "maximum_diameter": 250,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.115",
+        "IT9": "0.115",
+        "IT5": "0.020"
+      },
+      {
+        "minimum_diameter": 250,
+        "maximum_diameter": 315,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.130",
+        "IT9": "0.130",
+        "IT5": "0.023"
+      },
+      {
+        "minimum_diameter": 315,
+        "maximum_diameter": 400,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.140",
+        "IT9": "0.140",
+        "IT5": "0.025"
+      },
+      {
+        "minimum_diameter": 400,
+        "maximum_diameter": 500,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.155",
+        "IT9": "0.155",
+        "IT5": "0.027"
+      },
+      {
+        "minimum_diameter": 500,
+        "maximum_diameter": 630,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.175",
+        "IT9": "0.175",
+        "IT5": "0.032"
+      },
+      {
+        "minimum_diameter": 630,
+        "maximum_diameter": 800,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.200",
+        "IT9": "0.200",
+        "IT5": "0.036"
+      },
+      {
+        "minimum_diameter": 800,
+        "maximum_diameter": 1000,
+        "upper_deviation": "0.000",
+        "lower_deviation": "-0.230",
+        "IT9": "0.230",
+        "IT5": "0.040"
+      }
+    ]
+  },
+  "shellBores": {
+    "H9": [
+      {
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": "0.025",
+        "lower_deviation": "0.000",
+        "IT9": "0.025",
+        "IT6": "0.006",
+        "IT5": "0.004"
+      },
+      {
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": "0.030",
+        "lower_deviation": "0.000",
+        "IT9": "0.030",
+        "IT6": "0.008",
+        "IT5": "0.005"
+      },
+      {
+        "minimum_diameter": 6,
+        "maximum_diameter": 10,
+        "upper_deviation": "0.036",
+        "lower_deviation": "0.000",
+        "IT9": "0.036",
+        "IT6": "0.009",
+        "IT5": "0.006"
+      },
+      {
+        "minimum_diameter": 10,
+        "maximum_diameter": 18,
+        "upper_deviation": "0.043",
+        "lower_deviation": "0.000",
+        "IT9": "0.043",
+        "IT6": "0.011",
+        "IT5": "0.008"
+      },
+      {
+        "minimum_diameter": 18,
+        "maximum_diameter": 30,
+        "upper_deviation": "0.052",
+        "lower_deviation": "0.000",
+        "IT9": "0.052",
+        "IT6": "0.013",
+        "IT5": "0.009"
+      },
+      {
+        "minimum_diameter": 30,
+        "maximum_diameter": 50,
+        "upper_deviation": "0.062",
+        "lower_deviation": "0.000",
+        "IT9": "0.062",
+        "IT6": "0.016",
+        "IT5": "0.011"
+      },
+      {
+        "minimum_diameter": 50,
+        "maximum_diameter": 80,
+        "upper_deviation": "0.074",
+        "lower_deviation": "0.000",
+        "IT9": "0.074",
+        "IT6": "0.019",
+        "IT5": "0.013"
+      },
+      {
+        "minimum_diameter": 80,
+        "maximum_diameter": 120,
+        "upper_deviation": "0.087",
+        "lower_deviation": "0.000",
+        "IT9": "0.087",
+        "IT6": "0.022",
+        "IT5": "0.015"
+      },
+      {
+        "minimum_diameter": 120,
+        "maximum_diameter": 180,
+        "upper_deviation": "0.100",
+        "lower_deviation": "0.000",
+        "IT9": "0.100",
+        "IT6": "0.025",
+        "IT5": "0.018"
+      },
+      {
+        "minimum_diameter": 180,
+        "maximum_diameter": 250,
+        "upper_deviation": "0.115",
+        "lower_deviation": "0.000",
+        "IT9": "0.115",
+        "IT6": "0.029",
+        "IT5": "0.020"
+      },
+      {
+        "minimum_diameter": 250,
+        "maximum_diameter": 315,
+        "upper_deviation": "0.130",
+        "lower_deviation": "0.000",
+        "IT9": "0.130",
+        "IT6": "0.032",
+        "IT5": "0.023"
+      },
+      {
+        "minimum_diameter": 315,
+        "maximum_diameter": 400,
+        "upper_deviation": "0.140",
+        "lower_deviation": "0.000",
+        "IT9": "0.140",
+        "IT6": "0.036",
+        "IT5": "0.025"
+      },
+      {
+        "minimum_diameter": 400,
+        "maximum_diameter": 500,
+        "upper_deviation": "0.155",
+        "lower_deviation": "0.000",
+        "IT9": "0.155",
+        "IT6": "0.040",
+        "IT5": "0.027"
+      },
+      {
+        "minimum_diameter": 500,
+        "maximum_diameter": 630,
+        "upper_deviation": "0.175",
+        "lower_deviation": "0.000",
+        "IT9": "0.175",
+        "IT6": "0.044",
+        "IT5": "0.032"
+      },
+      {
+        "minimum_diameter": 630,
+        "maximum_diameter": 800,
+        "upper_deviation": "0.200",
+        "lower_deviation": "0.000",
+        "IT9": "0.200",
+        "IT6": "0.050",
+        "IT5": "0.036"
+      },
+      {
+        "minimum_diameter": 800,
+        "maximum_diameter": 1000,
+        "upper_deviation": "0.230",
+        "lower_deviation": "0.000",
+        "IT9": "0.230",
+        "IT6": "0.056",
+        "IT5": "0.040"
+      }
+    ],
+    "H8": [
+      {
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": "0.014",
+        "lower_deviation": "0.000",
+        "IT8": "0.014",
+        "IT6": "0.006",
+        "IT5": "0.004"
+      },
+      {
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": "0.018",
+        "lower_deviation": "0.000",
+        "IT8": "0.018",
+        "IT6": "0.008",
+        "IT5": "0.005"
+      },
+      {
+        "minimum_diameter": 6,
+        "maximum_diameter": 10,
+        "upper_deviation": "0.022",
+        "lower_deviation": "0.000",
+        "IT8": "0.022",
+        "IT6": "0.009",
+        "IT5": "0.006"
+      },
+      {
+        "minimum_diameter": 10,
+        "maximum_diameter": 18,
+        "upper_deviation": "0.027",
+        "lower_deviation": "0.000",
+        "IT8": "0.027",
+        "IT6": "0.011",
+        "IT5": "0.008"
+      },
+      {
+        "minimum_diameter": 18,
+        "maximum_diameter": 30,
+        "upper_deviation": "0.033",
+        "lower_deviation": "0.000",
+        "IT8": "0.033",
+        "IT6": "0.013",
+        "IT5": "0.009"
+      },
+      {
+        "minimum_diameter": 30,
+        "maximum_diameter": 50,
+        "upper_deviation": "0.039",
+        "lower_deviation": "0.000",
+        "IT8": "0.039",
+        "IT6": "0.016",
+        "IT5": "0.011"
+      },
+      {
+        "minimum_diameter": 50,
+        "maximum_diameter": 80,
+        "upper_deviation": "0.046",
+        "lower_deviation": "0.000",
+        "IT8": "0.046",
+        "IT6": "0.019",
+        "IT5": "0.013"
+      },
+      {
+        "minimum_diameter": 80,
+        "maximum_diameter": 120,
+        "upper_deviation": "0.054",
+        "lower_deviation": "0.000",
+        "IT8": "0.054",
+        "IT6": "0.022",
+        "IT5": "0.015"
+      },
+      {
+        "minimum_diameter": 120,
+        "maximum_diameter": 180,
+        "upper_deviation": "0.063",
+        "lower_deviation": "0.000",
+        "IT8": "0.063",
+        "IT6": "0.025",
+        "IT5": "0.018"
+      },
+      {
+        "minimum_diameter": 180,
+        "maximum_diameter": 250,
+        "upper_deviation": "0.072",
+        "lower_deviation": "0.000",
+        "IT8": "0.072",
+        "IT6": "0.029",
+        "IT5": "0.020"
+      },
+      {
+        "minimum_diameter": 250,
+        "maximum_diameter": 315,
+        "upper_deviation": "0.081",
+        "lower_deviation": "0.000",
+        "IT8": "0.081",
+        "IT6": "0.032",
+        "IT5": "0.023"
+      },
+      {
+        "minimum_diameter": 315,
+        "maximum_diameter": 400,
+        "upper_deviation": "0.089",
+        "lower_deviation": "0.000",
+        "IT8": "0.089",
+        "IT6": "0.036",
+        "IT5": "0.025"
+      },
+      {
+        "minimum_diameter": 400,
+        "maximum_diameter": 500,
+        "upper_deviation": "0.097",
+        "lower_deviation": "0.000",
+        "IT8": "0.097",
+        "IT6": "0.040",
+        "IT5": "0.027"
+      },
+      {
+        "minimum_diameter": 500,
+        "maximum_diameter": 630,
+        "upper_deviation": "0.110",
+        "lower_deviation": "0.000",
+        "IT8": "0.110",
+        "IT6": "0.044",
+        "IT5": "0.032"
+      },
+      {
+        "minimum_diameter": 630,
+        "maximum_diameter": 800,
+        "upper_deviation": "0.125",
+        "lower_deviation": "0.000",
+        "IT8": "0.125",
+        "IT6": "0.050",
+        "IT5": "0.036"
+      },
+      {
+        "minimum_diameter": 800,
+        "maximum_diameter": 1000,
+        "upper_deviation": "0.140",
+        "lower_deviation": "0.000",
+        "IT8": "0.140",
+        "IT6": "0.056",
+        "IT5": "0.040"
+      }
+    ],
+    "H7": [
+      {
+        "minimum_diameter": 0,
+        "maximum_diameter": 3,
+        "upper_deviation": "0.010",
+        "lower_deviation": "0.000",
+        "IT7": "0.010",
+        "IT6": "0.006",
+        "IT5": "0.004"
+      },
+      {
+        "minimum_diameter": 3,
+        "maximum_diameter": 6,
+        "upper_deviation": "0.012",
+        "lower_deviation": "0.000",
+        "IT7": "0.012",
+        "IT6": "0.008",
+        "IT5": "0.005"
+      },
+      {
+        "minimum_diameter": 6,
+        "maximum_diameter": 10,
+        "upper_deviation": "0.015",
+        "lower_deviation": "0.000",
+        "IT7": "0.015",
+        "IT6": "0.009",
+        "IT5": "0.006"
+      },
+      {
+        "minimum_diameter": 10,
+        "maximum_diameter": 18,
+        "upper_deviation": "0.018",
+        "lower_deviation": "0.000",
+        "IT7": "0.018",
+        "IT6": "0.011",
+        "IT5": "0.008"
+      },
+      {
+        "minimum_diameter": 18,
+        "maximum_diameter": 30,
+        "upper_deviation": "0.021",
+        "lower_deviation": "0.000",
+        "IT7": "0.021",
+        "IT6": "0.013",
+        "IT5": "0.009"
+      },
+      {
+        "minimum_diameter": 30,
+        "maximum_diameter": 50,
+        "upper_deviation": "0.025",
+        "lower_deviation": "0.000",
+        "IT7": "0.025",
+        "IT6": "0.016",
+        "IT5": "0.011"
+      },
+      {
+        "minimum_diameter": 50,
+        "maximum_diameter": 80,
+        "upper_deviation": "0.030",
+        "lower_deviation": "0.000",
+        "IT7": "0.030",
+        "IT6": "0.019",
+        "IT5": "0.013"
+      },
+      {
+        "minimum_diameter": 80,
+        "maximum_diameter": 120,
+        "upper_deviation": "0.035",
+        "lower_deviation": "0.000",
+        "IT7": "0.035",
+        "IT6": "0.022",
+        "IT5": "0.015"
+      },
+      {
+        "minimum_diameter": 120,
+        "maximum_diameter": 180,
+        "upper_deviation": "0.040",
+        "lower_deviation": "0.000",
+        "IT7": "0.040",
+        "IT6": "0.025",
+        "IT5": "0.018"
+      },
+      {
+        "minimum_diameter": 180,
+        "maximum_diameter": 250,
+        "upper_deviation": "0.046",
+        "lower_deviation": "0.000",
+        "IT7": "0.046",
+        "IT6": "0.029",
+        "IT5": "0.020"
+      },
+      {
+        "minimum_diameter": 250,
+        "maximum_diameter": 315,
+        "upper_deviation": "0.052",
+        "lower_deviation": "0.000",
+        "IT7": "0.052",
+        "IT6": "0.032",
+        "IT5": "0.023"
+      },
+      {
+        "minimum_diameter": 315,
+        "maximum_diameter": 400,
+        "upper_deviation": "0.057",
+        "lower_deviation": "0.000",
+        "IT7": "0.057",
+        "IT6": "0.036",
+        "IT5": "0.025"
+      },
+      {
+        "minimum_diameter": 400,
+        "maximum_diameter": 500,
+        "upper_deviation": "0.063",
+        "lower_deviation": "0.000",
+        "IT7": "0.063",
+        "IT6": "0.040",
+        "IT5": "0.027"
+      },
+      {
+        "minimum_diameter": 500,
+        "maximum_diameter": 630,
+        "upper_deviation": "0.070",
+        "lower_deviation": "0.000",
+        "IT7": "0.070",
+        "IT6": "0.044",
+        "IT5": "0.032"
+      },
+      {
+        "minimum_diameter": 630,
+        "maximum_diameter": 800,
+        "upper_deviation": "0.080",
+        "lower_deviation": "0.000",
+        "IT7": "0.080",
+        "IT6": "0.050",
+        "IT5": "0.036"
+      },
+      {
+        "minimum_diameter": 800,
+        "maximum_diameter": 1000,
+        "upper_deviation": "0.090",
+        "lower_deviation": "0.000",
+        "IT7": "0.090",
+        "IT6": "0.056",
+        "IT5": "0.040"
+      }
+    ]
+  }
+}
