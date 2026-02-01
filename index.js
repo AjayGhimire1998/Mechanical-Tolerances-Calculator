@@ -1,14 +1,24 @@
 const tolerances = require("./Tolerances.json");
 
+/* Validates the material type passed is not an empty string. */
+function validateMaterialType(materialType) {
+  if (typeof materialType != "string") {
+    // checks if
+    return { error: "Material type must be a string." };
+  }
+
+  if (
+    materialType == undefined ||
+    materialType == null ||
+    materialType.trim() === ""
+  ) {
+    return { error: "Material type is required and cannot be empty." };
+  }
+
+  return materialType;
+}
 /**
  * Returns all tolerances for the given material type.
- * @description
- * The function checks the provided material type string to determine
- * which category of tolerances to return. It supports 'housing', 'shaft',
- * and 'shell' as valid material types. If the input is invalid or does not
- * match any known category, an error message is returned.
- * @param {string} materialType
- * @returns {object} An object containing the relevant tolerances or an error message.
  */
 function getAllTolerancesFor(materialType) {
   const validatedMaterialType = validateMaterialType(materialType);
@@ -32,13 +42,6 @@ function getAllTolerancesFor(materialType) {
 
 /**
  * Returns Camco Standard specification and tolerances for the given material type.
- * @description
- * The function checks the provided material type string to determine
- * which category of camco standard tolerances to return. It supports 'housing', 'shaft',
- * and 'shell' as valid material types. If the input is invalid or does not
- * match any known category, an error message is returned.
- * @param {string} materialType
- * @returns {object} An object containing the relevant tolerances or an error message.
  */
 function getCamcoStandardTolerancesFor(materialType) {
   const validatedMaterialType = validateMaterialType(materialType);
@@ -56,22 +59,6 @@ function getCamcoStandardTolerancesFor(materialType) {
       error: `Unknown material type: ${materialType}. Valid types are 'housing', 'shaft', or 'shell'.`,
     };
   }
-}
-
-function validateMaterialType(materialType) {
-  if (typeof materialType != "string") {
-    return { error: "Material type must be a string." };
-  }
-
-  if (
-    materialType == undefined ||
-    materialType == null ||
-    materialType.trim() === ""
-  ) {
-    return { error: "Material type is required and cannot be empty." };
-  }
-
-  return materialType;
 }
 
 function returnTolerancesFor(executableMaterialType, spec = "") {
@@ -435,6 +422,7 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
     largestMeasurement,
     smallestMeasurement,
     baseITValue,
+    baseSpec.IT_grade,
   );
 
   const meetsSpec = withInSpecs.every((v) => v === true);
@@ -443,6 +431,7 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
     mostFarMeasurement,
     baseSpec.computed_specification_bounds.lowerBound,
     baseSpec.computed_specification_bounds.upperBound,
+    baseSpec.specification,
   );
 
   const isOverSized =
@@ -450,49 +439,72 @@ function checkMultipleMeasurementsFor(materialType, measurements) {
   const isWithinSizeRange =
     mostFarMeasurement <= baseSpec.computed_specification_bounds.upperBound &&
     mostFarMeasurement >= baseSpec.computed_specification_bounds.lowerBound;
-  const outcome =
-    (isWithinSizeRange
-      ? `${materialType} is acceptable in size`
-      : isOverSized
-        ? `${materialType} is over-sized`
-        : `${materialType} is under-sized`) +
-    (isWithinSizeRange && meetsIT
-      ? `, and `
-      : !meetsIT && isWithinSizeRange
-        ? `, but `
-        : `, and `) +
-    (meetsIT ? `meets IT tolerance.` : `doesn't meet IT tolerance.`);
+
+  const outcome1 = isWithinSizeRange
+    ? `${materialType} is acceptable in size.`
+    : isOverSized
+      ? `${materialType} is over-sized.`
+      : `${materialType} is under-sized.`;
+
+  const outcome2 =
+    isWithinSizeRange && meetsIT
+      ? "And, it meets IT tolerance."
+      : !isWithinSizeRange && meetsIT
+        ? "However, it meets IT tolerance."
+        : `${!isWithinSizeRange ? "And, " : "But, "}it fails IT tolerance.`;
+
+  // const outcome2 = meetsIT ? ""
+
+  //   (isWithinSizeRange && meetsIT
+  //     ? `, and `
+  //     : !meetsIT && isWithinSizeRange
+  //       ? `, but `
+  //       : `, and `) +
+  //   (meetsIT ? `meets IT tolerance.` : `doesn't meet IT tolerance.`);
+
+  const final_compliance = meetsIT === true && meetsSpec === true;
+
+  const outcome3 = final_compliance
+    ? "Finally, it meets final compliance and is acceptable to use."
+    : "Finally, it doesn't meet final compliance and is not acceptable to use.";
   return {
     ...baseSpec,
     measurement: measurements,
     meets_specification: { meetsSpec, reason: specMeetingReason },
     meets_IT_Tolerance: { meetsIT, reason: itMeetingReason },
-    meets_final_compliance: meetsIT === true && meetsSpec === true,
+    meets_final_compliance: final_compliance,
+    generalized_outcome: outcome1 + " " + outcome2 + " " + outcome3,
   };
 }
 
-function generateReasonForSpecs(spec, measurement, base1, base2) {
+function generateReasonForSpecs(spec, measurement, base1, base2, specType) {
   if (spec === true) {
     return `${parseToFixedThreeString(
       measurement,
-    )} falls between ${base1} and ${base2}`;
+    )} falls between ${base1} and ${base2}. So, the material meets ${specType} specification.`;
   }
   return `${parseToFixedThreeString(
     measurement,
-  )} doesn't fall between ${base1} and ${base2}`;
+  )} doesn't fall between ${base1} and ${base2}. So, the material doesn't meet ${specType} specification.`;
 }
 
-function generateReasonForTolerances(spec, measurement1, measurement2, base) {
+function generateReasonForTolerances(
+  spec,
+  measurement1,
+  measurement2,
+  base,
+  toleranceType,
+) {
   if (spec === true) {
     return `The difference between ${parseToFixedThreeString(
       measurement1,
     )} and ${parseToFixedThreeString(
       measurement2,
-    )} is less than or equal to ${base}.`;
+    )} is less than or equal to ${base}. So, it meets ${toleranceType} Tolerance.`;
   }
   return `The difference between ${parseToFixedThreeString(
     measurement1,
-  )} and ${parseToFixedThreeString(measurement2)} is greater than ${base}.`;
+  )} and ${parseToFixedThreeString(measurement2)} is greater than ${base}. So, it doesn't meet ${toleranceType} Tolerance.`;
 }
 
 function validateMeasurements(measurements) {
